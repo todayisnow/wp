@@ -66,6 +66,8 @@ function dwqa_related_question( $question_id = false, $number = 5, $echo = true 
 }
 /*
 #Dev
+" ;
+
 #Todayisnow
 #201703061148
 #Get title with user name
