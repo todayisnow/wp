@@ -1,0 +1,11 @@
+.dwqa-content-edit-form p {
+	display: none;
+}
+.dwqa-content-edit-form div {
+	display: none;
+}
+
+.dwqa-content-edit-form label {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}

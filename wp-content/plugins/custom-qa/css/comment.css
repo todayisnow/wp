@@ -1,0 +1,7 @@
+#wp-dwqa-custom-content-editor-wrap, .dwqa-content-edit-form p  {
+	display: none;
+}
+
+textarea.i_comment_content{
+	margin-bottom: 15px;
+}

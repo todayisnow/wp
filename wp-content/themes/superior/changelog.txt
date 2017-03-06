@@ -1,0 +1,547 @@
+<a href="http://apollo13.eu/docs/superior/#!/installation_update_update_theme">How to update</a>
+
+
+2.0.15(14.12.2016)
+
+
+Updated:
+-Revolution Slider to version 5.3.1.5
+-Visual composer to version 5.0.1
+-Go Responsive Pricing & Compare Tables to version 3.3.4
+-Layer Slider to version 6.1.0
+
+
+----------------
+
+2.0.14(15.06.2016)
+
+Checked:
+-Compatibility for WooCommerce 2.6
+
+Updated:
+-Revolution Slider to version 5.2.5.4
+-Visual composer to version 4.12
+-Go Responsive Pricing & Compare Tables to version 3.3.1
+-Layer Slider to version 5.6.8
+-TGMPA plugin
+
+----------------
+
+2.0.13(18.04.2016)
+
+Fixed:
+-Not working jackBox lightbox since WordPress 4.5
+
+Updated:
+-Revolution Slider to version 5.2.5
+-Visual composer to version 4.11.2.1
+
+----------------
+
+2.0.12(14.04.2016)
+
+Updated:
+(Disable these plugins before updating)
+-Visual composer to version 4.11.2(needed for WordPress 4.5)
+-Layer Slider to version 5.6.5
+
+----------------
+
+2.0.11(13.04.2016)
+
+Checked:
+-Compatibility for WordPress 4.5
+
+Updated:
+-Visual composer to version 4.11.1
+-Revolution Slider to version 5.2.4.1
+-Layer Slider to version 5.6.4
+
+----------------
+
+2.0.10(14.03.2016)
+
+Updated:
+-Visual composer to version 4.11
+-Go Responsive Pricing & Compare Tables to version 3.2.1
+-Revolution Slider to version 5.2.2
+
+----------------
+2.0.9(17.11.2015)
+
+Updated:
+-Visual composer to version 4.8.1
+-Go Responsive Pricing & Compare Tables to version 3.1.1
+-Revolution Slider to version 5.1.1
+
+----------------
+2.0.8(08.10.2015)
+
+Fixed:
+-Filter when using non-english chars in slugs(thanks KarunkaM )
+
+Updated:
+-Visual composer to version 4.7.4
+-Layer Slider to version 5.6.2
+-Go Responsive Pricing & Compare Tables to version 3.1.0
+-Revolution Slider to version 5.0.9
+
+----------------
+
+2.0.7(07.09.2015)
+
+Fixed:
+-Broken styles in pages after saving post/page with VC in version > 4.6.x
+-Small style fixes for message boxes and title icons(thanks HMITE)
+-Critical issue for redeclaring functions in templates(thanks afanwebs)
+
+----------------
+
+2.0.6(20.08.2015)
+
+Added:
+-Compatibility for WordPress 4.3
+
+Updated:
+-Layer Slider to version 5.5.1
+-Revolution Slider to version 5.0.4.1
+-Font awesome icons to version 4.4.0
+
+--------------------------
+2.0.5(04.08.2015)
+
+Important:
+After updating plugins see this to update your pricing tables https://youtu.be/V5RFIvhaHQI?t=35s
+
+Added:
+-Compatibility with Go Responsive Pricing & Compare Tables plugin in version 3.x.x
+
+Updated:
+-Admin Language files(texts from VC)
+-Visual composer to version 4.6.2
+-Layer Slider to version 5.5.0
+-Go Responsive Pricing & Compare Tables to version 3.0.4
+-Envato WordPress Toolkit to version 1.7.3
+
+--------------------------
+
+2.0.4(17.06.2015)
+
+Removed:
+-Double title tag - it is different issue then "double title"
+
+Fixed:
+-prettyPhoto XSS fix from Visual Composer
+-Some conflicts with changes that was made in VC 4.5.x
+
+Updated:
+-Visual composer to version 4.5.3
+
+---------------------------
+
+-Old title filter that caused "double title" of page
+2.0.3(04.06.2015)
+
+Removed:
+-Old title filter that caused "double title" of page
+
+Updated:
+-Revolution Slider to version 4.6.93
+-Visual composer to version 4.5.2
+-LayerSlider to version 5.4.0
+-Font awesome icons to version 4.3.0
+
+---------------------------
+
+2.0.3(04.06.2015)
+
+Removed:
+-Old title filter that caused "double title" of page
+
+Updated:
+-Revolution Slider to version 4.6.93
+-Visual composer to version 4.5.2
+-LayerSlider to version 5.4.0
+-Font awesome icons to version 4.3.0
+
+---------------------------
+
+
+2.0.2(24.04.2015)
+
+Fixed:
+-Broken Recent comments widget
+
+Updated:
+-Revolution Slider to version 4.6.9
+-Visual composer to version 4.4.4
+
+---------------------------
+
+2.0.1(25.03.2015)
+
+Fixed:
+-Custom fonts that we broke while doing last minute fixes in 2.0.0
+
+---------------------------
+
+2.0.0(16.03.2015)
+
+Updated:
+-Visual composer to version 4.4.3
+
+Removed:
+-Theme option for adding Google Analytics code. Please use plugin instead
+
+Info:
+Superior 2.0 is not fully backwards compatible with previous versions but ONLY in case of Visual composer elements.
+
+--------- STORY ------------
+To be honest - Visual composer issues was main reason why we took down Superior theme from ThemeForest market.
+We released Superior just before they updated their plugin to version 4.0 which was highly incompatible with that what was in 3.7.x versions.
+We delayed update to 4.0 for few weeks - this how much work and testing it required for us.
+
+Upgrading to 4.0 meant that sites of our clients will look different and probably have broken layout.
+We had to merge plugins 3.7 with 4.0 to get consistent look, and to face our clients demand to get newest version of Visual composer with theme.
+From that point each update of VC was nightmare, but we kept this under control.
+But version 4.3.x was next shift in incompatibilities and changed grid system in builder.
+
+Keeping up to date is not always best way to do things :-)
+But we can't explain all above to every customer...
+
+Anyway, now it all looks better with VC, and that is why we do this "not fully compatible Superior 2" version of theme.
+
+Firstly we wanted to remove all our custom elements for builder, but after checking all out, we have removed only problematic ones.
+Other we have renamed to "Theme name_of_element" so you should have most of styling intact.
+However we advise to not use them if you will face any problems, as they might come in conflict with builder styles.
+We also re enabled all Builder elements that we have blocked previously as we didn't like their behaviour.
+We believe that user will not use elements that for him/her are looking/working bad:-)
+There are also some elements that we have added to builder since first version, and they should work good.
+
+
+Here is list what we did in topic of builder(Visual composer) elements:
+-Removed theme specific styling for Tabs, Tour, Accordion and Faq elements.
+
+-Removed "Button" element in favour to builders "Button" and "Button 2" elements(you will need to replace all removed shortcodes)
+
+-Renamed "Button" to "Theme Button"
+-Returned back builders "Button" element
+
+-Renamed "Call to Action Button" to "Theme Call to Action Button"
+-Returned back builders "Call to Action Button" element
+
+-Renamed "Progress bar" to "Theme Progress bar"
+-Returned back builders "Progress bar" element
+
+-Renamed "Separator" to "Theme Separator"
+-Returned back builders "Separator" element
+
+-Removed theme specific settings for Single image
+
+-Removed theme specific settings for vc_posts_grid
+-Removed theme specific settings for vc_carousel
+-Removed theme specific settings for teasers
+-Removed "Recent Posts", "Recent Works", "Recent Galleries". You will have to use "Post grid" or "Post Masonry grid" instead
+-Added "work" and "gallery" to post type list in "Post grid" and "Post Masonry grid"
+-Added tiny style for "Single image", so it should react better in columns.
+---------- END OF STORY ---------
+
+So what you should do now?
+-Get new Superior version from ThemeForest
+-update VC while updating theme http://apollo13.eu/docs/superior/#!/installation_update_update_theme
+-You are done, but remember to activate new builder options http://apollo13.eu/docs/superior/#!/activate_builder_options
+
+Now it would be good if you scan your pages to see if everything is working fine, and correct if there are any problems.
+
+We hope everything will go well!
+
+
+
+
+
+---------------------------
+
+
+1.9.4(23.02.2015)
+
+Added:
+-Support for woocommerce 2.3.X(mainly styling) - <b>Now it is required version of woocommerce to use with our theme</b>
+
+Removed:
+-Dropkick script that styled some select inputs. It was making problems with woocommerce
+
+Updated:
+-Revolution Slider to version 4.6.5
+
+Info:
+-With woocommerce 2.3.X you have to use plugin <a href="https://wordpress.org/plugins/woocommerce-quantity-increment/">WooCommerce Quantity Increment</a> to get buttons for quantity in products and cart
+-Experimental version with builder VC 4.4.2. To try it download newest version and in zip find "experimental new visual composer/Reade me.txt" for more info
+
+----------------
+
+1.9.3(24.11.2014)
+
+Fixed:
+-Single image link in visual composer
+
+Updated:
+-List of google fonts
+-Font awesome icons
+
+----------------
+
+1.9.2(25.10.2014)
+
+Updated:
+-Revolution Slider to version 4.6.3
+-LayerSlider to version 5.3.2
+-Go Responsive Pricing & Compare Tables to version 2.4.5
+
+----------------
+
+1.9.1(17.06.2014)
+Fixed:
+-"I recommend this" action on Works and Galleries list
+-Typo in shortcode that could make fatal error and "blank" site(thanks AlexNavas).
+
+Updated:
+-Revolution Slider to version 4.5.4
+-Visual composer to version 4.2.3
+
+----------------
+
+1.9.0(05.06.2014)
+Changed:
+-Switched off theme and update notices if current user is not admin
+-No need for Apollo Shortcodes plugin anymore.
+
+Updated:
+-Revolution Slider to version 4.3.8
+-Font awesome to version 4.1.0
+-Apollo13 Shortcodes to version 1.0.7
+-Visual composer to version 4.2.2
+
+Removed:
+-Unnecessary plugin from theme installation process - This is only for cleaning, plugins still works the same:-)
+-Bonus align parameter in single image shortcode from builder
+
+----------------
+1.8.1(22.04.2014)
+Updated:
+-Visual composer to version 4.1.1.1(it is important as it fixes many things)
+-Apollo13 Shortcodes to version 1.0.6
+
+-Fixed:
+-Settings for row element
+-Settings for separator and Text separator
+
+
+----------------
+
+
+1.8.0
+Fixed:
+-Styling for Testimonials
+-Responsive columns from builder
+
+Added:
+-Compatibility for Wordpress 3.9
+
+Updated:
+-Visual composer to version 4.1.1
+-Revolution slider to version 4.3.6
+-Go Responsive Pricing & Compare Tables to version 2.4.1
+(you may need to click to save on General Settings plugin page, to recreate plugin CSS file)
+
+----------------
+1.7.2
+
+Updated:
+-Apollo13 Shortcodes to version 1.0.5
+-Revolution slider to version 4.3.2
+-Go Responsive Pricing & Compare Tables to version 2.4
+
+Fixed:
+-Incompatibility of new visual composer styles with theme
+
+----------------
+1.7.1
+
+Updated:
+-Visual composer to version 4.0.3(<a href="http://apollo13.eu/docs/superior/#!/activate_builder_options">you may need to activate new elements</a>)
+-Apollo13 Shortcodes to version 1.0.4
+
+Fixed:
+-Incompatibility of child theme with new page builder
+
+----------------
+1.7.0
+
+Changed
+-Contact widgets accepts HTML in content field
+
+Updated:
+-Visual composer to version 4.0.2(<a href="http://apollo13.eu/docs/superior/#!/activate_builder_options">you may need to activate new elements</a>)
+-LayerSlider to version 5.1.1
+-Revolution slider to version 4.3.0
+-Go Responsive Pricing & Compare Tables to version 2.3
+
+Fixed:
+-Issue that could occur on some images if woocommerce was installed
+
+Removed:
+-Author meta tag(from document head) that was pointing to Apollo13.eu - it was showing up while sharing on FB
+
+----------------
+1.6.3
+
+Updated:
+-Plugin Apollo13 Shortcodes to version 1.0.2 so it won't produce critical error on installing theme
+
+----------------
+1.6.2
+
+Fixed:
+-Localization of plugin installer strings broken in version 1.6.0
+
+----------------
+
+1.6.1
+
+Fixed:
+-Minor(add 'a' char) but critical fix
+
+----------------
+
+1.6.0
+Added:
+-Alternative link option for single post/work
+-Side padding for rows in builder
+-Bottom margin for rows in builder
+-Font color for rows in builder
+-Footer Widget title font color
+
+Changed:
+-Selecting media from uploader - when you upload audio video you see only these media files, not images
+-Visual composer is now installed as plugin with theme(instead of being included in theme core)
+
+Fixed:
+-Logo resizing on High DPI mobiles
+
+Updated:
+-Font awesome to version 4.0.3
+-Visual composer to version 3.7.4
+
+----------------
+
+1.5.1
+Added:
+
+Changed:
+-Initial image sizes for woocommerce
+
+Fixed:
+-styles for reviews in single product view
+
+----------------
+
+1.5
+Added:
+-<strong>Woocommerce support</strong>
+-Custom look of select input
+-Bonus check for new theme versions(if first fails on some installations)
+-Settings for menu button(CTA button) - text/bg color/hover color
+-Setting for menu button(CTA button) to disable it for screen width under 680px
+-Settings for other buttons - text/bg color/hover color
+-Setting for submenu links - color and hover
+
+Changed:
+-Default color of "go to top" button
+
+Fixed:
+-Custom CSS filed breaking some CSS
+-styling issues in mega menu
+-localization of admin area
+
+Updated:
+-<strong>Child theme to version 1.0.1(if you use it, then you need to update it manually)</strong>
+-LayerSlider to version 5.0.2
+
+----------------
+1.4
+Added:
+-custom(unlimited) sidebars
+
+Fixed:
+-showing of children pages in admin
+
+Updated:
+-LayerSlider to version 5.0.1
+
+----------------
+1.3
+Added:
+-Mega menu option
+-HD logo option
+
+Removed:
+-Showing whole links in printed document
+
+Fixed:
+-not fixed header behaviour
+-small header issues while resizing window
+
+
+Updated:
+-Revolution slider to version 4.1.4
+-LayerSlider to version 5.0.0
+
+----------------
+1.2
+Added:
+-narrow layout style
+-centered header layout (only for wider resolutions)
+-WP 3.8 support:
+--admin bar in front end
+--responsive theme settings
+
+Fixed:
+-link post format type
+
+Updated:
+-Revolution slider to version 4.1.2
+
+----------------
+1.1.1
+Fixed:
+-Margin of builder elements got overwritten
+
+Changed:
+- header "Call to action button" reposition in responsive layout
+
+----------------
+1.1
+
+Added:
+-Pricing tables via "Go - Responsive Pricing & Compare Tables" plugin
+-Support of pricing tables in builder(updaters - remember to <a href="http://apollo13.eu/docs/superior/#activate_builder_options">activate it in builder options</a>)
+-Custom cursor options
+-Info/contact bar in header with option for social icons
+-Search form option to header
+-HIGH DPI Theme Social icons
+
+
+Fixed:
+-Z-index of layer slider and theme header
+-In theme documentation links
+-FitVids Script conflict with Layer Slider and Revolution Slider
+-Self hosted video added by wordpress editor - responsive and stretchy
+-Issue with recent post shortcode(thanks jesskupferman)
+
+Changed:
+-Menu ancestor selector - more bulletproof
+-size and hover off Theme Social icons
+-responsive layout tweaks
+
+Updated:
+-Revolution slider to version 4.1
