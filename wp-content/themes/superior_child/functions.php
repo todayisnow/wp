@@ -19,3 +19,15 @@ add_action('wp_enqueue_scripts', 'a13_child_style',27);
 /*
  * Add here your functions below, and overwrite native theme functions
  */
+ /*
+#Dev
+#Todayisnow
+#201703080333
+#include lightbox files
+*/
+function LoadLightBox() {
+	 wp_enqueue_style('lightbox', get_stylesheet_directory_uri(). '/assets/lightbox/src/css/lightbox.css');
+	 wp_enqueue_script('lightbox', get_stylesheet_directory_uri(). '/assets/lightbox/src/js/lightbox.js');
+	}
+// Add hook for front-end <head></head>
+add_action('wp_head', 'LoadLightBox');

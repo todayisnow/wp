@@ -192,7 +192,20 @@ jQuery(document).ready(function(){
 	});
 	
 	jQuery("#addRow").click();
-
+	/*
+	#Dev
+	#Todayisnow
+	#201703080333
+	#wrap image to use lightbox
+	*/
+	jQuery('.dwqa-answer-content').each(function (){
+		jQuery(this).find('img').each(function(){
+			var d = new Date();
+			var n = d.getTime(); 
+			jQuery(this).wrap("<a href='"+jQuery(this).attr('src')+"' data-lightbox='"+n+"'></a>")
+			
+		});
+	});
 });
 
 function del(id){
