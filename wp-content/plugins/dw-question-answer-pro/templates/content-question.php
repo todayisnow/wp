@@ -12,8 +12,13 @@
 	<div class="dwqa-question-meta">
 		<?php dwqa_question_print_status() ?>
 		<?php $latest_activity = dwqa_get_latest_activity_info( get_the_ID() ); ?>
-		<?php printf( __( '<span><a href="%1$s">%2$s%3$s</a> %4$s %5$s ago</span>', 'dwqa' ), esc_url( $latest_activity['userlink'] ), $latest_activity['useravatar'], $latest_activity['username'], $latest_activity['text'], $latest_activity['time'] ) ?>
-		<?php echo get_the_term_list( get_the_ID(), 'dwqa-question_category', '<span class="dwqa-question-category"><span class="dwqa-sep">' . __( '&nbsp;&bull;&nbsp;', 'dwqa' ) . '</span>', ', ', '</span>' ); ?>
+		
+		<?php 
+		if($latest_activity['title'] !="")
+			$latest_activity['title'] = ", ".$latest_activity['title'];
+		printf( __( '<span><a href="%1$s">%2$s%3$s</a> %4$s </span>', 'dwqa' ), esc_url( $latest_activity['userlink'] ), $latest_activity['useravatar'], $latest_activity['username'],$latest_activity['title']  ) 
+		?>
+		
 		<?
 		/*
 		#Dev
@@ -22,7 +27,10 @@
 		#Viewing title with user name
 		*/
 		?>
-		<?php printf( __( '<div>%1$s</div>', 'dwqa' ), $latest_activity['title']) ?>
+		<div style="margin-left: 15px; margin-top: -3px;">
+		<?php printf( __( '<span>%1$s %2$s ago</span>', 'dwqa' ), $latest_activity['text'], $latest_activity['time'] ) ?>
+		<?php echo get_the_term_list( get_the_ID(), 'dwqa-question_category', '<span class="dwqa-question-category"><span class="dwqa-sep">' . __( '&nbsp;&bull;&nbsp;', 'dwqa' ) . '</span>', ', ', '</span>' ); ?>
+		</div>
 	</div>
 	<div class="dwqa-question-stats">
 		<span class="dwqa-views-count">

@@ -16,7 +16,20 @@
 	</div>
 	<div class="dwqa-question-meta">
 		<?php $user_id = get_post_field( 'post_author', get_the_ID() ) ? get_post_field( 'post_author', get_the_ID() ) : false ?>
-		<?php printf( __( '<span><a href="%1$s">%2$s%3$s</a> %4$s asked %5$s ago</span>', 'dwqa' ), dwqa_get_author_link( $user_id ), get_avatar( $user_id, 48 ), get_the_author(),  dwqa_print_user_badge( $user_id ), human_time_diff( get_post_time( 'U', true ) ) ) ?>
+				<?
+				/*
+#Dev
+#Todayisnow
+#2017030090038
+#Get title with user name in question
+*/
+				?>
+				<?php 
+		$title = get_the_author_meta( 'title', $user_id );
+		if($title!="")
+			$title = ", ".$title;
+		?>
+		<?php printf( __( '<span><a href="%1$s">%2$s%3$s</a> %4$s %5$s asked %6$s ago</span>', 'dwqa' ), dwqa_get_author_link( $user_id ), get_avatar( $user_id, 48 ), get_the_author(),$title,  dwqa_print_user_badge( $user_id ), human_time_diff( get_post_time( 'U', true ) ) ) ?>
 		<span class="dwqa-question-actions"><?php dwqa_question_button_action() ?></span>
 	</div>
 	<div class="dwqa-question-content"><?php the_content(); ?></div>

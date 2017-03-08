@@ -11,7 +11,21 @@
 <div class="dwqa-comment">
 	<div class="dwqa-comment-meta">
 		<?php $user = get_user_by( 'id', $comment->user_id ); ?>
-		<a href="<?php echo dwqa_get_author_link( $comment->user_id ); ?>"><?php echo get_avatar( $comment->user_id, 16 ) ?><?php echo get_comment_author() ?></a>
+						<?
+				/*
+#Dev
+#Todayisnow
+#2017030090038
+#Get title with user name in comment
+*/
+				?>
+				<?php 
+				
+		$title = get_the_author_meta( 'title', $comment->$user_id );
+		if($title!="")
+			$title = ", ".$title;
+		?>
+		<a href="<?php echo dwqa_get_author_link( $comment->user_id ); ?>"><?php echo get_avatar( $comment->user_id, 16 ) ?><?php echo get_comment_author() ?></a><?php echo($title)	?>
 		<?php dwqa_print_user_badge( $comment->user_id, true ); ?>
 		<?php printf( _x( 'replied %1$s ago', '%s = human-readable time difference', 'dwqa' ), human_time_diff( get_comment_time( 'U', true ) ) ); ?>
 		<div class="dwqa-comment-actions">
