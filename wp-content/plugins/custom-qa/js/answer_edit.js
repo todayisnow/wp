@@ -23,6 +23,13 @@ class Row {
 		}
 	}
 	getRowName(){
+		 /*
+		#Dev
+		#Todayisnow
+		#201703080402
+		#category of answer only text box
+		*/
+		return "<input type='text' id='other_"+this.id+"' style='  margin-top: 35px;' class='answer-other' value='"+this.name+"'><span>ex: Defination</span>";
 		var buildStrRet = "<select onchange='javascript:handel("+this.id+");' id='rowName_"+this.id+"'>";
 		var isInOther = true;
 		buildStrRet += "<option value='Definition'";
@@ -127,18 +134,24 @@ jQuery(window).load(function(){
 		$cntr++;
 		handel_add($answerTable, $cntr);
 	});
-	
+	/*
+		#Dev
+		#Todayisnow
+		#201703080411
+		#category of answer only text box
+		*/
 	jQuery(".dwqa-content-edit-form").submit(function(){
 		var data = new Array();
 		for(var i=1; i<=$cntr; i++){
 			if(jQuery("#row_"+i).length > 0){
 				var leftInput = escape(tinyMCE.get("name_left_"+i).getContent());
 				var rightInput = escape(tinyMCE.get("name_right_"+i).getContent());
-				var rowName = jQuery("#rowName_"+i).val();
 				var cellsNumber = jQuery("#row_"+i).data('cells');
+				/*var rowName = jQuery("#rowName_"+i).val();
 				if(rowName == "Others" && jQuery("#other_"+i).val().length){
 					rowName = jQuery("#other_"+i).val();
-				}
+				}*/
+				var rowName = jQuery("#other_"+i).val();
 				if(leftInput.length > 0){
 					data.push({"cellsNumber": cellsNumber, "row": rowName ,"lhsI": leftInput, "rhsI": rightInput});
 				}
@@ -171,9 +184,16 @@ function handel_add(table, id, left, right, name, cells){
 	tinyMCE.get('name_right_'+id).setContent(newRow.getRight());
 	
 }
-
+/*
+#Dev
+#Todayisnow
+#201703080500
+#confirm before delete
+*/
 function del(id){
+	if(confirm("Are you sure you want to delete this section?")){
 	jQuery("#row_"+jQuery(id).attr('id')).remove();
+	}
 }
 
 function makeEditor(selector){

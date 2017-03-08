@@ -2,8 +2,22 @@ class Row {
 	constructor(id){
 		this.id = id;
 	}
+	/*
+		#Dev
+		#Todayisnow
+		#201703080412
+		#category of answer only text box
+		*/
 	show(){
-		return "<tr class='i_table_row' data-cells='2' id='row_"+this.id+"'><th class='i_label'><select onchange='javascript:handel("+this.id+");' id='rowName_"+this.id+"'><option value='Definition'>Definition</option><option value='Pros'>Pros</option><option value='Cons'>Cons</option><option value='Examples'>Examples</option><option value='Others'>Others</option></select><input type='text' id='other_"+this.id+"' style='display: none;' maxlength='40' class='answer-other' ></th><td class='i_cell_left'><textarea name='name_left_"+this.id+"' id='name_left_"+this.id+"' max_chars='500'></textarea></td><td class='i_cell_right'><textarea  name='name_right_"+this.id+"' id='name_right_"+this.id+"'  max_chars='500'></textarea></td><td class='i_options'><a alt='Delete' title='Delete' href='javascript:void(0);' onclick='del(this);' id='"+this.id+"'><i class='fa fa-times-circle' aria-hidden='true'></i></a><br><a alt='Merge cells' title='Merge cells' href='javascript:void(0);' onclick='merge(this);' id='"+this.id+"'><i class='fa fa-arrows-h' aria-hidden='true'></i></a></td></tr>";
+		return "<tr class='i_table_row' data-cells='2' id='row_"+this.id+"'><th class='i_label'><input type='text' id='other_"+this.id+"'  maxlength='40' class='answer-other' style='margin-top: 35px;'><span style='color:#747474'>ex: Defination</span></th><td class='i_cell_left'><textarea name='name_left_"+this.id+"' id='name_left_"+this.id+"' max_chars='500'></textarea></td><td class='i_cell_right'><textarea  name='name_right_"+this.id+"' id='name_right_"+this.id+"'  max_chars='500'></textarea></td><td class='i_options'><a alt='Delete' title='Delete' href='javascript:void(0);' onclick='del(this);' id='"+this.id+"'><i class='fa fa-times-circle' aria-hidden='true'></i></a><br><a alt='Merge cells' title='Merge cells' href='javascript:void(0);' onclick='merge(this);' id='"+this.id+"'><i class='fa fa-arrows-h' aria-hidden='true'></i></a></td></tr>";
+		/*<select onchange='javascript:handel("+this.id+");' id='rowName_"+this.id+"'>
+		<option value='Definition'>Definition</option>
+		<option value='Pros'>Pros</option>
+		<option value='Cons'>Cons</option>
+		<option value='Examples'>Examples</option>
+		<option value='Others'>Others</option>
+		</select>
+		<input type='text' id='other_"+this.id+"' style='display: none;' maxlength='40' class='answer-other' >-*/
 	}
 }
 
@@ -163,18 +177,24 @@ jQuery(document).ready(function(){
 		makeEditor('name_right_'+$cntr);
 		
 	});
-	
+	/*
+		#Dev
+		#Todayisnow
+		#201703080412
+		#category of answer only text box
+		*/
 	jQuery("#dwqa-answer-form").submit(function(){
 		var data = new Array();
 		for(var i=1; i<=$cntr; i++){
 			if(jQuery("#row_"+i).length > 0){
 				var leftInput = escape(tinyMCE.get("name_left_"+i).getContent());
 				var rightInput = escape(tinyMCE.get("name_right_"+i).getContent());
-				var rowName = jQuery("#rowName_"+i).val();
 				var cellsNumber = jQuery("#row_"+i).data('cells');
+				/*var rowName = jQuery("#rowName_"+i).val();				
 				if(rowName == "Others" && jQuery("#other_"+i).val().length){
 					rowName = jQuery("#other_"+i).val();
-				}
+				}*/
+				var rowName = jQuery("#other_"+i).val();
 				if(leftInput.length > 0){
 					data.push({"cellsNumber": cellsNumber, "row": rowName ,"lhsI": leftInput, "rhsI": rightInput});
 				}
@@ -207,9 +227,16 @@ jQuery(document).ready(function(){
 		});
 	});
 });
-
+/*
+#Dev
+#Todayisnow
+#201703080500
+#confirm before delete
+*/
 function del(id){
+	if(confirm("Are you sure you want to delete this section?")){
 	jQuery("#row_"+jQuery(id).attr('id')).remove();
+	}
 }
 
 function merge(id){
