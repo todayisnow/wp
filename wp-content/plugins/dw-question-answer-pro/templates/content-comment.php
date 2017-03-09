@@ -21,7 +21,7 @@
 				?>
 				<?php 
 				
-		$title = get_the_author_meta( 'title', $comment->$user_id );
+		$title = get_the_author_meta( 'title', $comment->user_id );
 		if($title!="")
 			$title = ", ".$title;
 		?>
