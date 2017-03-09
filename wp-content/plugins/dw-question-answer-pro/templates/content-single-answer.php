@@ -20,6 +20,14 @@
 	<?php endif; ?>
 	<div class="dwqa-answer-meta">
 		<?php $user_id = get_post_field( 'post_author', get_the_ID() ) ? get_post_field( 'post_author', get_the_ID() ) : 0 ?>
+					<?
+				/*
+#Dev
+#Todayisnow
+#2017030090038
+#Get title with user name in answer
+*/
+				?>
 				<?php 
 		$title = get_the_author_meta( 'title', $user_id );
 		if($title!="")
