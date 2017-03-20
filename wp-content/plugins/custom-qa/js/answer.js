@@ -9,7 +9,7 @@ class Row {
 		#category of answer only text box
 		*/
 	show(){
-		return "<tr class='i_table_row' data-cells='2' id='row_"+this.id+"'><th class='i_label'><input type='text' id='other_"+this.id+"'  maxlength='40' class='answer-other' style='margin-top: 35px;'><span style='color:#747474'>ex: Defination</span></th><td class='i_cell_left'><textarea name='name_left_"+this.id+"' id='name_left_"+this.id+"' max_chars='500'></textarea></td><td class='i_cell_right'><textarea  name='name_right_"+this.id+"' id='name_right_"+this.id+"'  max_chars='500'></textarea></td><td class='i_options'><a alt='Delete' title='Delete' href='javascript:void(0);' onclick='del(this);' id='"+this.id+"'><i class='fa fa-times-circle' aria-hidden='true'></i></a><br><a alt='Merge cells' title='Merge cells' href='javascript:void(0);' onclick='merge(this);' id='"+this.id+"'><i class='fa fa-arrows-h' aria-hidden='true'></i></a></td></tr>";
+		return "<tr class='i_table_row' data-cells='2' id='row_"+this.id+"'><th class='i_label'><input type='text' id='other_"+this.id+"'  maxlength='40' class='answer-other' style='margin-top: 35px;'><span style='color:#747474'>ex: Defination</span></th><td class='i_cell_left'><textarea name='name_left_"+this.id+"' id='name_left_"+this.id+"' max_chars='500'></textarea><div  id='name_left_"+this.id+"_div' style=' text-align: right; margin-right: 20px;'>0/500</div></td><td class='i_cell_right'><textarea  name='name_right_"+this.id+"' id='name_right_"+this.id+"'  max_chars='500'></textarea><div  id='name_right_"+this.id+"_div' style=' text-align: right; margin-right: 20px;'>0/500</div></td><td class='i_options'><a alt='Delete' title='Delete' href='javascript:void(0);' onclick='del(this);' id='"+this.id+"'><i class='fa fa-times-circle' aria-hidden='true'></i></a><br><a alt='Merge cells' title='Merge cells' href='javascript:void(0);' onclick='merge(this);' id='"+this.id+"'><i class='fa fa-arrows-h' aria-hidden='true'></i></a></td></tr>";
 		/*<select onchange='javascript:handel("+this.id+");' id='rowName_"+this.id+"'>
 		<option value='Definition'>Definition</option>
 		<option value='Pros'>Pros</option>
@@ -230,9 +230,9 @@ jQuery(document).ready(function(){
 	#Dev
 	#Todayisnow
 	#201703200320
-	# letter count
+	# letter count for comment
 	*/
-	jQuery('textarea').each(function(){
+	jQuery('[id=comment]').each(function(){
 		jQuery(this).attr('maxlength','500')
 		jQuery(this).after("<div  id='"+jQuery(this).attr('id')+"_div' style=' text-align: right; margin-right: 20px;'>0/500</div>");
 		jQuery(this).keyup(function () {

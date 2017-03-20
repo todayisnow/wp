@@ -76,16 +76,24 @@ class Row {
 			return 2;
 		}
 	}
+	/*
+	#Dev
+	#Todayisnow
+	#2017032003
+	#letter count on tinymce
+	*/
+	
 	show(){
+					
 		var retStr = "<tr class='i_table_row' data-cells='"+this.getCellsNumber()+"' id='row_"+this.id+"'><td class='i_row_name'>"+this.getRowName()+"</td><td  class='i_cell_left'";
 		if(this.getCellsNumber() == 1){
 			retStr += " colspan='2'";
 		}
-		retStr += "><textarea name='name_left_"+this.id+"' id='name_left_"+this.id+"' max_chars='500' ></textarea></td><td class='i_cell_right'";
+		retStr += "><textarea name='name_left_"+this.id+"' id='name_left_"+this.id+"' max_chars='500' ></textarea><div  id='name_left_"+this.id+"_div' style=' text-align: right; margin-right: 20px;'>0/500</div></td><td class='i_cell_right'";
 		if(this.getCellsNumber() == 1){
 			retStr += " style='display:none;'";
 		}
-		retStr += "><textarea  name='name_right_"+this.id+"' id='name_right_"+this.id+"' max_chars='500' ></textarea></td><td class='i_options'><a alt='Delete' title='Delete' href='javascript:void(0);' onclick='del(this);' id='"+this.id+"'><i class='fa fa-times-circle' aria-hidden='true'></i></a><br><a alt='Merge cells' title='Merge cells' href='javascript:void(0);' onclick='merge(this);' id='"+this.id+"'><i class='fa fa-arrows-h' aria-hidden='true'></i></a></td></tr>";
+		retStr += "><textarea  name='name_right_"+this.id+"' id='name_right_"+this.id+"' max_chars='500' ></textarea><div  id='name_right_"+this.id+"_div' style=' text-align: right; margin-right: 20px;'>0/500</div></td><td class='i_options'><a alt='Delete' title='Delete' href='javascript:void(0);' onclick='del(this);' id='"+this.id+"'><i class='fa fa-times-circle' aria-hidden='true'></i></a><br><a alt='Merge cells' title='Merge cells' href='javascript:void(0);' onclick='merge(this);' id='"+this.id+"'><i class='fa fa-arrows-h' aria-hidden='true'></i></a></td></tr>";
 		
 		return retStr;
 	}
@@ -98,6 +106,7 @@ jQuery(window).load(function(){
 	var data = '';
 	try{
 		data = tinyMCE.activeEditor.getContent({format : 'text'}).trim();
+		
 	}
 	catch(e){
 		data = jQuery("#dwqa-custom-content-editor").val();
@@ -125,7 +134,6 @@ jQuery(window).load(function(){
 			parsedData[i].lhsI = parsedData[i].left;
 			parsedData[i].rhsI = parsedData[i].right;
 		}
-		
 		handel_add($answerTable, i+1, parsedData[i].lhsI, parsedData[i].rhsI, parsedData[i].row, parsedData[i].cellsNumber);
 	}
 	
@@ -170,22 +178,8 @@ jQuery(window).load(function(){
 		}
 		return false;
 	});
-
-	/*
-	#Dev
-	#Todayisnow
-	#2017032003
-	#letter count on tinymce
-	*/
-	jQuery('textarea').each(function(){
-		var tx = data
-					var txt = document.createElement("textarea");
-					txt.innerHTML = tx;
-					var decoded = txt.value;
-					var decodedStripped = decoded.replace(/(<([^>]+)>)/ig, "").trim();
-					var count = decodedStripped.length;
-		jQuery(this).after("<div  id='"+jQuery(this).attr('id')+"_div' style=' text-align: right; margin-right: 20px;'>"+count+"/500</div>");
-	});
+	
+	
 });
 
 function handel_add(table, id, left, right, name, cells){
@@ -197,7 +191,38 @@ function handel_add(table, id, left, right, name, cells){
 	
 	tinyMCE.get('name_left_'+id).setContent(newRow.getLeft());
 	tinyMCE.get('name_right_'+id).setContent(newRow.getRight());
-	
+	ShowCount(newRow.getLeft(),"left",id)
+	ShowCount(newRow.getRight(),"right",id)
+}
+function ShowCount(content,side,id)
+
+{
+	/*
+#Dev
+#Todayisnow
+#201703080500
+# show old count or char count
+*/
+				
+  				var tx = content;
+					var txt = document.createElement("textarea");
+					txt.innerHTML = tx;
+					var decoded = txt.value;
+					var decodedStripped = decoded.replace(/(<([^>]+)>)/ig, "").trim();
+					var count = decodedStripped.length;
+                   
+					if(count>500)
+					{
+						return false;
+					}
+					else if(count==500)
+					{
+						document.getElementById("name_"+side+"_"+id+"_div").innerHTML = "you have reached the limit";
+					}
+					else
+					{
+						document.getElementById("name_"+side+"_"+id+"_div").innerHTML =count+"/500";
+					}
 }
 /*
 #Dev
@@ -249,6 +274,7 @@ function makeEditor(selector){
 			editor.on('init', function(args) {
 				editor = args.target;
 
+				
 				editor.on('NodeChange', function(e) {
 					if (e && e.element.nodeName.toLowerCase() == 'img') {
 						tinyMCE.DOM.setAttribs(e.element, {'width': null, 'height': null});
