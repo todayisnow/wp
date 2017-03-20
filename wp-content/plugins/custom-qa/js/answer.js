@@ -226,6 +226,26 @@ jQuery(document).ready(function(){
 			
 		});
 	});
+	/*
+	#Dev
+	#Todayisnow
+	#201703200320
+	# letter count
+	*/
+	jQuery('textarea').each(function(){
+		jQuery(this).attr('maxlength','500')
+		jQuery(this).after("<div  id='"+jQuery(this).attr('id')+"_div' style=' text-align: right; margin-right: 20px;'>0/500</div>");
+		jQuery(this).keyup(function () {
+		  var max = 500;
+		  var len = jQuery(this).val().length;
+		  if (len >= max) {
+			jQuery(this).next('div').text(' you have reached the limit');
+		  } else {
+			
+			jQuery(this).next('div').text(len + '/500');
+		  }
+		});
+	});
 });
 /*
 #Dev
@@ -307,7 +327,35 @@ function makeEditor(selector){
 					}
 				});
 			});
+			/*
+			#Dev
+			#Todayisnow
+			#2017032003
+			#letter count on tinymce
+			*/
+			editor.on('keyup', function (e) { 
+					var tx = editor.getContent({ format: 'raw' });
+					var txt = document.createElement("textarea");
+					txt.innerHTML = tx;
+					var decoded = txt.value;
+					var decodedStripped = decoded.replace(/(<([^>]+)>)/ig, "").trim();
+					var count = decodedStripped.length;
+                   
+					if(count>500)
+					{
+						return false;
+					}
+					else if(count==500)
+					{
+						document.getElementById(selector+"_div").innerHTML = "you have reached the limit";
+					}
+					else
+					{
+						document.getElementById(selector+"_div").innerHTML =count+"/500";
+					}
+                });
 			editor.onKeyDown.add(function(ed, evt) {
+				tinyMCE.activeEditor.getContent({format: 'text'}).length
 				if(evt.which != 8 && evt.which != 37 && evt.which != 38 && evt.which != 39 && evt.which != 40){
 					if ( jQuery(ed.getBody()).text().length+1 > jQuery(tinyMCE.get(tinyMCE.activeEditor.id).getElement()).attr('max_chars')){
 						evt.preventDefault();

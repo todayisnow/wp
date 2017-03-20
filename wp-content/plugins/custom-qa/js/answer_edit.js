@@ -171,6 +171,21 @@ jQuery(window).load(function(){
 		return false;
 	});
 
+	/*
+	#Dev
+	#Todayisnow
+	#2017032003
+	#letter count on tinymce
+	*/
+	jQuery('textarea').each(function(){
+		var tx = data
+					var txt = document.createElement("textarea");
+					txt.innerHTML = tx;
+					var decoded = txt.value;
+					var decodedStripped = decoded.replace(/(<([^>]+)>)/ig, "").trim();
+					var count = decodedStripped.length;
+		jQuery(this).after("<div  id='"+jQuery(this).attr('id')+"_div' style=' text-align: right; margin-right: 20px;'>"+count+"/500</div>");
+	});
 });
 
 function handel_add(table, id, left, right, name, cells){
@@ -241,7 +256,33 @@ function makeEditor(selector){
 							{'style': 'width: 100%; height:auto;'});
 					}
 				});
-				
+				/*
+				#Dev
+				#Todayisnow
+				#2017032003
+				#letter count on tinymce
+				*/
+				editor.on('keyup', function (e) { 
+					var tx = editor.getContent({ format: 'raw' });
+					var txt = document.createElement("textarea");
+					txt.innerHTML = tx;
+					var decoded = txt.value;
+					var decodedStripped = decoded.replace(/(<([^>]+)>)/ig, "").trim();
+					var count = decodedStripped.length;
+                   
+					if(count>500)
+					{
+						return false;
+					}
+					else if(count==500)
+					{
+						document.getElementById(selector+"_div").innerHTML = "you have reached the limit";
+					}
+					else
+					{
+						document.getElementById(selector+"_div").innerHTML =count+"/500";
+					}
+                });
 				editor.onKeyDown.add(function(ed, evt) {
 					if(evt.which != 8 && evt.which != 37 && evt.which != 38 && evt.which != 39 && evt.which != 40){
 						if ( jQuery(ed.getBody()).text().length+1 > jQuery(tinyMCE.get(tinyMCE.activeEditor.id).getElement()).attr('max_chars')){
