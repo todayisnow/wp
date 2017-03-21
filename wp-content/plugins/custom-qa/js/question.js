@@ -22,7 +22,7 @@ jQuery(document).ready(function(){
 			showError("Please select category");
 		}
 		else{
-			var replaceStr = "What is the difference between " +leftInput+ " &amp; " +rightInput+ "?";
+			var replaceStr = "What is the difference between " +leftInput+ " and " +rightInput+ "?";
 			var data = {lhsI: leftInput, rhsI: rightInput};
 
 			tinyMCE.activeEditor.setContent(JSON.stringify(data));

@@ -182,6 +182,8 @@ jQuery(document).ready(function(){
 		#Todayisnow
 		#201703080412
 		#category of answer only text box
+		#201703211206
+		#can fill right side only of answer
 		*/
 	jQuery("#dwqa-answer-form").submit(function(){
 		var data = new Array();
@@ -194,8 +196,9 @@ jQuery(document).ready(function(){
 				if(rowName == "Others" && jQuery("#other_"+i).val().length){
 					rowName = jQuery("#other_"+i).val();
 				}*/
+				
 				var rowName = jQuery("#other_"+i).val();
-				if(leftInput.length > 0){
+				if(leftInput.length > 0 || (rightInput.length > 0 && cellsNumber==2)){
 					data.push({"cellsNumber": cellsNumber, "row": rowName ,"lhsI": leftInput, "rhsI": rightInput});
 				}
 			}

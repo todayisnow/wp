@@ -35,8 +35,14 @@ jQuery(window).load(function(){
 		else if(leftInput == rightInput){
 			showError("Left input is equal to Right input");
 		}
+		/*
+		#Dev
+		#Todayisnow
+		#201703211230
+		#change to & to and
+		*/
 		else{
-			var replaceStr = "What is the difference between " +leftInput+ " &amp; " +rightInput+ "?";
+			var replaceStr = "What is the difference between " +leftInput+ " and " +rightInput+ "?";
 			var dataJson = {lhsI: leftInput, rhsI: rightInput};
 
 			tinyMCE.activeEditor.setContent(JSON.stringify(dataJson));
