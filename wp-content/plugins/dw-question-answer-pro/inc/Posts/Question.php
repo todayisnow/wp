@@ -108,7 +108,13 @@ function dwqa_get_latest_activity_info( $question_id ) {
 			$username = get_comment_author( $act_id );
 			$title = get_the_author_meta( 'title', $comment->user_id );
 			$user_email = get_comment_author_email( $act_id );
-			$avatar = get_avatar( $user_email, 48 );
+			/*
+			#Dev
+			#Todayisnow
+			#201703210505
+			#fix user comment avatar
+			*/
+			$avatar = get_avatar( $comment->user_id, 48 );
 			$link = dwqa_get_author_link( $comment->user_id );
 			$time = human_time_diff( get_comment_date( 'U', $act_id ) );
 		}
