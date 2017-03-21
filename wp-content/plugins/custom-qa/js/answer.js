@@ -63,7 +63,14 @@ jQuery(document).ready(function(){
 	var $cntr = 0;
 	$qContent = jQuery("div.dwqa-question-content");
 	$answerBox = jQuery("#wp-dwqa-answer-content-wrap");
-	jQuery('.dwqa-answers-login').hide().after("<div class='logged_out_i'><a href='http://www.comparlo.com/wp/wp-login.php' class='login_i'>Log-in to Answer</a> <a href='http://www.comparlo.com/wp/wp-login.php?action=register' class='reg_i'>Register</a></div>");
+		/*
+		#Dev
+		#Todayisnow
+		#201703210500
+		#redirect_to question after login
+		*/
+	$currentLocation = location.pathname;	
+	jQuery('.dwqa-answers-login').hide().after("<div class='logged_out_i'><a href='/wp/wp-login.php?redirect_to="+$currentLocation+"' class='login_i'>Log-in to Answer</a> <a href='http://www.comparlo.com/wp/wp-login.php?action=register' class='reg_i'>Register</a></div>");
 	var back = new RegExp('“', 'g');
 	var forw = new RegExp('”', 'g');
 	var forw1 = new RegExp('″', 'g');
