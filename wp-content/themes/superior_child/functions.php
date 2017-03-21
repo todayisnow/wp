@@ -31,3 +31,20 @@ function LoadLightBox() {
 	}
 // Add hook for front-end <head></head>
 add_action('wp_head', 'LoadLightBox');
+
+
+
+ /*
+#Dev
+#Todayisnow
+#201703214000
+# update slug after updating posttitle
+*/
+add_filter( 'wp_insert_post_data', 'UpdatePostSlug', 50, 2 );
+function UpdatePostSlug( $data, $postarr ) {
+    //Check for the  post statuses you want to avoid
+    if ( !in_array( $data['post_status'], array( 'draft', 'pending', 'auto-draft' ) ) ) {           
+        $data['post_name'] = sanitize_title( $data['post_title'] );
+    }
+    return $data;
+}
