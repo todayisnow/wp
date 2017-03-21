@@ -7,9 +7,11 @@ class Row {
 		#Todayisnow
 		#201703080412
 		#category of answer only text box
+		#201703213000
+		#reordering answers
 		*/
 	show(){
-		return "<tr class='i_table_row' data-cells='2' id='row_"+this.id+"'><th class='i_label'><input type='text' id='other_"+this.id+"'  maxlength='40' class='answer-other' style='margin-top: 35px;'><span style='color:#747474'>ex: Defination</span></th><td class='i_cell_left'><textarea name='name_left_"+this.id+"' id='name_left_"+this.id+"' max_chars='500'></textarea><div  id='name_left_"+this.id+"_div' style=' text-align: right; margin-right: 20px;'>0/500</div></td><td class='i_cell_right'><textarea  name='name_right_"+this.id+"' id='name_right_"+this.id+"'  max_chars='500'></textarea><div  id='name_right_"+this.id+"_div' style=' text-align: right; margin-right: 20px;'>0/500</div></td><td class='i_options'><a alt='Delete' title='Delete' href='javascript:void(0);' onclick='del(this);' id='"+this.id+"'><i class='fa fa-times-circle' aria-hidden='true'></i></a><br><a alt='Merge cells' title='Merge cells' href='javascript:void(0);' onclick='merge(this);' id='"+this.id+"'><i class='fa fa-arrows-h' aria-hidden='true'></i></a></td></tr>";
+		return "<tr class='i_table_row' data-cells='2' id='row_"+this.id+"'><th class='i_label'><input type='text' id='other_"+this.id+"'  maxlength='40' class='answer-other' style='margin-top: 35px;'><span style='color:#747474'>ex: Defination</span></th><td class='i_cell_left'><textarea name='name_left_"+this.id+"' id='name_left_"+this.id+"' max_chars='500'></textarea><div  id='name_left_"+this.id+"_div' style=' text-align: right; margin-right: 20px;'>0/500</div></td><td class='i_cell_right'><textarea  name='name_right_"+this.id+"' id='name_right_"+this.id+"'  max_chars='500'></textarea><div  id='name_right_"+this.id+"_div' style=' text-align: right; margin-right: 20px;'>0/500</div></td><td class='i_options'><a alt='Delete' title='Delete' href='javascript:void(0);' onclick='del(this);' id='"+this.id+"'><i class='fa fa-times-circle' aria-hidden='true'></i></a><br><a alt='Merge cells' title='Merge cells' href='javascript:void(0);' onclick='merge(this);' id='"+this.id+"'><i class='fa fa-arrows-h' aria-hidden='true'></i></a><br><a alt='MoveUp' title='MoveUp' href='javascript:void(0);' onclick='MoveUp(this);' id='"+this.id+"'><i class='fa fa-arrow-up' aria-hidden='true'></i></a><br><a alt='MoveDown' title='MoveDown' href='javascript:void(0);' onclick='MoveDown(this);' id='"+this.id+"'><i class='fa fa-arrow-down' aria-hidden='true'></i></a></td></tr>";
 		/*<select onchange='javascript:handel("+this.id+");' id='rowName_"+this.id+"'>
 		<option value='Definition'>Definition</option>
 		<option value='Pros'>Pros</option>
@@ -249,6 +251,7 @@ jQuery(document).ready(function(){
 		  }
 		});
 	});
+		
 });
 /*
 #Dev
@@ -261,6 +264,85 @@ function del(id){
 	jQuery("#row_"+jQuery(id).attr('id')).remove();
 	}
 }
+
+/*
+#Dev
+#Todayisnow
+#201703213000
+#reordering answers
+*/
+function MoveUp(id){
+		
+		var current = jQuery(id).attr('id');
+		if(current>1){
+			
+			var prev = parseInt(current)-1;
+			
+			var currentLeftInput = tinyMCE.get("name_left_"+current).getContent();
+			var currentRightInput = tinyMCE.get("name_right_"+current).getContent();
+			var currentRowName = jQuery("#other_"+current).val();
+			
+			tinyMCE.get("name_left_"+current).setContent(tinyMCE.get("name_left_"+prev).getContent());
+			tinyMCE.get("name_right_"+current).setContent(tinyMCE.get("name_right_"+prev).getContent());
+			
+			jQuery("#other_"+current).val(jQuery("#other_"+prev).val());
+			tinyMCE.get("name_left_"+prev).setContent(currentLeftInput);
+			tinyMCE.get("name_right_"+prev).setContent(currentRightInput);
+			jQuery("#other_"+prev).val(currentRowName);
+			
+			var currentCellsNumber = jQuery("#row_"+current).data('cells');
+			var prevCellsNumber = jQuery("#row_"+prev).data('cells');
+			if(currentCellsNumber!=prevCellsNumber)
+			{
+				FixMerge(current);
+				FixMerge(prev);
+			}
+		}
+}
+function MoveDown(id){
+	
+	var current = jQuery(id).attr('id');
+	
+		if(current<jQuery("[id^='row_']").length){
+			var next = parseInt(current)+1;
+			
+			var currentLeftInput = tinyMCE.get("name_left_"+current).getContent();
+			var currentRightInput = tinyMCE.get("name_right_"+current).getContent();
+			var currentRowName = jQuery("#other_"+current).val();
+			
+			tinyMCE.get("name_left_"+current).setContent(tinyMCE.get("name_left_"+next).getContent());
+			tinyMCE.get("name_right_"+current).setContent(tinyMCE.get("name_right_"+next).getContent());
+			
+			jQuery("#other_"+current).val(jQuery("#other_"+next).val());
+			tinyMCE.get("name_left_"+next).setContent(currentLeftInput);
+			tinyMCE.get("name_right_"+next).setContent(currentRightInput);
+			jQuery("#other_"+next).val(currentRowName);
+			
+			var currentCellsNumber = jQuery("#row_"+current).data('cells');
+			var nextCellsNumber = jQuery("#row_"+next).data('cells');
+			if(currentCellsNumber!=nextCellsNumber)
+			{
+				FixMerge(current);
+				FixMerge(next);
+			}
+		}
+	
+}
+function FixMerge(id)
+{
+	$elem = jQuery("#row_"+id);
+	if($elem.data('cells') == 2){
+		$elem.data('cells', 1);
+		$elem.children('td:nth-child(2)').attr('colspan', '2');
+		$elem.children('td:nth-child(3)').hide();
+	}
+	else if($elem.data('cells') == 1){
+		$elem.data('cells', 2);
+		$elem.children('td:nth-child(2)').removeAttr('colspan');
+		$elem.children('td:nth-child(3)').css("display", "block");;
+	}
+}
+
 
 function merge(id){
 	$elem = jQuery("#row_"+jQuery(id).attr('id'));

@@ -21,6 +21,12 @@ jQuery(document).ready(function(){
 		else if(catSelect == -1){
 			showError("Please select category");
 		}
+		/*
+		#Dev
+		#Todayisnow
+		#201703211230
+		#change to & to and
+		*/
 		else{
 			var replaceStr = "What is the difference between " +leftInput+ " and " +rightInput+ "?";
 			var data = {lhsI: leftInput, rhsI: rightInput};
