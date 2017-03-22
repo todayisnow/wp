@@ -23,6 +23,13 @@ class DWQA_Widget_Categories_List extends WP_Widget {
 		echo $after_title;
 		if ( $question_categories && !is_wp_error( $question_categories ) && is_array( $question_categories ) ) {
 			if ( !$dropdown ) {
+				/*
+				#Dev
+				#Todayisnow
+				#201703220220
+				#order the categories in the side bar
+				*/
+				usort($question_categories,function($a,$b){return strcmp($a->OrderNumber,$b->OrderNumber);});
 				echo '<ul>';
 					foreach( $question_categories as $cat ) {
 						if ( isset( $cat->term_id ) ) {
