@@ -297,9 +297,15 @@ if(!function_exists('a13_custom_password_form')){
 if(!function_exists('a13_has_active_sidebar')){
     function a13_has_active_sidebar() {
         global $apollo13;
-        $test = '';
+		/*
+		#Dev
+		#Todayisnow
+		#201703260353
+		#All pages needs sidebar need to be tested
+		*/
+		
+        $test = 'blog-widget-area';
         $shop = a13_is_woocommerce();
-
         if(!$shop && (is_home() || is_archive() || is_search() || defined('A13_NO_STYLED_PAGE') )){
             $test = 'blog-widget-area';
         }
