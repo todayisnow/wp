@@ -31,7 +31,15 @@
 		<?php endif; ?>
 		<p>
 			<label for="question-category"><?php _e( 'Category', 'dwqa' ) ?></label>
-			<?php
+            <?php
+            /*
+            #Dev
+            #Todayisnow
+            #201703260441
+            # order question category on dropdown
+            */
+            ?>
+            <?php
 				wp_dropdown_categories( array(
 					'name'          => 'question-category',
 					'id'            => 'question-category',
@@ -40,6 +48,7 @@
 					'hide_empty'    => 0,
 					'quicktags'     => array( 'buttons' => 'strong,em,link,block,del,ins,img,ul,ol,li,code,spell,close' ),
 					'selected'      => isset( $_POST['question-category'] ) ? $_POST['question-category'] : false,
+                    'orderby'           => 'OrderNumber',
 				) );
 			?>
 		</p>
