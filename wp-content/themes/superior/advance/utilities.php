@@ -304,7 +304,7 @@ if(!function_exists('a13_has_active_sidebar')){
 		#All pages needs sidebar need to be tested
 		*/
 		
-        $test = 'blog-widget-area';
+        $test = 'blog-widget-area';// it was ''
         $shop = a13_is_woocommerce();
         if(!$shop && (is_home() || is_archive() || is_search() || defined('A13_NO_STYLED_PAGE') )){
             $test = 'blog-widget-area';

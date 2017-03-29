@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3d8b6c4-d01e-46dd-8473-7d649e8d08ef" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/templates/question-submit-form.php" afterPath="$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/templates/question-submit-form.php" />
-    </list>
+    <list default="true" id="f3d8b6c4-d01e-46dd-8473-7d649e8d08ef" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -384,7 +382,7 @@
       <workItem from="1489051509117" duration="6000" />
       <workItem from="1489577446563" duration="15000" />
       <workItem from="1489582412699" duration="2454000" />
-      <workItem from="1490510385680" duration="4825000" />
+      <workItem from="1490510385680" duration="5446000" />
     </task>
     <servers />
   </component>
@@ -421,10 +419,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8047000" />
+    <option name="totallyTimeSpent" value="8668000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2408492" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
