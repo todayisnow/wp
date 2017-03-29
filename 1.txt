@@ -1,0 +1,4 @@
+0/500 -> answer 1000 char , comment 500 char . show at the end of 980 20/20 to 0/20  ... smallfont wi more light color
+delete section -> delete row
+ex: Defination-> same old dropdown with the 1st ele select and mandatory ('select',acronim , defination, scope , examples, ref, other ) remove note "ex"
+error msg : point of com is empty then drpdown trun red
