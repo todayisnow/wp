@@ -974,6 +974,7 @@ function linkedin_authorize(){
 	function user_role_in_array($user_id, $array) {
 		if(isset($user_id)){
 			$user = get_userdata($user_id);
+                        if(!empty($user)){
 			$user_roles = $user->roles;
 			if (isset($user_roles) && is_array($user_roles)){
 				foreach($user_roles as $k => $v){
@@ -981,6 +982,7 @@ function linkedin_authorize(){
 						return true;
 				}
 			}
+                        }
 		}
 		return false;
 	}
@@ -1616,6 +1618,7 @@ function linkedin_authorize(){
 		$first_img = '';
 		ob_start();
 		ob_end_clean();
+                $output = array();
 		$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
 		if (isset( $matches[1][0])) {
 			$first_img = $matches[1][0];

@@ -30,7 +30,7 @@ class userpro_admin {
 		
 		wp_register_script('userpro_chosen', userpro_url . 'admin/scripts/admin-chosen.js');
 		wp_enqueue_script('userpro_chosen');
-		
+		wp_enqueue_media();
 		wp_register_script( 'userpro_admin', userpro_url.'admin/scripts/admin.js', array( 
 			'jquery',
 			'jquery-ui-core',

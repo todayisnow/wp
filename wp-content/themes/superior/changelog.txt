@@ -1,6 +1,14 @@
 <a href="http://apollo13.eu/docs/superior/#!/installation_update_update_theme">How to update</a>
 
 
+2.0.16(06.03.2017)
+
+-Revolution Slider to version 5.4.1
+-Go Responsive Pricing & Compare Tables to version 3.3.5
+-Layer Slider to version 6.1.6
+
+----------------
+
 2.0.15(14.12.2016)
 
 

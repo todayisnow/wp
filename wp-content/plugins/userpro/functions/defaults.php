@@ -353,6 +353,7 @@
 		$array['buddypress_userpro_link_sync'] = 0;
 		$array['buddypress_userpro_avatar_sync'] = 0;
 		$array['buddypress_userpro_displayname_sync'] = 0;
+		$array['bbpress_userpro_link_sync'] = 0;
 		$array['sociallogin']=1;
 		$array['alphabetical_pagination']=0;
 		$array['allow_dashboard_for_these_roles'] = '';
@@ -377,6 +378,9 @@
 		$array['enable_reset_by_mail'] = 'n';
 		$array['mailchimp_checkbox_condition'] = '1';
 		$array['up_conditional_menu'] = '0';
+		$array['userpro_block_email_domains'] = '';
+		$array['default_background_img'] = '';
+		
 		
 		/**
 		 * Invite User New Field Added

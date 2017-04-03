@@ -1,5 +1,10 @@
 /* admin header */
 
+
+.default_background_img_src {
+    width: 20% !important;
+}
+
 .ui-datepicker .ui-datepicker-next span, .ui-datepicker .ui-datepicker-prev span {
     background-image: none !important;
     background-position: -32px 0;

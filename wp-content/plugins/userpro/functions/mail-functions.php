@@ -195,9 +195,10 @@
 		/* email user except: profileupdate */
 		/////////////////////////////////////////////////////////
 		if ($template != 'profileupdate' && $template != 'pendingapprove' && $template != 'userpro_connect_request') {
-			
-			$message = html_entity_decode(nl2br($message));
-			wp_mail( $user->user_email, $subject, $message, $headers );
+			if( !empty($message) && !empty($subject)){
+				$message = html_entity_decode(nl2br($message));
+				wp_mail( $user->user_email, $subject, $message, $headers );
+			}
 		}
 		if ($template == 'pendingapprove'){
 			if(userpro_get_option('notify_account_pendingfor_adminapproval')=='1')

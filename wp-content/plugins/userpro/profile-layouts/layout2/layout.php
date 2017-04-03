@@ -187,7 +187,7 @@
                                
            </div><!--row-->  <!--personal-info-->
           <?php 
-            $up_media = '';
+            $up_media = array();
             if( in_array('userpro-mediamanager/index.php', $activated_plugins) ){
              ?>
           <div class="row">

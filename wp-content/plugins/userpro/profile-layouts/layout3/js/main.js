@@ -31,7 +31,7 @@ jQuery(document).ready(function($){
 			checkScrolling($(this));
 		});
 	});
-	
+	$('.upg_follow .userpro-follow').removeClass('userpro-button');
 	$(window).on('resize', function(){
 		tabs.each(function(){
 			var tab = $(this);

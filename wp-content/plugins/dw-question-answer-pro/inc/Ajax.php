@@ -80,7 +80,7 @@ class DWQA_Ajax {
 			$new_answer_count = intval( 0 );
 		}
 		update_post_meta( $question_id, '_dwqa_answers_count', $new_answer_count );
-
+		wp_cache_delete('dwqa_latest_answer_for_' . $question_id);
 		do_action( 'dwqa_delete_answer', $_GET['answer_id'], $question_id );
 
 		wp_redirect( get_permalink( $question_id ) );

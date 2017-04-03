@@ -3,10 +3,19 @@
 	/* Get fields as arrays */
 	function userpro_fields_group_by_template( $template, $group='default' ) {
 		$array = get_option("userpro_fields_groups");
-		if (isset($array[$template][$group]))
-			if (count($array[$template][$group]) > 0)
-			return (array)$array[$template][$group];
-			return array('');
+		if (isset($array[$template][$group])){
+                    
+			if (count($array[$template][$group]) > 0){
+                            return (array)$array[$template][$group];
+                        }
+                        else{
+                            return array();
+                        }
+                }  else {
+                    
+                    return array();
+                }
+			
 	}
 	
 	/* Get specific fields only */
@@ -572,14 +581,16 @@
 					if (!isset($array['list_text'])){
 						$array['list_text'] = __('Subscribe to our newsletter','userpro');
 					}
-					
-					if( userpro_get_option('mailchimp_checkbox_condition') ){
-						$checked_class = "class='checked'";
-						$checkbox_check = "checked=checked";
-					}
-					else{
-						$checked_class = "";
-						$checkbox_check = "";		
+					$checked_class = "";
+					$checkbox_check = "";
+					if( $args['template'] != 'edit' ){
+						if( userpro_get_option('mailchimp_checkbox_condition') ){
+							$checked_class = "class='checked'";
+							$checkbox_check = "checked=checked";
+						}else{
+							$checked_class = "";
+							$checkbox_check = "";		
+						}
 					}
 					if ( $userpro->mailchimp_is_subscriber($user_id, $array['list_id']) ) {
 					
@@ -591,7 +602,6 @@
 					$res .= "</div>";
 					
 					} else {
-					
 					$res .= "<div class='userpro-checkbox-wrap'>";
 					$res .= "<label class='userpro-checkbox full'><span $checked_class"; 
 					$res .= '></span><input type="checkbox" value="unsubscribed" name="'.$key.'-'.$i.'" ';

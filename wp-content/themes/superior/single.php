@@ -8,7 +8,6 @@ global $apollo13;
 get_header(); ?>
 
 <?php the_post(); ?>
-
 <?php a13_title_bar(); ?>
 
 <article id="content" class="clearfix">

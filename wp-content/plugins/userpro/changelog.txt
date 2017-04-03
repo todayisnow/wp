@@ -1,3 +1,22 @@
+Version 4.9.6 ( 21 Mar 2017 )
+============================
+	- Fixed Bug : bbpress Forum links not integrated with userpro profile
+	- Fixed Bug : Error message not displayed correctly if the user is blocked with php 7.1.0 and above
+	- Fixed Bug : Verified invite and block users featuresnot working in the users section of WPAdmin with php 7.1.0 and above
+	
+
+Version 4.9.5 (22 Feb 2017)
+============================
+	- Fixed Bug : Fields in admin area not saved 
+	- Fixed Bug : Multiple registration form not working properly
+
+Version 4.9.4 (16 Feb 2017) 
+============================
+	- Enhancement : Added ability for Admin to change background image (You can find the settings at backend->userpro->Settings->Profile Settings )
+	- Enhancement : Users can now set privacy for their profile
+	- Enhancement : Administrator can now block email address domains
+	- Fixed Bug   : Fixed Compatibility issues with PHP 7.1.0 
+
 Version 4.9.3 (02 Feb 2017)
 ============================
 	- Enhancement : Added new "Grand layout" for profile view

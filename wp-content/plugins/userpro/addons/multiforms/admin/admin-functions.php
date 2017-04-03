@@ -10,12 +10,18 @@
 		if (!isset($_POST['name']) || !isset($_POST['userpro_mu_fields'])) die();
 		
 		global $userpro;
-		$output = '';
-		
+		$output = array();
+		$multi_forms = array();
+                $fields = array();
+                $name = '';
 		$name = $_POST['name'];
 		$fields = $_POST['userpro_mu_fields'];
-		
-		$multi_forms= userpro_mu_get_option('multi_forms');
+                $usepro_multi_forms_options = array();
+                $usepro_multi_forms_options = userpro_mu_get_option('multi_forms');
+                
+                if(!empty($usepro_multi_forms_options)){
+                    $multi_forms = $usepro_multi_forms_options;
+                }
 		$multi_forms[$name] = $fields;
 		userpro_mu_set_option('multi_forms',$multi_forms);
 		
@@ -33,12 +39,15 @@
 			die(); // admin priv
 			
 		global $userpro;
-		$output = '';
+		$output = array();
 		
 		$res = '';
 		$res .= '<p>'.__('Now check all fields that you want to make available for this registration form. (Choose only these that apply)','userpro').'</p>';
 		$res .= '<form action="" method="post" class="userpro_mu_form">';
-		foreach( userpro_fields_group_by_template( 'register', 'default') as $key => $array ) {
+                $array = array();
+                $userpro_fields_group_options =array();
+                $userpro_fields_group_options = userpro_fields_group_by_template( 'register', 'default');
+		foreach( $userpro_fields_group_options as $key => $array ) {
 			if ( $userpro->field_label($key) || isset($array['heading']) && $array['heading'] != ''){
 			$res .= '<p><label class="userpro-checkbox">
 					<input type="checkbox" value="'.$key.'" name="userpro_mu_fields[]" />&nbsp;&nbsp;';

@@ -144,7 +144,7 @@ class DWQA_Leaderboard_Widget extends WP_Widget {
 			$prefix = '-' . ( $from - $to );
 		}
 
-		$query = "SELECT count(*) FROM {$wpdb->posts} WHERE post_author = {$user_id} AND post_type = 'dwqa-question'";
+		$query = "SELECT count(*) FROM {$wpdb->posts} WHERE post_author = {$user_id} AND post_type = 'dwqa-question' AND post_status = 'publish'";
 
 		if ( $from ) {
 			$from = date( 'Y-m-d h:i:s', $from );

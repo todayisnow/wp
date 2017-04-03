@@ -3,7 +3,7 @@
 Plugin Name: UserPro
 Plugin URI: http://codecanyon.net/user/DeluxeThemes/portfolio?ref=DeluxeThemes
 Description: The ultimate user profiles and community plugin for WordPress.
-Version: 4.9.3
+Version: 4.9.6
 Author: Deluxe Themes
 Author URI: http://codecanyon.net/user/DeluxeThemes/portfolio?ref=DeluxeThemes
 */
@@ -123,5 +123,5 @@ register_activation_hook( __FILE__, 'userpro_add_userin_meta' );
 	require_once userpro_path . 'addons/requests/index.php';	
 	require_once userpro_path . 'addons/userpro-google-map/userpro-google-map.php';
 	
-	require_once(userpro_path . "admin/class-up-updates-plugin.php");
-	new WPUpdatesPluginUpdater_1146( 'http://wp-updates.com/api/2/plugin', plugin_basename(__FILE__) );
+	//require_once(userpro_path . "admin/class-up-updates-plugin.php");
+	//new WPUpdatesPluginUpdater_1146( 'http://wp-updates.com/api/2/plugin', plugin_basename(__FILE__) );

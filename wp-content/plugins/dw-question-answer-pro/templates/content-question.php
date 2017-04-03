@@ -10,9 +10,8 @@
 <div class="<?php echo dwqa_post_class(); ?>">
 	<header class="dwqa-question-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></header>
 	<div class="dwqa-question-meta">
-		<?php dwqa_question_print_status() ?>
+		<?php dwqa_question_print_status(); ?>
 		<?php $latest_activity = dwqa_get_latest_activity_info( get_the_ID() ); ?>
-		
 		<?php 
 		if($latest_activity['title'] !="")
 			$latest_activity['title'] = ", ".$latest_activity['title'];
@@ -34,7 +33,7 @@
 	</div>
 	<div class="dwqa-question-stats">
 		<span class="dwqa-views-count">
-			<?php $views_count = dwqa_question_views_count() ?>
+			<?php $views_count = dwqa_question_views_count(); ?>
 			<?php printf( __( '<strong>%1$s</strong> views', 'dwqa' ), $views_count ); ?>
 		</span>
 		<span class="dwqa-answers-count">

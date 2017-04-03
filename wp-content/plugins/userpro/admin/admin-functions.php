@@ -229,6 +229,7 @@
             $output .= "</li>";
         } else {
             foreach($unsorted as $k=>$arr){
+                $label = '';
                 if (is_array($arr)) {
                     if (isset($arr['type']) && $arr['type'] != '') {
                         $label = (isset($arr['label'])) ? $arr['label'] : '';
@@ -688,6 +689,16 @@
         }
     }
     
+    add_action('wp_ajax_nopriv_userpro_default_background_img_remove', 'userpro_default_background_img_remove');
+    add_action('wp_ajax_userpro_default_background_img_remove', 'userpro_default_background_img_remove');
+    function userpro_default_background_img_remove(){
+    	if (!current_user_can('manage_options'))
+    		die(); // admin priv
+    		
+    	userpro_set_option('default_background_img','');
+    	
+    }
+    
     /**
      Resort fields
      **/
@@ -868,12 +879,14 @@
             die(); // admin priv
         
         global $userpro;
+        $fields = array();
         $fields = $userpro->fields;
-        $output = '';
+        $output = array();
         
         // Save field group
+        $groups = array();
         $groups = get_option('userpro_fields_groups');
-        $groups[$_POST['role']][$_POST['group']] = '';
+        $groups[$_POST['role']][$_POST['group']] = array();
         foreach($_POST as $k => $v){
             $encoding=mb_detect_encoding($v,'auto');
             if($encoding!='ASCII' && $encoding!='UTF-8')
@@ -882,6 +895,7 @@
             }
             $v = stripslashes($v);
             if ($k != 'role' && $k != 'group' && $k != 'action'){
+                $key = array();
                 $key = explode('-',$k,2);
                 if ($key[1] != 'options' && $key[1] != 'icon'){
                     $groups[$_POST['role']][$_POST['group']][$key[0]][$key[1]] = $v;
@@ -933,7 +947,7 @@
             die(); // admin priv
         
         global $userpro, $userpro_admin,$userpro_request_admin;
-        $output = '';
+        $output = array();
         $user_id = $_POST['user_id'];
         $role=userpro_get_option('update_role');
         
@@ -960,7 +974,7 @@
             die(); // admin priv
         
         global $userpro, $userpro_admin,$userpro_request_admin;
-        $output = '';
+        $output = array();
         $user_id = $_POST['user_id'];
         $userpro->verify($user_id);
         
@@ -1021,7 +1035,7 @@
             die(); // admin priv
         
         global $userpro, $userpro_admin;
-        $output = '';
+        $output = array();
         $user_id = $_POST['user_id'];
         $sessions = WP_Session_Tokens::get_instance($user_id);
         
@@ -1044,7 +1058,7 @@
             die(); // admin priv
         
         global $userpro, $userpro_admin;
-        $output = '';
+        $output = array();
         $user_id = $_POST['user_id'];
         $userpro->unblock_account($user_id);
         
@@ -1065,7 +1079,7 @@
             die(); // admin priv
         
         global $userpro, $userpro_admin;
-        $output = '';
+        $output = array();
         $user_id = $_POST['user_id'];
         $userpro->new_invitation_verify($user_id);
         
@@ -1089,7 +1103,7 @@
         
         global $userpro;
         $field = $_POST['field'];
-        $output = '';
+        $output = array();
         
         $fields = $userpro->fields;
         unset($fields[$field]);

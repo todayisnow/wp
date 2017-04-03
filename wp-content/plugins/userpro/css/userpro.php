@@ -44,10 +44,11 @@ div.userpro-notifier
 }
 
 <?php //Show custom background
-if (isset($user_id) && $userpro->has('custom_profile_bg', $user_id) ) { ?>
+$default_background_img = userpro_get_option('default_background_img');
+if ( (isset($user_id) && $userpro->has('custom_profile_bg', $user_id)) || !empty($default_background_img) ) { ?>
 
-div.userpro-<?php echo $i; ?>.userpro-id-<?php echo $user_id; ?> div.userpro-centered,
-div.userpro-<?php echo $i; ?>.userpro-id-<?php echo $user_id; ?> div.userpro-centered-header-only
+div.userpro-<?php echo $i; ?>.userpro-id-<?php if(!empty($user_id)) echo $user_id; ?> div.userpro-centered,
+div.userpro-<?php echo $i; ?>.userpro-id-<?php if(!empty($user_id)) echo $user_id; ?> div.userpro-centered-header-only
 {
 	background-image: url(<?php echo $userpro->correct_space_in_url(  userpro_profile_data('custom_profile_bg', $user_id) ); ?>) !important;
 	background-size: cover;
@@ -55,9 +56,9 @@ div.userpro-<?php echo $i; ?>.userpro-id-<?php echo $user_id; ?> div.userpro-cen
 	background-repeat: no-repeat;
 }
 
-<?php if (userpro_profile_data('custom_profile_color', $user_id) == userpro_get_option('heading_light') ) { ?>
-div.userpro-<?php echo $i; ?>.userpro-id-<?php echo $user_id; ?> div.userpro-profile-name,
-div.userpro-<?php echo $i; ?>.userpro-id-<?php echo $user_id; ?> div.userpro-profile-name a {
+<?php if (!empty($user_id) && userpro_profile_data('custom_profile_color', $user_id) == userpro_get_option('heading_light') ) { ?>
+div.userpro-<?php echo $i; ?>.userpro-id-<?php if(!empty($user_id)) echo $user_id; ?> div.userpro-profile-name,
+div.userpro-<?php echo $i; ?>.userpro-id-<?php if(!empty($user_id)) echo $user_id; ?> div.userpro-profile-name a {
 	color: #fff !important;
 }
 <?php } ?>
@@ -196,8 +197,8 @@ div.userpro-<?php echo $i; ?> div.userpro-profile-img {
 }
 
 div.emd-user {
-    width: <?php echo $args['emd_col_width']; ?>;
-	margin-left: <?php echo $args['emd_col_margin']; ?> !important;
+    width: <?php if(isset($args['emd_col_width'])) echo $args['emd_col_width']; ?>;
+    margin-left: <?php if(isset($args['emd_col_margin'])) echo $args['emd_col_margin']; ?> !important;
 }
 
 <?php if (userpro_get_option('thumb_style') == 'abit_rounded') { ?>

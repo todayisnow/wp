@@ -1,4 +1,4 @@
-<?php if (userpro_mu_get_option('multi_forms')) : ?>
+<?php if (!empty(userpro_mu_get_option('multi_forms'))) : ?>
 
 <form action="" method="post">
 
@@ -9,9 +9,13 @@
 		<th scope="row"><label for="multi_forms_default"><?php _e('Choose your default form','userpro'); ?></label></th>
 		<td>
 			<select name="multi_forms_default" id="multi_forms_default" class="chosen-select" style="width:300px">
-				<?php foreach( userpro_mu_get_option('multi_forms') as $key => $arr ) { ?>
+				<?php 
+                                    $userpro_multi_forms_options = array();
+                                    $userpro_multi_forms_options = userpro_mu_get_option('multi_forms');
+                                    if(is_array($userpro_multi_forms_options)){
+                                foreach( userpro_mu_get_option('multi_forms') as $key => $arr ) { ?>
 				<option value="<?php echo $key; ?>" <?php selected($key, userpro_mu_get_option('multi_forms_default')); ?>><?php echo $key; ?></option>
-				<?php } ?>
+                                    <?php } }?>
 			</select>
 		</td>
 	</tr>

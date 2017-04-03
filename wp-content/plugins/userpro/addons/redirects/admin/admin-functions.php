@@ -106,7 +106,7 @@
 	add_action('wp_ajax_nopriv_userpro_new_redirect', 'userpro_new_redirect');
 	add_action('wp_ajax_userpro_new_redirect', 'userpro_new_redirect');
 	function userpro_new_redirect(){
-		$output = '';
+		$output = array();
 		
 		if (!$_POST['rd_url']){
 			$output['error'] = __('You did not specify a redirection URL.','userpro');
@@ -138,7 +138,7 @@
 	add_action('wp_ajax_nopriv_userpro_remove_redirect', 'userpro_remove_redirect');
 	add_action('wp_ajax_userpro_remove_redirect', 'userpro_remove_redirect');
 	function userpro_remove_redirect(){
-		$output = '';
+		$output = array();
 		
 		if (!$_POST['key']) 
 		{

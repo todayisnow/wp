@@ -129,8 +129,8 @@ function dwqa_question_paginate_link() {
 	$tag = get_query_var( 'dwqa-question_tag' ) ? get_query_var( 'dwqa-question_tag' ) : false;
 	$cat = get_query_var( 'dwqa-question_category' ) ? get_query_var( 'dwqa-question_category' ) : false;
 
-	$url = $cat 
-			? get_term_link( $cat, get_query_var( 'taxonomy' ) ) 
+	$url = $cat
+			? get_term_link( $cat, get_query_var( 'taxonomy' ) )
 			: ( $tag ? get_term_link( $tag, get_query_var( 'taxonomy' ) ) : $archive_question_url );
 
 	$args = array(

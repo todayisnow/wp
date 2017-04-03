@@ -1,4 +1,25 @@
 <?php
+
+	$profile_privacy = userpro_profile_data('profile_privacy', $user_id);
+	if( !empty($profile_privacy) && $user_id != get_current_user_id() && !current_user_can('manage_options') ){
+		?>
+		<div class="userpro userpro-<?php echo $i; ?> userpro-id-<?php echo $user_id; ?> userpro-<?php echo $layout; ?>" <?php userpro_args_to_data( $args ); ?>>
+			<div class="userpro-head">
+				<div class="userpro-left"><i class="userpro-icon-lock"></i><?php echo __('Restricted Profile','userpro'); ?></div>
+				<div class="userpro-clear"></div>
+			</div>
+			
+			<div class="userpro-body">
+				<div class="userpro-clear"></div>
+				<div class="profile-privacy-text" style="padding-top: 3%;"><?php echo _e("This profile is made hidden by the user","userpro");?></div>
+		
+			</div>
+		</div>
+	
+		<?php
+	}
+	else{
+
 	$updb_show_customizer = 0;
 	$userpro_db_enable = 0;
 	if( !isset( $updb_default_options ) ){
@@ -182,5 +203,5 @@
 	if( $show_widgets ){
 		do_action( 'after_userpro_profile_div', $args, $user_id, $i );
 	}	
+	}
 ?>
-

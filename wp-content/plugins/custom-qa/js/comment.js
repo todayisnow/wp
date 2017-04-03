@@ -40,7 +40,6 @@ jQuery(window).load(function(){
 			jQuery(this).next('div').text(len + '/500');
 		  }
 		});
-	
 });
 
 function showError(msg){

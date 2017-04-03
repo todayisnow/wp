@@ -297,7 +297,7 @@ if(!function_exists('a13_custom_password_form')){
 if(!function_exists('a13_has_active_sidebar')){
     function a13_has_active_sidebar() {
         global $apollo13;
-		/*
+        /*
 		#Dev
 		#Todayisnow
 		#201703260353
@@ -306,6 +306,7 @@ if(!function_exists('a13_has_active_sidebar')){
 		
         $test = 'blog-widget-area';// it was ''
         $shop = a13_is_woocommerce();
+
         if(!$shop && (is_home() || is_archive() || is_search() || defined('A13_NO_STYLED_PAGE') )){
             $test = 'blog-widget-area';
         }
@@ -677,17 +678,23 @@ if(!function_exists('a13_search_form')){
  */
 if(!function_exists('a13_header_search')){
     function a13_header_search() {
-        echo
-            '<div class="search-container">'.
-                '<div class="search">'.
-                    '<span class="fa fa-search open action"></span>';
-                    get_search_form();
-        echo
-                    '<span class="fa fa-times close action"></span>'.
-                '</div>'.
-            '</div>';
+        $nonce = wp_create_nonce( '_dwqa_filter_nonce' ) ;
+        $value = isset( $_GET['qs'] ) ? $_GET['qs'] : '';
+        $action = home_url("/");
+        echo "
+            <div class='search-container'>
+                <div class='search'>
+                    <form id='dwqa-search' class='search-form dwqa-search' action='{$action}'>
+                    <fieldset class='semantic'>
+                        <input data-nonce='{$nonce}' placeholder='Search' type='search' name='qs' value='{$value}'>
+                    </fieldset>
+                </form>
+                </div>
+            </div>
+            ";
     }
 }
+
 
 
 
@@ -1543,7 +1550,7 @@ if(!function_exists('a13_title_bar')){
             //blog post
             elseif ( $home || ($single && !$page_type['attachment']) ){
                 if(get_option('page_for_posts') === '0'){
-                    $title = get_the_title(get_option('page_for_posts'));
+                    $title = __fe('Blog');
                 }
                 else{
                     $title = get_the_title(get_option('page_for_posts'));
@@ -1691,7 +1698,7 @@ if(!function_exists('a13_title_bar_look')){
  */
 if(!function_exists('a13_post_nav')){
     function a13_post_nav() {
-        global $apollo13;
+        global $apollo13, $dwqa;
         $show_back_btn = true;
         $href = '';
 
@@ -1724,11 +1731,13 @@ if(!function_exists('a13_post_nav')){
             }
         }
         else{
+        
             $href = (get_option( 'page_for_posts') !== '0')? get_permalink(get_option( 'page_for_posts')) : home_url();
             $title = __fe( 'Back to Blog' );
         }
 
         echo '<div class="tools">';
+            //echo var_dump($dwqa);
             next_post_link( '<span class="prev">%link</span>','' );
             echo $show_back_btn? '<a href="'.esc_url($href).'" title="'.esc_attr($title).'" class="to-blog fa fa-th-large"></a>' : '';
             previous_post_link( '<span class="next">%link</span>','' );

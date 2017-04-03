@@ -19,7 +19,7 @@
 
                <div class="clearfix"></div><!--clearfix-->
 
-               <div class="row">
+               <div class="row grand-row-content">
 
                      <div class="col-lg-4 col-sm-4 col-xs-12" id="left-section-user">
 
@@ -210,12 +210,15 @@
                                                                                 
                                                                      <?php
 												                        do_shortcode('[media_manager media = "view" user_id="'.$user_id.'"]');
+                                                                                                                        $up_media = array();
 												                        $up_media = get_option('userpro_media_gallery');
 												                        $upm_flag = false;
+                                                                                                                        if(!empty($up_media)){
 												                        foreach ($up_media as $up_inner_media){
 												                            if($up_inner_media['user_id'] == $user_id)
 												                                $upm_flag = true;
 												                        }
+                                                                                                                        }
 												                        if(empty($upm_flag)){
 												                           echo 'No media Available'; 
 												                        }
@@ -323,9 +326,9 @@
                     }
                     $iamfollowing = get_user_meta($from, '_userpro_following_ids', true);
                     if (isset($iamfollowing[$to])){
-                            return '<div class="upl_follow"><a href="#" class="userpro-button userpro-follow following" data-follow-text="'.__('Follow','userpro').'" data-unfollow-text="'.__('Unfollow','userpro').'" data-following-text="'.__('Following','userpro').'" data-follow-to="'.$to.'" data-follow-from="'.$from.'">'.__('Following','userpro').'</a></div>';
+                            return '<div class="upg_follow"><a href="#" class="userpro-button userpro-follow following" data-follow-text="'.__('Follow','userpro').'" data-unfollow-text="'.__('Unfollow','userpro').'" data-following-text="'.__('Following','userpro').'" data-follow-to="'.$to.'" data-follow-from="'.$from.'">'.__('Following','userpro').'</a></div>';
                     } else {
-                            return '<div class="upl_follow"><a href="#" class="userpro-button secondary userpro-follow notfollowing" data-follow-text="'.__('Follow','userpro').'" data-unfollow-text="'.__('Unfollow','userpro').'" data-following-text="'.__('Following','userpro').'" data-follow-to="'.$to.'" data-follow-from="'.$from.'" id="fb-post-data" data-fbappid="'.userpro_get_option('facebook_app_id').'" data-message="'.$body.'" data-caption="'.$caption.'" data-link="'.$link.'" data-name="'.$name.'" data-description="'.$description.'" ><i class="userpro-icon-share"></i>'.__('Follow','userpro').'</a></div>';}
+                            return '<div class="upg_follow"><a href="#" class="userpro-button secondary userpro-follow notfollowing" data-follow-text="'.__('Follow','userpro').'" data-unfollow-text="'.__('Unfollow','userpro').'" data-following-text="'.__('Following','userpro').'" data-follow-to="'.$to.'" data-follow-from="'.$from.'" id="fb-post-data" data-fbappid="'.userpro_get_option('facebook_app_id').'" data-message="'.$body.'" data-caption="'.$caption.'" data-link="'.$link.'" data-name="'.$name.'" data-description="'.$description.'" ><i class="userpro-icon-share"></i>'.__('Follow','userpro').'</a></div>';}
             }
 	} 
     ?>

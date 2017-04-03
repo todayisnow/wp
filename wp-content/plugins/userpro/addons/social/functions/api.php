@@ -68,7 +68,8 @@ class userpro_sc_api {
 				
 				if($var3=="userpro_userwall")
 				{		
-				$status .= __("has published a $var2 ",'userpro');
+                                  if(isset($_SERVER['HTTP_REFERER'])){$pageurl= $_SERVER['HTTP_REFERER']."#".$var1;}
+                                $status .= sprintf(__('has published a <a href="%s">post on socialwall</a>.','userpro'), $pageurl);
 				}
 				else
 				{
@@ -347,9 +348,10 @@ class userpro_sc_api {
 	
 	// unfollow user
 	function do_unfollow($to, $from) {
-	
+                $followers_ids = array();
+                $followers_ids[$from] = array();
 		$followers_ids = get_user_meta($to, '_userpro_followers_ids', true);
-		if (isset($followers_ids[$from])) unset($followers_ids[$from]);
+		if (isset($followers_ids[$from]))unset($followers_ids[$from]);
 		update_user_meta($to, '_userpro_followers_ids', $followers_ids);
 		
 		$following_ids = get_user_meta($from, '_userpro_following_ids', true);

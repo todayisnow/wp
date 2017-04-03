@@ -20,7 +20,7 @@
 	<?php endif; ?>
 	<div class="dwqa-answer-meta">
 		<?php $user_id = get_post_field( 'post_author', get_the_ID() ) ? get_post_field( 'post_author', get_the_ID() ) : 0 ?>
-					<?
+		<?
 				/*
 #Dev
 #Todayisnow
@@ -33,7 +33,19 @@
 		if($title!="")
 			$title = ", ".$title;
 		?>
-		<?php printf( __( '<span><a href="%1$s">%2$s%3$s</a>%4$s %5$s answered %6$s ago</span>', 'dwqa' ), dwqa_get_author_link( $user_id ), get_avatar( $user_id, 48 ), get_the_author(),$title, dwqa_print_user_badge( $user_id ), human_time_diff( get_post_time( 'U', true ) ) ) ?>
+		<?php
+			$avatar_url = get_avatar( $user_id, 48 );
+			$matches = array();
+			$regex = preg_match_all('@<img[^>]+src="([^">]+)"@i', $avatar_url, $matches, PREG_SET_ORDER);
+			if(!empty($matches)){
+				$avatar_url = $matches[0][1];
+			}
+			else{
+				$avatar_url = get_avatar_url( $user_id, 48 );
+			}
+			$image_html = '<span style="position: absolute; left: 0; top: 20px; border-radius: 48px; display: block; width: 48px; height: 48px; background-size: cover; background-image: url(\''.$avatar_url.'\'); background-repeat: no-repeat; background-position: center; "></span>';
+		?>
+		<?php printf( __( '<span><a href="%1$s">%2$s%3$s</a>%4$s %5$s answered %6$s ago</span>', 'dwqa' ), dwqa_get_author_link( $user_id ), $image_html, get_the_author(),$title, dwqa_print_user_badge( $user_id ), human_time_diff( get_post_time( 'U', true ) ) ) ?>
 		<?php if ( 'private' == get_post_status() ) : ?>
 			<span><?php _e( '&nbsp;&bull;&nbsp;', 'dwqa' ); ?></span>
 			<span><?php _e( 'Private', 'dwqa' ) ?></span>

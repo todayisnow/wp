@@ -1,7 +1,8 @@
 /*** CSS DOCUMENT ***/
 
-.col-lg-4.userpro-tabs {width: 33% !important;}
-
+.col-lg-4.userpro-tabs {width: 40% !important;}
+.upg_follow a{box-shadow : none;}
+.grand-row-content {position: relative;}
 .userpro-input.col-sm-9 {padding-top: 1%;width:50%;}
 .col-sm-3.control-label {width: 45%;}
 .grand-view-reviews > a {box-shadow: none !important;}
@@ -47,24 +48,24 @@ input.userpro-button, a.userpro-button, div.userpro div.ajax-file-upload {
 .userpro-button.secondary.userpro-follow.notfollowing:hover{
 	
 }
-.upl_follow {
+.upg_follow {
     border: 1px solid gray;
     border-radius: 5%;
     padding: 4%;
     text-align: center;
     display: inline-block;
 }
-.upl_follow > a:hover{text-decoration:none !important;box-shadow:none !important;}
-.upl_follow:hover{box-shadow:none !important;}
+.upg_follow a:hover{text-decoration:none !important;box-shadow:none !important;}
+.upg_follow:hover{box-shadow:none !important;}
 .userpro-tabs.profile-social-details > a:focus {border: medium none !important; text-decoration:none !important;}
-.board-inner > ul{border-bottom:none;}
+.board-inner ul{border-bottom:none;}
 input.userpro-button.secondary,
 input.userpro-button, a.userpro-button, div.userpro div.ajax-file-upload{
 	 background: none !important;
     border: medium none !important;
     color: black !important;
 }
-}
+
 a.userpro-button.secondary, div.userpro div.ajax-file-upload {
     background: none !important;
     border: medium none !important;
@@ -72,7 +73,9 @@ a.userpro-button.secondary, div.userpro div.ajax-file-upload {
 }
 .grand-view-reviews.text-center > img{width:20%;}
 
-
+.col-lg-4.col-xs-12.userpro-tabs.profile-media, .col-lg-4.col-xs-12.userpro-tabs.profile-social-details{
+  margin-left:-10% !important;
+}
 
 
 /* Media Queries */
@@ -261,7 +264,8 @@ p.narrow{
 }
 
 .round-tabs > img {
-    padding-left: 30%;
+     margin: 0 auto;
+    text-align: center;
 }
 
 span.round-tabs{
@@ -320,11 +324,11 @@ li.active:after {
     
 }
 .nav-tabs > li a{
-   width: 156px;
-   height: 85px;
-   margin: 20px auto;
    border-radius: 100%;
-   padding: 0;
+    height: 18%;
+/*   margin: 32%;*/
+    padding: 0;
+    width: 100%;
 }
 
 .nav-tabs > li a:hover{
@@ -336,6 +340,7 @@ li.active:after {
 .tab-pane{
    position: relative;
    padding-top: 0;
+   margin-top: 23% !important;
 }
 .tab-content .head{
     font-family: 'Roboto Condensed', sans-serif;
@@ -413,7 +418,23 @@ li.active:after {
     
        margin-top:38%;
    }
-     
+     .profilepic {
+    margin-left: 10% !important;
+    margin-top: 36% !important;
+}
+.round-tabs {
+    width: 100% !important;
+}
+.user_badges {
+    float: left;}
+.col-lg-4.col-xs-12.userpro-tabs.profile-media, .col-lg-4.col-xs-12.userpro-tabs.profile-social-details {
+    margin-left: -12% !important;
+    padding-left: 3%;
+    padding-right: 5%;
+}
+.round-tabs p {
+    line-height: 13px;
+}
 }
 @media screen and (max-width:768px){
     
@@ -585,8 +606,8 @@ li.active:after {
         padding-left: 0px;
     }
   .tab-pane{
-       position: relative;
-       padding-top: 40px;
+       position: relative ;
+       padding-top: 40px ;
    }
    
    #left-section-user .profilepic {
@@ -597,6 +618,7 @@ li.active:after {
     
       margin-top:30%;
     }
+    
      
 }
 @media screen and (min-width:320px) and (max-width:360px){
@@ -629,5 +651,41 @@ li.active:after {
     
     margin-top:30%;
  }
-    
+ .round-tabs {
+    width: 100% !important;
+}
+
+.board-inner ul {
+    border-bottom: medium none;
+    margin-left: -5%;
+}
+.board {
+    height: auto !important;
+    width: 100%;
+}
+.col-lg-4.col-xs-12.userpro-tabs.profile-media, .col-lg-4.col-xs-12.userpro-tabs.profile-social-details{
+ margin-left: -11% !important;
+    margin-right: 1%;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+.round-tabs p {
+    line-height: 13px;
+}
+.user_badges {
+    float: left;}
+
+.upg_follow a{
+box-shadow : none;
+display: -moz-inline-box;
+}
+.profilepic {
+    margin-left: 21% !important;
+}
+}
+@media screen and (max-width:415px){
+    .profilepic {
+    margin-left: 23% !important;
+    margin-top: 3% !important;
+    }
 }

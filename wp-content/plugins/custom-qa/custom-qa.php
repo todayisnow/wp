@@ -4,22 +4,32 @@
  *  Description: A WordPress plugin developed by Interdesigns.com to build a complete Question & Answer system for your WordPress site like Quora, Stackoverflow, etc. with custom answers and question builder
  *  Author: Interdesigns
  *  Author URI: http://www.Interdesigns.com
- *  Version: 1.1.6
+ *  Version: 1.1.8
  *  Text Domain: iqa
  */
 
-wp_register_style('hide', plugins_url('/css/hide.css', __FILE__));
-wp_enqueue_style('hide');
-
-
 add_filter( 'dynamic_sidebar_params', 'my_filter_dynamic_sidebar_params' );
 add_filter( 'widget_output', 'my_widget_output_filter', 10, 3 );
-
+add_action('wp_enqueue_scripts', 'add_scripts');
 add_action('wp_enqueue_scripts', 'iqa_init');
 add_action('admin_footer-users.php', 'add_verify_users');
 add_action('admin_action_verify_users', 'handel_action_verify_users');
 add_action('admin_action_un_verify_users', 'handel_action_un_verify_users');
 add_action('admin_notices', 'my_actions_admin_notice');
+
+function add_scripts(){
+	wp_register_style('hide', plugins_url('/css/hide.css', __FILE__));
+	wp_enqueue_style('hide');
+	
+	wp_enqueue_script( 'dwqa-questions-list', plugins_url('/dw-question-answer-pro/templates/assets/js/dwqa-questions-list.js') , array( 'jquery', 'jquery-ui-autocomplete' ), '', true );
+	wp_register_script('all-pages-search-js', plugins_url( '/js/all_pages_search.js', __FILE__ ), array('jquery', 'jquery-ui-autocomplete'));
+	$the_query = new WP_Query(array('s' => "dwqa-submit-question-form"));
+	if(isset($the_query) && $the_query->post_count != 0){
+		$q_link = get_permalink($the_query->posts[0]->ID);
+	}
+	wp_localize_script( 'all-pages-search-js', 'qa', array("q_link" => $q_link));
+	wp_enqueue_script('all-pages-search-js');
+}
 
 function iqa_init() {
 	global $wp_filter;
@@ -41,8 +51,7 @@ function iqa_init() {
 		if(isset($the_query) && $the_query->post_count != 0){
 			$q_link = get_permalink($the_query->posts[0]->ID);
 		}
-		wp_register_script('search-js', plugins_url( '/js/search.js', __FILE__ ), array('jquery'));
-		wp_localize_script( 'search-js', 'qa', array("q_link" => $q_link));
+		wp_register_script('search-js', plugins_url( '/js/search.js', __FILE__ ), array('jquery', 'jquery-ui-autocomplete'));
 		wp_localize_script( 'search-js', 'users', array("list" => $usersList));
 		wp_enqueue_script('search-js');
 	}
@@ -56,12 +65,12 @@ function iqa_init() {
 					wp_dequeue_style('hide');
 					wp_enqueue_style('question-css');
 				}
-				wp_register_script('question-edit-js', plugins_url( '/js/question_edit.js', __FILE__ ), array('jquery'));
+				wp_register_script('question-edit-js', plugins_url( '/js/question_edit.js', __FILE__ ), array('jquery', 'jquery-ui-autocomplete'));
 				wp_enqueue_script('question-edit-js');
 			}
 			
 			else if($post_info->post_type === "dwqa-answer"){
-				wp_register_script('answer-edit-js', plugins_url( '/js/answer_edit.js', __FILE__ ), array('jquery'));    
+				wp_register_script('answer-edit-js', plugins_url( '/js/answer_edit.js', __FILE__ ), array('jquery', 'jquery-ui-autocomplete'));    
 				wp_localize_script( 'answer-edit-js', 'upload', array("url" => plugins_url( '/upload.php', __FILE__ ), "css" => plugins_url( '/css/editor.css', __FILE__ ), "content" => strip_tags($post->post_content)));
 				wp_enqueue_script('answer-edit-js');
 			}
@@ -71,7 +80,7 @@ function iqa_init() {
 			wp_register_style('comment', plugins_url('/css/comment.css', __FILE__));
 			wp_dequeue_style('hide');
 			wp_enqueue_style('comment');
-			wp_register_script('comment-js', plugins_url( '/js/comment.js', __FILE__ ), array('jquery'));
+			wp_register_script('comment-js', plugins_url( '/js/comment.js', __FILE__ ), array('jquery', 'jquery-ui-autocomplete'));
 			wp_enqueue_script('comment-js');
 		}
 		
@@ -171,7 +180,7 @@ function iqa_init() {
 			$verified_list["answers_info"] = $tmp_list;
 			
 			
-			wp_register_script('answer-js', plugins_url( '/js/answer.js', __FILE__ ), array('jquery'));    
+			wp_register_script('answer-js', plugins_url( '/js/answer.js', __FILE__ ), array('jquery', 'jquery-ui-autocomplete'));    
 			wp_localize_script( 'answer-js', 'upload', array("url" => plugins_url( '/upload.php', __FILE__ ), "css" => plugins_url( '/css/editor.css', __FILE__ )));
 			wp_localize_script( 'answer-js', 'list', array("verified" => json_encode($verified_list)));
 			wp_localize_script( 'answer-js', 'links', array("login" => wp_login_url(), "reg" => wp_registration_url()));
@@ -180,7 +189,7 @@ function iqa_init() {
 	}
 	
 	else if(has_shortcode($post->post_content, "dwqa-submit-question-form")){
-		wp_register_script('question-js', plugins_url( '/js/question.js', __FILE__ ), array('jquery'));
+		wp_register_script('question-js', plugins_url( '/js/question.js', __FILE__ ), array('jquery', 'jquery-ui-autocomplete'));
 		wp_localize_script( 'question-js', 'links', array("login" => wp_login_url(), "reg" => wp_registration_url()));
 		wp_enqueue_script('question-js');
 	}

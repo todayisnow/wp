@@ -72,17 +72,17 @@ function dwqa_related_question( $question_id = false, $number = 5, $echo = true 
 */
 function dwqa_get_latest_activity_info( $question_id ) {
 	if ( 'dwqa-question' !== get_post_type( $question_id ) ) {
-		return false;;
+		return false;
 	}
-
+	
 	$latest_activity = get_post_meta( $question_id, '_latest_activity', true );
 	$latest_answer = dwqa_get_latest_answer( $question_id );
 	if ( $latest_activity && isset( $latest_activity['act_id'] ) && isset( $latest_activity['user_id'] ) ) {
+	
 		$user_id = absint( $latest_activity['user_id'] );
-		
 		$act_id = absint( $latest_activity['act_id'] );
 		$text = esc_html( dwqa_get_latest_activity_text( $latest_activity['text'] ) );
-
+		
 		// is answer
 		if ( $latest_activity['text'] == 'answered' ) {
 			$is_anonymous = dwqa_is_anonymous( $act_id );

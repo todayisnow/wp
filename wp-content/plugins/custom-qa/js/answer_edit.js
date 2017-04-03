@@ -29,36 +29,43 @@ class Row {
 		#201703080402
 		#category of answer only text box
 		*/
-		return "<input type='text' id='other_"+this.id+"' style='  margin-top: 35px;' class='answer-other' value='"+this.name+"'><span>ex: Defination</span>";
+		//return "<input type='text' id='other_"+this.id+"' style='  margin-top: 35px;' class='answer-other' value='"+this.name+"'><span>ex: Defination</span>";
 		var buildStrRet = "<select onchange='javascript:handel("+this.id+");' id='rowName_"+this.id+"'>";
 		var isInOther = true;
+		buildStrRet += "<option value='Acronym'";
+		if(this.name == 'Acronym'){
+			buildStrRet += 'selected';
+			isInOther = false;
+		}
+		buildStrRet += ">Acronym</option>";
+
 		buildStrRet += "<option value='Definition'";
 		if(this.name == 'Definition'){
 			buildStrRet += 'selected';
 			isInOther = false;
 		}
 		buildStrRet += ">Definition</option>";
-		
-		buildStrRet += "<option value='Pros'";
-		if(this.name == 'Pros'){
+
+		buildStrRet += "<option value='Scope'";
+		if(this.name == 'Scope'){
 			buildStrRet += 'selected';
 			isInOther = false;
 		}
-		buildStrRet += ">Pros</option>";
-		
-		buildStrRet += "<option value='Cons'";
-		if(this.name == 'Cons'){
-			buildStrRet += 'selected';
-			isInOther = false;
-		}
-		buildStrRet += ">Cons</option>";
-		
+		buildStrRet += ">Scope</option>";
+
 		buildStrRet += "<option value='Examples'";
 		if(this.name == 'Examples'){
 			buildStrRet += 'selected';
 			isInOther = false;
 		}
 		buildStrRet += ">Examples</option>";
+
+		buildStrRet += "<option value='Reference'";
+		if(this.name == 'Reference'){
+			buildStrRet += 'selected';
+			isInOther = false;
+		}
+		buildStrRet += ">Reference</option>";
 		
 		if(isInOther && this.name != null){
 			buildStrRet += "<option selected value='Others'>Others</option></select><input type='text' id='other_"+this.id+"' class='answer-other' value='"+this.name+"'>";
@@ -84,16 +91,15 @@ class Row {
 	*/
 	
 	show(){
-					
 		var retStr = "<tr class='i_table_row' data-cells='"+this.getCellsNumber()+"' id='row_"+this.id+"'><td class='i_row_name'>"+this.getRowName()+"</td><td  class='i_cell_left'";
 		if(this.getCellsNumber() == 1){
 			retStr += " colspan='2'";
 		}
-		retStr += "><textarea name='name_left_"+this.id+"' id='name_left_"+this.id+"' max_chars='500' ></textarea><div  id='name_left_"+this.id+"_div' style=' text-align: right; margin-right: 20px;'>0/500</div></td><td class='i_cell_right'";
+		retStr += "><textarea name='name_left_"+this.id+"' id='name_left_"+this.id+"' max_chars='1000' ></textarea><div  id='name_left_"+this.id+"_div' style=' text-align: right;margin-right: 15px; color: #aaa; font-size: x-small; display:none;'></div></td><td class='i_cell_right'";
 		if(this.getCellsNumber() == 1){
 			retStr += " style='display:none;'";
 		}
-		retStr += "><textarea  name='name_right_"+this.id+"' id='name_right_"+this.id+"' max_chars='500' ></textarea><div  id='name_right_"+this.id+"_div' style=' text-align: right; margin-right: 20px;'>0/500</div></td><td class='i_options'><a alt='Delete' title='Delete' href='javascript:void(0);' onclick='del(this);' id='"+this.id+"'><i class='fa fa-times-circle' aria-hidden='true'></i></a><br><a alt='Merge cells' title='Merge cells' href='javascript:void(0);' onclick='merge(this);' id='"+this.id+"'><i class='fa fa-arrows-h' aria-hidden='true'></i></a><br><a alt='MoveUp' title='MoveUp' href='javascript:void(0);' onclick='MoveUp(this);' id='"+this.id+"'><i class='fa fa-arrow-up' aria-hidden='true'></i></a><br><a alt='MoveDown' title='MoveDown' href='javascript:void(0);' onclick='MoveDown(this);' id='"+this.id+"'><i class='fa fa-arrow-down' aria-hidden='true'></i></a></td></tr>";
+		retStr += "><textarea  name='name_right_"+this.id+"' id='name_right_"+this.id+"' max_chars='1000' ></textarea><div  id='name_right_"+this.id+"_div' style=' text-align: right;margin-right: 15px; color: #aaa; font-size: x-small; display:none;'></div></td><td class='i_options'><a alt='Delete' title='Delete' href='javascript:void(0);' onclick='del(this);' id='"+this.id+"'><i class='fa fa-times-circle' aria-hidden='true'></i></a><br><a alt='Merge cells' title='Merge cells' href='javascript:void(0);' onclick='merge(this);' id='"+this.id+"'><i class='fa fa-arrows-h' aria-hidden='true'></i></a><br><a alt='MoveUp' title='MoveUp' href='javascript:void(0);' onclick='MoveUp(this);' id='"+this.id+"'><i class='fa fa-arrow-up' aria-hidden='true'></i></a><br><a alt='MoveDown' title='MoveDown' href='javascript:void(0);' onclick='MoveDown(this);' id='"+this.id+"'><i class='fa fa-arrow-down' aria-hidden='true'></i></a></td></tr>";
 		
 		return retStr;
 	}
@@ -106,7 +112,6 @@ jQuery(window).load(function(){
 	var data = '';
 	try{
 		data = tinyMCE.activeEditor.getContent({format : 'text'}).trim();
-		
 	}
 	catch(e){
 		data = jQuery("#dwqa-custom-content-editor").val();
@@ -134,6 +139,7 @@ jQuery(window).load(function(){
 			parsedData[i].lhsI = parsedData[i].left;
 			parsedData[i].rhsI = parsedData[i].right;
 		}
+		
 		handel_add($answerTable, i+1, parsedData[i].lhsI, parsedData[i].rhsI, parsedData[i].row, parsedData[i].cellsNumber);
 	}
 	
@@ -157,11 +163,20 @@ jQuery(window).load(function(){
 				var leftInput = escape(tinyMCE.get("name_left_"+i).getContent());
 				var rightInput = escape(tinyMCE.get("name_right_"+i).getContent());
 				var cellsNumber = jQuery("#row_"+i).data('cells');
-				/*var rowName = jQuery("#rowName_"+i).val();
+				var rowName = jQuery("#rowName_"+i).val();
+				if (rowName=='other' && jQuery("#Others"+i).val()=="")
+				{
+					showError("Point of comparison field is empty");
+					jQuery("#rowName_"+i).attr('style','background-color: #f2bebe; border: 1px solid #ebccd1;  color: #a94442;');
+					return false;
+				}
+				else{
+					jQuery("#rowName_"+i).attr('style','');
+				}
 				if(rowName == "Others" && jQuery("#other_"+i).val().length){
 					rowName = jQuery("#other_"+i).val();
-				}*/
-				var rowName = jQuery("#other_"+i).val();
+				}
+				//var rowName = jQuery("#other_"+i).val();
 				if(leftInput.length > 0 || (rightInput.length > 0 && cellsNumber==2)){
 					data.push({"cellsNumber": cellsNumber, "row": rowName ,"lhsI": leftInput, "rhsI": rightInput});
 				}
@@ -180,8 +195,7 @@ jQuery(window).load(function(){
 		}
 		return false;
 	});
-	
-	
+
 });
 
 function handel_add(table, id, left, right, name, cells){
@@ -193,9 +207,9 @@ function handel_add(table, id, left, right, name, cells){
 	
 	tinyMCE.get('name_left_'+id).setContent(newRow.getLeft());
 	tinyMCE.get('name_right_'+id).setContent(newRow.getRight());
-	ShowCount(newRow.getLeft(),"left",id)
-	ShowCount(newRow.getRight(),"right",id)
+	
 }
+
 function ShowCount(content,side,id)
 
 {
@@ -233,7 +247,7 @@ function ShowCount(content,side,id)
 #confirm before delete
 */
 function del(id){
-	if(confirm("Are you sure you want to delete this section?")){
+	if(confirm("Are you sure you want to delete this row?")){
 	jQuery("#row_"+jQuery(id).attr('id')).remove();
 	}
 }
@@ -317,12 +331,6 @@ function FixMerge(id)
 	}
 }
 
-
-
-
-
-
-
 function makeEditor(selector){
 	tinyMCE.init({
 		selector: '#'+selector,
@@ -361,7 +369,6 @@ function makeEditor(selector){
 			editor.on('init', function(args) {
 				editor = args.target;
 
-				
 				editor.on('NodeChange', function(e) {
 					if (e && e.element.nodeName.toLowerCase() == 'img') {
 						tinyMCE.DOM.setAttribs(e.element, {'width': null, 'height': null});
@@ -383,17 +390,18 @@ function makeEditor(selector){
 					var decodedStripped = decoded.replace(/(<([^>]+)>)/ig, "").trim();
 					var count = decodedStripped.length;
                    
-					if(count>500)
+					if(count>1000)
 					{
 						return false;
 					}
-					else if(count==500)
+					else if(count>=980)
 					{
-						document.getElementById(selector+"_div").innerHTML = "you have reached the limit";
+						
+						jQuery("#"+selector+"_div").show();
+						document.getElementById(selector+"_div").innerHTML =(1000-count)+"/20";
 					}
-					else
-					{
-						document.getElementById(selector+"_div").innerHTML =count+"/500";
+					else{
+						jQuery("#"+selector+"_div").hide();
 					}
                 });
 				editor.onKeyDown.add(function(ed, evt) {
@@ -447,6 +455,7 @@ function merge(id){
 }
 
 function handel(id){
+	jQuery("#rowName_"+id).attr('style','');
 	if(jQuery("#rowName_"+id).val() == "Others"){
 		jQuery("#other_"+id).show();
 	}

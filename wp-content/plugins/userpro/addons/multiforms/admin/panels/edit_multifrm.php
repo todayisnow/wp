@@ -26,6 +26,7 @@
 
 				
 			<?php 
+                        $up_multiforms = array();
 			$up_multiforms = userpro_mu_get_option('multi_forms');
 			if( isset($up_multiforms) && !empty($up_multiforms) ){
 				foreach( $up_multiforms as $key => $arr ) {  ?>

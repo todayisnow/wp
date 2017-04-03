@@ -200,6 +200,11 @@ function userpro_get_edit_userrole()
 			switch($field){
 				default:
 					$output = get_user_meta( $user_id, $field, true );
+					$default_background_img = userpro_get_option('default_background_img');
+					if( $field == 'custom_profile_bg' && !empty($default_background_img) && empty($output) ){
+						$output = userpro_get_option('default_background_img');
+					}
+					
 					if(!is_array($output) && strpos(str_replace(' ','',$output),'">')===0)
 					{
 						$output = substr_replace(trim($output), "", 0,2);	
@@ -245,7 +250,7 @@ function userpro_get_edit_userrole()
 	
 	/* Get nice name of profile field value */
 	function userpro_profile_data_nicename($field, $value) {
-		$output = '';
+		$output = array();
 		$get_fields = get_option('userpro_fields');
 		if (is_array($value)){
 			foreach($value as $s=>$l){

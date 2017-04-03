@@ -1,10 +1,10 @@
-<?php  
+<?php
 
 /**
  *  Inlucde all funtion for filter of dw question answer plugin
  */
 class DWQA_Filter {
-	public function __construct() {	
+	public function __construct() {
 		// add_action( 'dwqa_before_questions_list', array( $this, 'prepare_archive_posts' ) );
 		add_action( 'dwqa_after_questions_list', array( $this, 'after_archive_posts' ) );
 
@@ -29,7 +29,7 @@ class DWQA_Filter {
 		$page_text = dwqa_is_front_page() ? 'page' : 'paged';
 		$paged = get_query_var( $page_text );
 		$query['paged'] = $paged ? $paged : 1;
-		
+
 		// filter by category
 		$cat = get_query_var( 'dwqa-question_category' ) ? get_query_var( 'dwqa-question_category' ) : false;
 		if ( $cat ) {
@@ -163,7 +163,7 @@ class DWQA_Filter {
 
 		// sticky question
 		$sticky_questions = get_option( 'dwqa_sticky_questions', array() );
-		if ( !empty( $sticky_questions ) && 'all' == $filter && ! $sort && !$search_text && $query['paged'] == 1 ) {
+		if ( !empty( $sticky_questions ) && 'all' == $filter && ! $sort && !$search_text ) {
 
 			if ( $cat ) {
 				foreach( $sticky_questions as $key => $id ) {
@@ -195,35 +195,46 @@ class DWQA_Filter {
 				$sticky_questions = array( $sticky_questions );
 			}
 			$num_posts = count( $wp_query->dwqa_questions->posts );
-			$stickies_offset = 0;
 
-			for ( $i = 0; $i < $num_posts; $i++ ) {
-				if ( in_array( $wp_query->dwqa_questions->posts[ $i ]->ID, $sticky_questions ) ) {
-					$sticky_post = $wp_query->dwqa_questions->posts[$i];
+			if($query['paged'] == 1){
+				$stickies_offset = 0;
 
-					array_splice( $wp_query->dwqa_questions->posts, $i, 1 );
-					array_splice( $wp_query->dwqa_questions->posts, $stickies_offset, 0, array( $sticky_post ) );
+				for ( $i = 0; $i < $num_posts; $i++ ) {
+					if ( in_array( $wp_query->dwqa_questions->posts[ $i ]->ID, $sticky_questions ) ) {
+						$sticky_post = $wp_query->dwqa_questions->posts[$i];
 
-					$stickies_offset++;
+						array_splice( $wp_query->dwqa_questions->posts, $i, 1 );
+						array_splice( $wp_query->dwqa_questions->posts, $stickies_offset, 0, array( $sticky_post ) );
 
-					$offset = array_search( $sticky_post->ID, $sticky_questions );
-					unset( $sticky_questions[$offset] );
+						$stickies_offset++;
+
+						$offset = array_search( $sticky_post->ID, $sticky_questions );
+						unset( $sticky_questions[$offset] );
+					}
+				}
+
+				if ( !empty( $sticky_questions ) ) {
+					$stickies = get_posts( array(
+						'post__in' 		=> $sticky_questions,
+						'post_type' 	=> 'dwqa-question',
+						'post_status' 	=> 'publish',
+						'nopaging'		=> true
+					) );
+
+					foreach( $stickies as $sticky_post ) {
+						array_splice( $wp_query->dwqa_questions->posts, $stickies_offset, 0, array( $sticky_post ) );
+						$stickies_offset++;
+					}
+				}
+			}
+			else{
+				for ( $i = 0; $i < $num_posts; $i++ ) {
+					if ( in_array( $wp_query->dwqa_questions->posts[ $i ]->ID, $sticky_questions ) ) {
+						array_splice( $wp_query->dwqa_questions->posts, $i, 1 );
+					}
 				}
 			}
 
-			if ( !empty( $sticky_questions ) ) {
-				$stickies = get_posts( array(
-					'post__in' 		=> $sticky_questions,
-					'post_type' 	=> 'dwqa-question',
-					'post_status' 	=> 'publish',
-					'nopaging'		=> true
-				) );
-
-				foreach( $stickies as $sticky_post ) {
-					array_splice( $wp_query->dwqa_questions->posts, $stickies_offset, 0, array( $sticky_post ) );
-					$stickies_offset++;
-				}
-			}
 			$wp_query->dwqa_questions->post_count = count( $wp_query->dwqa_questions->posts );
 		}
 	}
@@ -280,7 +291,7 @@ class DWQA_Filter {
 			$best_answer = dwqa_get_the_best_answer( $question->ID );
 
 			$args = apply_filters( 'dwqa_prepare_answers', $args );
-			
+
 			$query->dwqa_answers = new WP_Query( $args );
 			if ( $best_answer && !empty( $best_answer ) ) {
 				$sticky_posts = array( $best_answer );

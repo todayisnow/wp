@@ -180,9 +180,11 @@ class userpro_dg_api {
 		if($result['defaultbadge']=='1')
 		{
 		foreach($users as $user_id) {
-		 
+                        
 			$badges = get_user_meta($user_id->id, '_userpro_badges', true);
-				
+                        if(empty($badges)){
+                            $badges = array();
+                        }
 			// find if that badge exists
 			if (is_array($badges)){
 				foreach($badges as $k => $badge){
@@ -234,7 +236,9 @@ class userpro_dg_api {
 				}
 				update_user_meta($user->ID, '_userpro_badges', true);
 			}
-				
+			if(empty($badges)){
+                            $badges = array();
+                        }	
 			// add new badge to user
 			$badges[] = array(
 					'badge_url' => $form['badge_url'],

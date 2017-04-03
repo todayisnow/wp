@@ -188,7 +188,7 @@
 			'user_url' => userpro_add_field('user_url', 0, 0, 0, null),
 			
 			'accountinfo' => userpro_add_section( __('Account Details','userpro'), 1, 0 ),
-			'user_email' => userpro_add_field('user_email', 1, 0, 0, null),
+			'user_email' => userpro_add_field('user_email', 1, 0, 0, 'email_domain_check'),
 			'user_pass' => userpro_add_field('user_pass', 0, 0, 0, null),
 			'user_pass_confirm' => userpro_add_field('user_pass_confirm', 0, 0, 0, null),
 			'passwordstrength' => userpro_add_field('passwordstrength', 0, 0, 0, null),

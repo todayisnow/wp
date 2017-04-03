@@ -278,8 +278,7 @@ function userpro_cache_clear_wt()
 
 		/* Runs before a form is processed */
 		do_action('userpro_before_form_save', $form);
-		
-		$output = '';
+		$output = array();
 
 		/* PROCESSING ACTIONS */
 		switch($template) {
@@ -288,7 +287,7 @@ function userpro_cache_clear_wt()
 				if(isset($_POST['user_action'])){
 					$user_action = $_POST['user_action'];  	
 				}
-				$output['error'] = '';
+				$output['error'] = array();
 				if (get_current_user_id() != $user_id) {
 					die();
 				}
@@ -303,7 +302,7 @@ function userpro_cache_clear_wt()
 					}
 					
 					if (isset($form['userpro_editor']) && !empty($form['userpro_editor'])) {
-						$array['post_content'] = @wp_kses($form['userpro_editor']);
+						$array['post_content'] = @wp_kses($form['userpro_editor'],'');
 					}
 					
 					if (isset($form['post_type']) && !empty($form['post_type'])){ 
@@ -446,7 +445,7 @@ function userpro_cache_clear_wt()
 				
 			/* delete profile */
 			case 'delete':
-				$output['error'] = '';
+				$output['error'] = array();
 				$user = get_userdata($user_id);
 				
 				$user_roles = $user->roles;
@@ -492,7 +491,7 @@ function userpro_cache_clear_wt()
 		
 			/* change pass */
 			case 'change':
-				$output['error'] = '';
+				$output['error'] = array();
 				
 				if (get_current_user_id() != $user_id) {
 					die();
@@ -537,7 +536,7 @@ function userpro_cache_clear_wt()
 		
 			/* send secret key */
 			case 'reset':
-				$output['error'] = '';
+				$output['error'] = array();
 				$username_or_email = $form['username_or_email'];
 				if (!$username_or_email){
 					$output['error']['username_or_email'] = __('You should provide your email or username.','userpro');
@@ -590,7 +589,7 @@ function userpro_cache_clear_wt()
 				
 				break;
 			case 'resend':
-				$output['error'] = '';
+				$output['error'] = array();
 				$userdataval='';
 				$username_or_email = $form['username_or_email'];
 				if (!$username_or_email){
@@ -631,7 +630,7 @@ function userpro_cache_clear_wt()
 			case 'login':
 				global $wp_filter;
 				$username_or_email = $form['username_or_email'];
-				$output['error'] = '';
+				$output['error'] = array();
 			
 				/* remember me */
 				if (!isset($form['rememberme'])) {
@@ -756,7 +755,7 @@ $uppayment=get_option('userpro_payment');
 			/* editing */
 			case 'edit':
 			
-				$output['error'] = '';
+				$output['error'] = array();
 					
 				
 				if ($user_id != get_current_user_id() && !current_user_can('manage_options') && !userpro_get_edit_userrole() ){	
@@ -811,7 +810,7 @@ $uppayment=get_option('userpro_payment');
 				}
 				}
 				
-				$output['error'] = '';
+				$output['error'] = array();
 				$user_invited="";
 				/* Form validation */
 				/* Here you can process custom "errors" before proceeding */
@@ -1023,6 +1022,38 @@ $uppayment=get_option('userpro_payment');
 					$output['error'] = __('Please enter a valid email.','userpro');
 				} else if (email_exists($input_value)) {
 					$output['error'] = __('Email is taken. Is that you? Try to <a href="#" data-template="login">login</a>','userpro');
+				}else if($input_value){ 
+					$domain_flag = '0';
+                    $domain = strstr($input_value, '@');
+                    
+                    $userpro_block_email_domains = userpro_get_option('userpro_block_email_domains');
+                    $domains = explode(',',$userpro_block_email_domains);
+                    
+                    foreach($domains as $k => $v){
+                    	$v = array($v);
+                    	if(in_array($domain, $v)) $domain_flag = '1';
+                    }
+                    
+                    if($domain_flag == '1')
+                        $output['error'] = __('This Email Domain is not allowed for registration','userpro');
+                }
+				break;
+				
+			case 'email_domain_check':
+				if($input_value){
+					$domain_flag = '0';
+					$domain = strstr($input_value, '@');
+			
+					$userpro_block_email_domains = userpro_get_option('userpro_block_email_domains');
+					$domains = explode(',',$userpro_block_email_domains);
+			
+					foreach($domains as $k => $v){
+						$v = array($v);
+						if(in_array($domain, $v)) $domain_flag = '1';
+					}
+			
+					if($domain_flag == '1')
+						$output['error'] = __('This Email Domain is not allowed','userpro');
 				}
 				break;
 			
@@ -1098,7 +1129,7 @@ $uppayment=get_option('userpro_payment');
 		if (!isset($_POST) || $_POST['action'] != 'userpro_save_userdata' || ( $user_id != get_current_user_id() && !current_user_can('manage_options') &&  !userpro_get_edit_userrole() ) )
 			die();
 			
-		$output = '';
+		$output = array();
 		
 		$userpro->set($field, $value, $user_id);
 		

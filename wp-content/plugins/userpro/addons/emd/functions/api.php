@@ -190,6 +190,12 @@ class userpro_ed_api {
 			}
 		}
 		
+		/* meta query for profile privacy*/
+		$query['meta_query'][]= array(
+				'key' => 'profile_privacy',
+				'compare' => 'NOT EXISTS'
+		);
+		
 		/* End */
 		
 		/* pagi stuff */

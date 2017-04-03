@@ -11,7 +11,7 @@
 <div class="dwqa-comment">
 	<div class="dwqa-comment-meta">
 		<?php $user = get_user_by( 'id', $comment->user_id ); ?>
-						<?
+								<?
 				/*
 #Dev
 #Todayisnow
@@ -19,7 +19,7 @@
 #Get title with user name in comment
 */
 				?>
-				<?php 
+					<?php 
 				
 		$title = get_the_author_meta( 'title', $comment->user_id );
 		if($title!="")
@@ -37,5 +37,5 @@
 			<?php endif; ?>
 		</div>
 	</div>
-	<?php comment_text(); ?>
+	<?php echo str_replace('<a', '<a target="_blank"', get_comment_text()); ?>
 </div>

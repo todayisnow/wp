@@ -19,6 +19,9 @@ add_action('wp_enqueue_scripts', 'a13_child_style',27);
 /*
  * Add here your functions below, and overwrite native theme functions
  */
+/*
+ * Add here your functions below, and overwrite native theme functions
+ */
  /*
 #Dev
 #Todayisnow

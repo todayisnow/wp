@@ -6,7 +6,7 @@ return array(
         'slug'     				=> 'revslider', // The plugin slug (typically the folder name)
         'source'   				=> A13_TPL_PLUGINS.'/revslider.zip', // The plugin source
         'required' 				=> false, // If false, the plugin is only 'recommended' instead of required
-        'version' 				=> '5.3.1.5', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
+        'version' 				=> '5.4.1', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
         'force_activation' 		=> false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch
         'force_deactivation' 	=> false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins
 //                'external_url' 			=> '', // If set, overrides default API URL and points to an external URL
@@ -17,7 +17,7 @@ return array(
         'slug'     				=> 'LayerSlider', // The plugin slug (typically the folder name)
         'source'   				=> A13_TPL_PLUGINS.'/layersliderwp.zip', // The plugin source
         'required' 				=> false, // If false, the plugin is only 'recommended' instead of required
-        'version' 				=> '6.1.0', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
+        'version' 				=> '6.1.6', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
         'force_activation' 		=> false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch
         'force_deactivation' 	=> false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins
     ),
@@ -27,7 +27,7 @@ return array(
         'slug'     				=> 'go_pricing', // The plugin slug (typically the folder name)
         'source'   				=> A13_TPL_PLUGINS.'/go_pricing.zip', // The plugin source
         'required' 				=> false, // If false, the plugin is only 'recommended' instead of required
-        'version' 				=> '3.3.4', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
+        'version' 				=> '3.3.5', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
         'force_activation' 		=> false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch
         'force_deactivation' 	=> false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins
     ),

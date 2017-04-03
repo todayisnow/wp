@@ -784,6 +784,26 @@
 		</td>
 	</tr>
 	
+	<tr valign="top">
+		<th scope="row"><label for="default_background_img"><?php _e('Default background image','userpro'); ?></label></th>
+		<td>
+		<?php $default_backgrnd_img_option = userpro_get_option('default_background_img');
+			if(!empty($default_backgrnd_img_option)){$display_condition = 'display:inline-block;';}else{$display_condition='display:none;';}
+		?>
+			<label for="default_background_img">
+			
+				<img src="<?php echo userpro_get_option('default_background_img'); ?>" class="default_background_img_src" style="<?php echo $display_condition;?>"/>
+    			
+    			<input id="default_background_img" type="text" size="36" name="default_background_img" value="<?php echo userpro_get_option('default_background_img'); ?>" style="margin-bottom: 1% !important;" />
+    			<input id="default_background_img_upload_button" class="button userpro-button" type="button" value="Upload Image" style="margin: 0 !important;" />
+    			
+    			<input id="default_background_img_remove_button" class="button userpro-button red" type="button" value="Remove Image" style="margin-bottom: 1% !important;<?php echo $display_condition;?>"/>
+			
+			</label>
+			<span class="description"><?php _e('Enter a URL or upload an image.','userpro'); ?></span>
+		</td>
+	</tr>
+	
 </table>
 
 <h3><i class="userpro-icon-retweet"></i><?php _e('Redirection & Backend Settings','userpro'); ?></h3>
@@ -1012,6 +1032,14 @@
 	<tr valign="top">
 		<th scope="row"><label for="terms_agree_text"><?php _e('Terms & Conditions Text/HTML','userpro'); ?></label></th>
 		<td><textarea name="terms_agree_text" id="terms_agree_text" class="large-text code" rows="3"><?php echo esc_attr(userpro_get_option('terms_agree_text')); ?></textarea></td>
+	</tr>
+	
+	<tr valign="top">
+		<th scope="row"><label for="userpro_block_email_domains"><?php _e('Block Email Domains from Registration','userpro'); ?></label></th>
+		<td>
+			<input type="text" name="userpro_block_email_domains" id="userpro_block_email_domains" value="<?php echo userpro_get_option('userpro_block_email_domains'); ?>" class="regular-text" />
+			<span class="description"><?php _e('A comma seperated list of Email Domains to be blocked for registering on the website. Eg - @hotmail.com, @yahoo.com ','userpro'); ?></span>
+		</td>
 	</tr>
 	
 </table>
@@ -1540,6 +1568,20 @@
 		</td>
 	</tr>
 	
+</table>
+
+<h3><i class="userpro-icon-gears"></i><?php _e('bbpress Compatibility','userpro'); ?></h3>
+<table class="form-table">
+
+	<tr valign="top">
+		<th scope="row"><label for="bbpress_userpro_link_sync"><?php _e('Sync UserPro profile links with bbpress','userpro'); ?></label></th>
+		<td>
+			<select name="bbpress_userpro_link_sync" id="bbpress_userpro_link_sync" class="chosen-select" style="width:300px">
+				<option value="1" <?php selected(1, userpro_get_option('bbpress_userpro_link_sync')); ?>><?php _e('Yes','userpro'); ?></option>
+				<option value="0" <?php selected(0, userpro_get_option('bbpress_userpro_link_sync')); ?>><?php _e('No','userpro'); ?></option>
+			</select>
+		</td>
+	</tr>
 </table>
 
 <h3><i class="userpro-icon-gears"></i><?php _e('Envato Settings','userpro'); ?></h3>

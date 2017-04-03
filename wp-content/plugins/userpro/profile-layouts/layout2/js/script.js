@@ -7,6 +7,7 @@ jQuery('document').ready(function(){
         jQuery('.col-xs-6.col-md-4').addClass('col-md-6');
         jQuery('.col-xs-6.col-md-4').removeClass('col-md-4');
 	userpro_collapse(jQuery('#up_profile_details'));
+        jQuery('.upl_follow .userpro-follow').removeClass('userpro-button');
 });
 
 function up_toggle_content(elm){

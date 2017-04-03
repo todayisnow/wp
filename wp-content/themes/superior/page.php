@@ -5,9 +5,10 @@
  */
 
 get_header(); ?>
+
 <?php if ( have_posts() ) : the_post(); ?>
 
-<?php a13_title_bar(); ?>
+<?php a13_title_bar(get_the_title()); ?>
 
 <article id="content" class="clearfix">
 

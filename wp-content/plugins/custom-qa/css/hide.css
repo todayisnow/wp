@@ -1,4 +1,4 @@
-div.dwqa-question-content, #wp-dwqa-answer-content-wrap, .dwqa-answer-content p, #wp-dwqa-custom-content-editor-wrap, #wp-question-content-wrap, p.dwqa-search, #wp-dwqa-custom-content-editor-wrap, input[name='question_title'], .dwqa-answers-login{
+div.dwqa-question-content, #wp-dwqa-answer-content-wrap, .dwqa-answer-content p, #wp-dwqa-custom-content-editor-wrap, #wp-question-content-wrap, p.dwqa-search, #wp-dwqa-custom-content-editor-wrap, input[name='question_title'], .dwqa-answers-login, #dwqa-search{
 	display: none;
 }
 

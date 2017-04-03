@@ -185,6 +185,14 @@
 			);
 		}
 		
+		/* meta query for profile privacy*/
+		if(!current_user_can('manage_options')){
+			$query['meta_query'][]= array(
+					'key' => 'profile_privacy',
+					'compare' => 'NOT EXISTS'
+				);
+		}
+		
 		/**
 			CUSTOM SEARCH FILTERS UPDATE
 		**
@@ -395,6 +403,8 @@
 					'compare' => 'REGEXP'
 			);
 		}
+		
+		
 		
 		/** DO **/
 

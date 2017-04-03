@@ -2,6 +2,7 @@
 $query="SELECT post_author FROM ".$wpdb->prefix."posts WHERE post_type IN ('post')";
 $results = $wpdb->get_results($query , ARRAY_A);
 if(is_array($results)) {
+    $list_users = array();
 foreach ($results as $result){
 	$list_users[] = $result['post_author'];
 }
