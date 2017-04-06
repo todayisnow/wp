@@ -37,5 +37,5 @@
 			<?php endif; ?>
 		</div>
 	</div>
-	<?php echo str_replace('<a', '<a target="_blank"', get_comment_text()); ?>
+	<?php echo "<p>".str_replace('<a', '<a target="_blank"', get_comment_text())."</p>"; ?>
 </div>

@@ -1,6 +1,6 @@
 jQuery(window).load(function(){
 	var data = '';
-	alert("from comment.js")
+	
 	try{
 		data = tinyMCE.activeEditor.getContent({format : 'text'}).trim();
 	}
@@ -29,7 +29,7 @@ jQuery(window).load(function(){
 	# word count oncomment
 	*/
 		jQuery('textarea').attr('maxlength','500')
-		jQuery('textarea').after("<div  style=' text-align: right; margin-right: 25px; font-size:x-small; color:#aaa display:block;'></div>");
+		jQuery('textarea').after("<div  style=' text-align: right; margin-right: 25px; font-size:x-small; color:#aaa; height:5px;'></div>");
 		jQuery('textarea').keyup(function () {
 		  var max = 500;
 		  var len = jQuery(this).val().length;

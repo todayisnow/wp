@@ -60,12 +60,12 @@ class Row {
 		}
 		buildStrRet += ">Examples</option>";
 
-		buildStrRet += "<option value='Reference'";
-		if(this.name == 'Reference'){
+		buildStrRet += "<option value='References'";
+		if(this.name == 'References'){
 			buildStrRet += 'selected';
 			isInOther = false;
 		}
-		buildStrRet += ">Reference</option>";
+		buildStrRet += ">References</option>";
 		
 		if(isInOther && this.name != null){
 			buildStrRet += "<option selected value='Others'>Others</option></select><input type='text' id='other_"+this.id+"' class='answer-other' value='"+this.name+"'>";
