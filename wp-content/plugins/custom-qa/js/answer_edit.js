@@ -95,11 +95,11 @@ class Row {
 		if(this.getCellsNumber() == 1){
 			retStr += " colspan='2'";
 		}
-		retStr += "><textarea name='name_left_"+this.id+"' id='name_left_"+this.id+"' max_chars='1000' ></textarea><div  id='name_left_"+this.id+"_div' style=' text-align: right;margin-right: 15px; color: #aaa; font-size: x-small; display:none;'></div></td><td class='i_cell_right'";
+		retStr += "><textarea name='name_left_"+this.id+"' id='name_left_"+this.id+"' max_chars='1000' maxlength='1000'></textarea><div  id='name_left_"+this.id+"_div' style=' text-align: right;margin-right: 15px; color: #aaa; font-size: x-small; height:5px;'></div></td><td class='i_cell_right'";
 		if(this.getCellsNumber() == 1){
 			retStr += " style='display:none;'";
 		}
-		retStr += "><textarea  name='name_right_"+this.id+"' id='name_right_"+this.id+"' max_chars='1000' ></textarea><div  id='name_right_"+this.id+"_div' style=' text-align: right;margin-right: 15px; color: #aaa; font-size: x-small; display:none;'></div></td><td class='i_options'><a alt='Delete' title='Delete' href='javascript:void(0);' onclick='del(this);' id='"+this.id+"'><i class='fa fa-times-circle' aria-hidden='true'></i></a><br><a alt='Merge cells' title='Merge cells' href='javascript:void(0);' onclick='merge(this);' id='"+this.id+"'><i class='fa fa-arrows-h' aria-hidden='true'></i></a><br><a alt='MoveUp' title='MoveUp' href='javascript:void(0);' onclick='MoveUp(this);' id='"+this.id+"'><i class='fa fa-arrow-up' aria-hidden='true'></i></a><br><a alt='MoveDown' title='MoveDown' href='javascript:void(0);' onclick='MoveDown(this);' id='"+this.id+"'><i class='fa fa-arrow-down' aria-hidden='true'></i></a></td></tr>";
+		retStr += "><textarea  name='name_right_"+this.id+"' id='name_right_"+this.id+"' max_chars='1000' maxlength='1000'></textarea><div  id='name_right_"+this.id+"_div' style=' text-align: right;margin-right: 15px; color: #aaa; font-size: x-small; height:5px;'></div></td><td class='i_options'><a alt='Delete' title='Delete' href='javascript:void(0);' onclick='del(this);' id='"+this.id+"'><i class='fa fa-times-circle' aria-hidden='true'></i></a><br><a alt='Merge cells' title='Merge cells' href='javascript:void(0);' onclick='merge(this);' id='"+this.id+"'><i class='fa fa-arrows-h' aria-hidden='true'></i></a><br><a alt='MoveUp' title='MoveUp' href='javascript:void(0);' onclick='MoveUp(this);' id='"+this.id+"'><i class='fa fa-arrow-up' aria-hidden='true'></i></a><br><a alt='MoveDown' title='MoveDown' href='javascript:void(0);' onclick='MoveDown(this);' id='"+this.id+"'><i class='fa fa-arrow-down' aria-hidden='true'></i></a></td></tr>";
 		
 		return retStr;
 	}
@@ -207,7 +207,8 @@ function handel_add(table, id, left, right, name, cells){
 	
 	tinyMCE.get('name_left_'+id).setContent(newRow.getLeft());
 	tinyMCE.get('name_right_'+id).setContent(newRow.getRight());
-	
+	ShowCount(newRow.getLeft(),"left",id)
+	ShowCount(newRow.getRight(),"right",id)
 }
 
 function ShowCount(content,side,id)
@@ -227,18 +228,19 @@ function ShowCount(content,side,id)
 					var decodedStripped = decoded.replace(/(<([^>]+)>)/ig, "").trim();
 					var count = decodedStripped.length;
                    
-					if(count>500)
+					if(count>1000)
 					{
 						return false;
 					}
-					else if(count==500)
+					else if(count>=900)
 					{
-						document.getElementById("name_"+side+"_"+id+"_div").innerHTML = "you have reached the limit";
+						
+						jQuery("#name_"+side+"_"+id+"_div").text((1000-count)+"/100");
 					}
-					else
-					{
-						document.getElementById("name_"+side+"_"+id+"_div").innerHTML =count+"/500";
+					else{
+						jQuery("#name_"+side+"_"+id+"_div").text("");
 					}
+					
 }
 /*
 #Dev
@@ -268,15 +270,22 @@ function MoveUp(id){
 			
 			var currentLeftInput = tinyMCE.get("name_left_"+current).getContent();
 			var currentRightInput = tinyMCE.get("name_right_"+current).getContent();
-			var currentRowName = jQuery("#other_"+current).val();
+			var currentRowName = jQuery("#rowName_"+current).val();
+			var currentOther = jQuery("#other_"+current).val();
 			
 			tinyMCE.get("name_left_"+current).setContent(tinyMCE.get("name_left_"+prev).getContent());
 			tinyMCE.get("name_right_"+current).setContent(tinyMCE.get("name_right_"+prev).getContent());
 			
+			jQuery("#rowName_"+current).val(jQuery("#rowName_"+prev).val());
 			jQuery("#other_"+current).val(jQuery("#other_"+prev).val());
 			tinyMCE.get("name_left_"+prev).setContent(currentLeftInput);
 			tinyMCE.get("name_right_"+prev).setContent(currentRightInput);
-			jQuery("#other_"+prev).val(currentRowName);
+			
+			jQuery("#rowName_"+prev).val(currentRowName);
+			jQuery("#other_"+prev).val(currentOther);
+			
+			jQuery("#rowName_"+prev).change();
+			jQuery("#rowName_"+current).change();
 			
 			var currentCellsNumber = jQuery("#row_"+current).data('cells');
 			var prevCellsNumber = jQuery("#row_"+prev).data('cells');
@@ -363,6 +372,30 @@ function makeEditor(selector){
 			};
 			input.click();
 		},
+		paste_preprocess: function (plugin, args) {
+			var editor = tinymce.get(tinymce.activeEditor.id);
+			var tx = editor.getContent({ format: 'raw' });
+			var txt = document.createElement("textarea");
+			txt.innerHTML = tx;
+			var decoded = txt.value;
+			var decodedStripped = decoded.replace(/(<([^>]+)>)/ig, "");
+			var len = decodedStripped.length;
+			var newLen = len + args.content.length;
+			
+			if (newLen > 1000) {
+				
+				args.content = args.content.substring(0,1000-len);
+				newLen = len+args.content.length;
+			} 
+			if(newLen>=900)
+			{
+				document.getElementById(selector+"_div").innerHTML =(1000-newLen)+"/100";
+			}
+			else{
+				document.getElementById(selector+"_div").innerHTML ="";
+			}
+			
+		},
 		statusbar: false,
 		content_css : upload.css,
 		setup: function (editor) {
@@ -387,21 +420,17 @@ function makeEditor(selector){
 					var txt = document.createElement("textarea");
 					txt.innerHTML = tx;
 					var decoded = txt.value;
-					var decodedStripped = decoded.replace(/(<([^>]+)>)/ig, "").trim();
+					var decodedStripped = decoded.replace(/(<([^>]+)>)/ig, "");
 					var count = decodedStripped.length;
                    
-					if(count>1000)
-					{
-						return false;
-					}
-					else if(count>=980)
+				   if(count>=900)
 					{
 						
-						jQuery("#"+selector+"_div").show();
-						document.getElementById(selector+"_div").innerHTML =(1000-count)+"/20";
+						
+						document.getElementById(selector+"_div").innerHTML =(1000-count)+"/100";
 					}
 					else{
-						jQuery("#"+selector+"_div").hide();
+						document.getElementById(selector+"_div").innerHTML ="";
 					}
                 });
 				editor.onKeyDown.add(function(ed, evt) {

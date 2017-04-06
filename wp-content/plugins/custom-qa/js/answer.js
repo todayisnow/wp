@@ -90,11 +90,11 @@ class Row {
 		if(this.getCellsNumber() == 1){
 			retStr += " colspan='2'";
 		}
-		retStr += "><textarea name='name_left_"+this.id+"' id='name_left_"+this.id+"' max_chars='1000' ></textarea><div  id='name_left_"+this.id+"_div' style=' text-align: right;margin-right: 15px; color: #aaa; font-size: x-small; display:none;'></div></td><td class='i_cell_right'";
+		retStr += "><textarea name='name_left_"+this.id+"' id='name_left_"+this.id+"' max_chars='1000' maxlength='1000'></textarea><div  id='name_left_"+this.id+"_div' style=' text-align: right;margin-right: 15px; color: #aaa; font-size: x-small;  height:5px;'></div></td><td class='i_cell_right'";
 		if(this.getCellsNumber() == 1){
 			retStr += " style='display:none;'";
 		}
-		retStr += "><textarea  name='name_right_"+this.id+"' id='name_right_"+this.id+"' max_chars='1000' ></textarea><div  id='name_right_"+this.id+"_div' style=' text-align: right;margin-right: 15px; color: #aaa; font-size: x-small; display:none;'></div></td><td class='i_options'><a alt='Delete' title='Delete' href='javascript:void(0);' onclick='del(this);' id='"+this.id+"'><i class='fa fa-times-circle' aria-hidden='true'></i></a><br><a alt='Merge cells' title='Merge cells' href='javascript:void(0);' onclick='merge(this);' id='"+this.id+"'><i class='fa fa-arrows-h' aria-hidden='true'></i></a><br><a alt='MoveUp' title='MoveUp' href='javascript:void(0);' onclick='MoveUp(this);' id='"+this.id+"'><i class='fa fa-arrow-up' aria-hidden='true'></i></a><br><a alt='MoveDown' title='MoveDown' href='javascript:void(0);' onclick='MoveDown(this);' id='"+this.id+"'><i class='fa fa-arrow-down' aria-hidden='true'></i></a></td></tr>";
+		retStr += "><textarea  name='name_right_"+this.id+"' id='name_right_"+this.id+"' max_chars='1000' maxlength='1000'></textarea><div  id='name_right_"+this.id+"_div' style=' text-align: right;margin-right: 15px; color: #aaa; font-size: x-small; height:5px;'></div></td><td class='i_options'><a alt='Delete' title='Delete' href='javascript:void(0);' onclick='del(this);' id='"+this.id+"'><i class='fa fa-times-circle' aria-hidden='true'></i></a><br><a alt='Merge cells' title='Merge cells' href='javascript:void(0);' onclick='merge(this);' id='"+this.id+"'><i class='fa fa-arrows-h' aria-hidden='true'></i></a><br><a alt='MoveUp' title='MoveUp' href='javascript:void(0);' onclick='MoveUp(this);' id='"+this.id+"'><i class='fa fa-arrow-up' aria-hidden='true'></i></a><br><a alt='MoveDown' title='MoveDown' href='javascript:void(0);' onclick='MoveDown(this);' id='"+this.id+"'><i class='fa fa-arrow-down' aria-hidden='true'></i></a></td></tr>";
 
 		return retStr;
 	}
@@ -361,17 +361,24 @@ jQuery(window).load(function(){
 	# letter count for comment
 	*/
 	jQuery('[id=comment]').each(function(){
-		jQuery(this).attr('maxlength','500')
-		jQuery(this).after("<div  id='"+jQuery(this).attr('id')+"_div' style=' text-align: right; margin-right: 20px;'>0/500</div>");
-		jQuery(this).keyup(function () {
+		jQuery('textarea').attr('maxlength','500')
+		jQuery('textarea').after("<div  style='  text-align: right; margin-right: 25px; font-size:x-small; color:#aaa; height:5px;'> </div>");
+		jQuery('textarea').keyup(function () {
 		  var max = 500;
 		  var len = jQuery(this).val().length;
-		  if (len >= max) {
-			jQuery(this).next('div').text(' you have reached the limit');
-		  } else {
-			
-			jQuery(this).next('div').text(len + '/500');
-		  }
+		  if(len>500)
+			{
+				return false;
+			}
+			else if(len>=450)
+			{
+				
+				
+				jQuery(this).next('div').text((500-len)+"/50");
+			}
+			else{
+				jQuery(this).next('div').text(" ");
+			}
 		});
 	});
 });
@@ -413,11 +420,11 @@ function MoveUp(id){
 			tinyMCE.get("name_left_"+prev).setContent(currentLeftInput);
 			tinyMCE.get("name_right_"+prev).setContent(currentRightInput);
 			
-			jQuery("#rowName"+prev).val(currentRowName);
+			jQuery("#rowName_"+prev).val(currentRowName);
 			jQuery("#other_"+prev).val(currentOther);
 			
-			jQuery("#rowName"+prev).change();
-			jQuery("#rowName"+current).change();
+			jQuery("#rowName_"+prev).change();
+			jQuery("#rowName_"+current).change();
 			
 			var currentCellsNumber = jQuery("#row_"+current).data('cells');
 			var prevCellsNumber = jQuery("#row_"+prev).data('cells');
@@ -437,7 +444,7 @@ function MoveDown(id){
 			
 			var currentLeftInput = tinyMCE.get("name_left_"+current).getContent();
 			var currentRightInput = tinyMCE.get("name_right_"+current).getContent();
-			var currentRowName = jQuery("#rowName"+current).val();
+			var currentRowName = jQuery("#rowName_"+current).val();
 			var currentOther = jQuery("#other_"+current).val();
 			
 			tinyMCE.get("name_left_"+current).setContent(tinyMCE.get("name_left_"+next).getContent());
@@ -448,13 +455,13 @@ function MoveDown(id){
 			tinyMCE.get("name_left_"+next).setContent(currentLeftInput);
 			tinyMCE.get("name_right_"+next).setContent(currentRightInput);
 			
-			jQuery("#rowName"+next).val(currentRowName);
+			jQuery("#rowName_"+next).val(currentRowName);
 			jQuery("#other_"+next).val(currentOther);
 			var currentCellsNumber = jQuery("#row_"+current).data('cells');
 			var nextCellsNumber = jQuery("#row_"+next).data('cells');
 			
-			jQuery("#rowName"+next).change();
-			jQuery("#rowName"+current).change();
+			jQuery("#rowName_"+next).change();
+			jQuery("#rowName_"+current).change();
 			
 			if(currentCellsNumber!=nextCellsNumber)
 			{
@@ -534,6 +541,30 @@ function makeEditor(selector){
 			};
 			input.click();
 		},
+		paste_preprocess: function (plugin, args) {
+			var editor = tinymce.get(tinymce.activeEditor.id);
+			var tx = editor.getContent({ format: 'raw' });
+			var txt = document.createElement("textarea");
+			txt.innerHTML = tx;
+			var decoded = txt.value;
+			var decodedStripped = decoded.replace(/(<([^>]+)>)/ig, "");
+			var len = decodedStripped.length;
+			var newLen = len + args.content.length;
+			
+			if (newLen > 1000) {
+				
+				args.content = args.content.substring(0,1000-len);
+				newLen = len+args.content.length;
+			} 
+			if(newLen>=900)
+			{
+				document.getElementById(selector+"_div").innerHTML =(1000-newLen)+"/100";
+			}
+			else{
+				document.getElementById(selector+"_div").innerHTML ="";
+			}
+			
+		},
 		statusbar: false,
 		content_css : upload.css,
 		setup: function (editor) {
@@ -559,25 +590,20 @@ function makeEditor(selector){
 					var txt = document.createElement("textarea");
 					txt.innerHTML = tx;
 					var decoded = txt.value;
-					var decodedStripped = decoded.replace(/(<([^>]+)>)/ig, "").trim();
+					var decodedStripped = decoded.replace(/(<([^>]+)>)/ig, "");
 					var count = decodedStripped.length;
                    
-					if(count>1000)
+					if(count>=900)
 					{
-						return false;
-					}
-					else if(count>=980)
-					{
-						
-						jQuery("#"+selector+"_div").show();
-						document.getElementById(selector+"_div").innerHTML =(1000-count)+"/20";
+						document.getElementById(selector+"_div").innerHTML =(1000-count)+"/100";
 					}
 					else{
-						jQuery("#"+selector+"_div").hide();
+						document.getElementById(selector+"_div").innerHTML ="";
 					}
 					
                 });
 			editor.onKeyDown.add(function(ed, evt) {
+			
 				if(evt.which != 8 && evt.which != 37 && evt.which != 38 && evt.which != 39 && evt.which != 40){
 					if ( jQuery(ed.getBody()).text().length+1 > jQuery(tinyMCE.get(tinyMCE.activeEditor.id).getElement()).attr('max_chars')){
 						evt.preventDefault();

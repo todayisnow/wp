@@ -28,6 +28,14 @@ $post_id = $comment_id ? $comment_id : $edit_id;
 		<p><?php dwqa_init_tinymce_editor( array( 'content' => $content, 'textarea_name' => $type . '_content', 'wpautop' => true ) ) ?></p>
 		<?php if ( 'dwqa-question' == get_post_type( $edit_id ) ) : ?>
 		<p>
+		<?php
+		/*
+            #Dev
+            #Todayisnow
+            #201703260441
+            # order question category on dropdown
+            */
+			?>
 			<label for="question-category"><?php _e( 'Category', 'dwqa' ) ?></label>
 			<?php $category = wp_get_post_terms( $edit_id, 'dwqa-question_category' ); ?>
 			<?php
@@ -39,6 +47,7 @@ $post_id = $comment_id ? $comment_id : $edit_id;
 					'hide_empty'    => 0,
 					'quicktags'     => array( 'buttons' => 'strong,em,link,block,del,ins,img,ul,ol,li,code,spell,close' ),
 					'selected'      => isset( $category[0]->term_id ) ? $category[0]->term_id : false,
+					'orderby'           => 'OrderNumber',
 				) );
 			?>
 		</p>

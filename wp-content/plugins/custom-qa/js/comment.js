@@ -1,6 +1,6 @@
 jQuery(window).load(function(){
 	var data = '';
-	
+	alert("from comment.js")
 	try{
 		data = tinyMCE.activeEditor.getContent({format : 'text'}).trim();
 	}
@@ -29,16 +29,23 @@ jQuery(window).load(function(){
 	# word count oncomment
 	*/
 		jQuery('textarea').attr('maxlength','500')
-		jQuery('textarea').after("<div  style=' text-align: right; margin-right: 85px;margin-top: -15px;'>"+data.length+"/500</div>");
+		jQuery('textarea').after("<div  style=' text-align: right; margin-right: 25px; font-size:x-small; color:#aaa display:block;'></div>");
 		jQuery('textarea').keyup(function () {
 		  var max = 500;
 		  var len = jQuery(this).val().length;
-		  if (len >= max) {
-			jQuery(this).next('div').text(' you have reached the limit');
-		  } else {
-			
-			jQuery(this).next('div').text(len + '/500');
-		  }
+		  if(len>500)
+			{
+				return false;
+			}
+			else if(len>=480)
+			{
+				
+				jQuery(this).next('div').show();
+				jQuery(this).next('div').text((500-len)+"/20");
+			}
+			else{
+				jQuery(this).next('div').hide();
+			}
 		});
 });
 
