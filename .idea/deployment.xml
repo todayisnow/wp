@@ -5,7 +5,7 @@
       <paths name="wp">
         <serverdata>
           <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
+            <mapping local="$PROJECT_DIR$" web="wp" />
           </mappings>
         </serverdata>
       </paths>

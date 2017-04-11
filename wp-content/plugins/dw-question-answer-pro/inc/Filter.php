@@ -122,6 +122,16 @@ class DWQA_Filter {
 					$query['author'] = get_current_user_id();
 				}
 				break;
+				//essam
+			case 'my-answers':
+				if ( is_user_logged_in() ) {
+				$query['answerPostType'] = 'dwqa-answer';
+				$query['answerUserId'] = get_current_user_id();
+				    
+					
+				}
+				break;
+					
 			case 'my-subscribes':
 				if ( is_user_logged_in() ) {
 					$query['meta_query'][] = array(
@@ -160,7 +170,10 @@ class DWQA_Filter {
 		$query = apply_filters( 'dwqa_prepare_archive_posts', $query );
 
 		$wp_query->dwqa_questions = new WP_Query( $query );
-
+		
+		
+		
+		
 		// sticky question
 		$sticky_questions = get_option( 'dwqa_sticky_questions', array() );
 		if ( !empty( $sticky_questions ) && 'all' == $filter && ! $sort && !$search_text ) {
