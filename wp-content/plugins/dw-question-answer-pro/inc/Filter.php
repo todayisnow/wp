@@ -51,10 +51,24 @@ class DWQA_Filter {
 
 		}
 
+		/*
+		#Dev
+		#Todayisnow
+		#201704120150
+		#profile answers and questions
+		*/
+		
 		// filter by user
 		if ( $user ) {
 			$user = get_user_by( 'login', $user );
-			$query['author'] = $user->ID;
+			if($filter == 'questions'){
+				$query['author'] = $user->ID;
+			}
+			else if($filter == 'answers'){
+				$query['answerPostType'] = 'dwqa-answer';
+				$query['answerUserId'] = $user->ID;
+			}
+			$filter=null;
 		}
 
 

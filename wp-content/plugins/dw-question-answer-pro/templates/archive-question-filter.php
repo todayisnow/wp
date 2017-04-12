@@ -26,7 +26,16 @@ $filter = isset( $_GET['filter'] ) ? $_GET['filter'] : 'all';
 			<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'my-subscribes' ) ) ) ?>" class="<?php echo 'my-subscribes' == $filter ? 'active' : '' ?>"><?php _e( 'My subscribes', 'dwqa' ); ?></a>
 		<?php endif; ?>
 	<?php else : ?>
-		<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'all' ) ) ) ?>" class="<?php echo 'all' == $filter ? 'active' : '' ?>"><?php _e( 'Questions', 'dwqa' ); ?></a>
+		<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'questions' ) ) ) ?>" class="<?php echo 'questions' == $filter ? 'active' : '' ?>"><?php _e( 'Questions', 'dwqa' ); ?></a>
+		<?php
+		/*
+		#Dev
+		#Todayisnow
+		#201704120150
+		#profile answers and questions
+		*/
+		?>
+		<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'answers' ) ) ) ?>" class="<?php echo 'answers' == $filter ? 'active' : '' ?>"><?php _e( 'Answers', 'dwqa' ); ?></a>
 		<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'subscribes' ) ) ) ?>" class="<?php echo 'subscribes' == $filter ? 'active' : '' ?>"><?php _e( 'Subscribes', 'dwqa' ); ?></a>
 	<?php endif; ?>
 	<select id="dwqa-sort-by" class="dwqa-sort-by" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">

@@ -86,10 +86,17 @@ class DWQA_Leaderboard_Widget extends WP_Widget {
 		return $new;
 	}
 
+		/*
+		#Dev
+		#Todayisnow
+		#201704120150
+		#profile answers and questions
+		*/
+		
 	public function query( $number = 10, $from = false, $to = false ) {
 		global $wpdb;
 
-		$query = "SELECT post_author as `user_id`, count(*) as `answer`
+		$query = "SELECT post_author as `user_id`, count(distinct post_parent) as `answer`
 					FROM `{$wpdb->prefix}posts`
 					WHERE post_type = 'dwqa-answer'
 						AND post_status = 'publish'

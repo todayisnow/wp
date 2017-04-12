@@ -189,7 +189,7 @@ function dwqa_get_author_link( $user_id = false ) {
 	return apply_filters( 'dwqa_get_author_link', $profileLink, $user_id, $user );
 }
 
-
+//$user_id = userpro_get_view_user( get_query_var(‘up_username’) );
 /**
 * Get question ids user is subscribing
 *
