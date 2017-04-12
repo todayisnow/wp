@@ -122,7 +122,6 @@ class DWQA_Filter {
 					$query['author'] = get_current_user_id();
 				}
 				break;
-				//essam
 			case 'my-answers':
 				if ( is_user_logged_in() ) {
 				$query['answerPostType'] = 'dwqa-answer';
