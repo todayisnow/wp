@@ -167,19 +167,26 @@ add_filter( 'the_author', 'dwqa_the_author' );
 * @return string
 * @since 1.4.0
 */
+/*
+		#Dev
+		#Todayisnow
+		#201704120940
+		#redirect to user profile
+		*/
 function dwqa_get_author_link( $user_id = false ) {
 	if ( ! $user_id ) {
 		return false;
 	}
 	global $dwqa_general_settings;
 	$user = get_user_by( 'id', $user_id );
-	$question_link = isset( $dwqa_general_settings['pages']['archive-question'] ) ? get_permalink( $dwqa_general_settings['pages']['archive-question'] ) : false;
+	/*$question_link = isset( $dwqa_general_settings['pages']['archive-question'] ) ? get_permalink( $dwqa_general_settings['pages']['archive-question'] ) : false;
 	$url = get_the_author_link( $user_id );
 	if ( $question_link ) {
 		$url = add_query_arg( array( 'user' => urlencode( $user->user_login ) ), $question_link );
-	}
-
-	return apply_filters( 'dwqa_get_author_link', $url, $user_id, $user );
+	}*/
+	
+	$profileLink = "/wp/profile/".urlencode( $user->first_name . "-" .$user->last_name );
+	return apply_filters( 'dwqa_get_author_link', $profileLink, $user_id, $user );
 }
 
 
