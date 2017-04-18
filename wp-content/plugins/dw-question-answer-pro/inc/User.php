@@ -184,7 +184,7 @@ function dwqa_get_author_link( $user_id = false ) {
 	if ( $question_link ) {
 		$url = add_query_arg( array( 'user' => urlencode( $user->user_login ) ), $question_link );
 	}*/
-	
+	//convert it to user->user_login
 	$profileLink = "/wp/profile/".urlencode( $user->first_name . "-" .$user->last_name );
 	return apply_filters( 'dwqa_get_author_link', $profileLink, $user_id, $user );
 }

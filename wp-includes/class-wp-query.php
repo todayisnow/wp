@@ -2751,7 +2751,12 @@ class WP_Query {
 			 */
 			$this->request = apply_filters_ref_array( 'posts_request', array( $this->request, &$this ) );
 		}
-//essam
+/*
+		#Dev
+		#Todayisnow
+		#201704120150
+		#profile answers and questions
+		*/
         if(isset($q['answerPostType']) && $q['answerPostType'] == "dwqa-answer")
         {
             $this->request = str_replace("WHERE 1=1","WHERE 1=1 AND id in (SELECT  wp_postmeta.meta_value as id FROM wp_posts INNER JOIN wp_postmeta ON wp_posts.ID = wp_postmeta.post_id WHERE 1=1 AND wp_posts.post_author IN ( ".$q['answerUserId'].") AND wp_posts.post_type = 'dwqa-answer' AND wp_posts.post_status IN ( 'publish', 'private' ) and wp_postmeta.meta_key ='_question' ORDER BY wp_posts.post_date DESC )",$this->request);
@@ -2836,7 +2841,12 @@ class WP_Query {
 				 * @param WP_Query $this    The WP_Query instance.
 				 */
 				$this->request = apply_filters( 'posts_request_ids', $this->request, $this );
-//essam
+/*
+		#Dev
+		#Todayisnow
+		#201704120150
+		#profile answers and questions
+		*/
                 if(isset($q['answerPostType']) && $q['answerPostType'] == "dwqa-answer")
                 {
                     $this->request = str_replace("WHERE 1=1","WHERE 1=1 AND id in (SELECT  wp_postmeta.meta_value as id FROM wp_posts INNER JOIN wp_postmeta ON wp_posts.ID = wp_postmeta.post_id WHERE 1=1 AND wp_posts.post_author IN ( ".$q['answerUserId'].") AND wp_posts.post_type = 'dwqa-answer' AND wp_posts.post_status IN ( 'publish', 'private' ) and wp_postmeta.meta_key ='_question' ORDER BY wp_posts.post_date DESC )",$this->request);

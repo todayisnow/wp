@@ -136,6 +136,12 @@ class DWQA_Filter {
 					$query['author'] = get_current_user_id();
 				}
 				break;
+				/*
+		#Dev
+		#Todayisnow
+		#201704120150
+		#profile answers and questions
+		*/
 			case 'my-answers':
 				if ( is_user_logged_in() ) {
 				$query['answerPostType'] = 'dwqa-answer';

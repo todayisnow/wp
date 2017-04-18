@@ -79,9 +79,34 @@
 				
 			</div>
 			<?php } ?>
-		
+			<div id="myHidden" style="display:none;">
+
+		<div class='userpro-field  userpro-field-first_name ' data-key='first_name'><div class='userpro-label iconed'><label for='first_name-9999'>First Name</label><div class='required'>*</div></div><div class='userpro-input'><input type='text' name='first_name-9999' id='first_name-9999' value="" placeholder=''  data-ajaxcheck='' data-help='' data-label='First Name' data-placeholder='' data-add_condition='show' data-condition_fields='user_login' data-condition_rule='select' data-condition_value='' data-_builtin='1' data-hidden='0' data-hideable='0' data-html='0' data-locked='0' data-private='0' data-required='1' data-type='text' data-woo='0' /><div class='userpro-clear'></div></div></div><div class='userpro-clear'></div>								
+		<div class='userpro-field  userpro-field-last_name ' data-key='last_name'><div class='userpro-label iconed'><label for='last_name-9999'>Last Name</label><div class='required'>*</div></div><div class='userpro-input'><input type='text' name='last_name-9999' id='last_name-9999' value="" placeholder=''  data-ajaxcheck='' data-help='' data-label='Last Name' data-placeholder='' data-add_condition='show' data-condition_fields='user_login' data-condition_rule='select' data-condition_value='' data-_builtin='1' data-hidden='0' data-hideable='0' data-html='0' data-locked='0' data-private='0' data-required='1' data-type='text' data-woo='0' /><div class='userpro-clear'></div></div></div><div class='userpro-clear'></div>				
+					</div>
 		</form>
 	
 	</div>
 
 </div>
+<?php
+/*
+		#Dev
+		#Todayisnow
+		#201704120150
+		#profile answers and questions
+		*/
+		?>
+<script>
+window.onload = function(e){
+	var num = jQuery("[id^=user_email]").attr('id').split('-')[1]
+	jQuery("#myHidden").html(jQuery("#myHidden").html().replace(new RegExp('9999', 'g'), num));
+
+}
+
+jQuery("form").submit(function(){
+	jQuery('[id^=first_name]').val(jQuery("[id^=user_login]").val());
+	jQuery('[id^=last_name]').val(Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000)
+
+});
+</script>
