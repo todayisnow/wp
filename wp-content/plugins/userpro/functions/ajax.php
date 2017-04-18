@@ -779,6 +779,8 @@ function userpro_process_form(){
                 $userMetaData= get_user_meta ( $userId);
                 if($userMetaData['first_name'][0]!= $form["first_name"] || $userMetaData['last_name'][0]!= $form["last_name"]  ){
                     $form["display_name"]=$form["first_name"]. ' ' . $form['last_name'];
+                    $_POST['up_username'] =$form["first_name"]. '-' . $form['last_name'];
+                    $form['up_username']=$form["first_name"]. '-' . $form['last_name'];
                 }
 
                 add_filter( 'send_password_change_email', '__return_false');
