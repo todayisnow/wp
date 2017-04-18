@@ -90,11 +90,11 @@ class Row {
 		if(this.getCellsNumber() == 1){
 			retStr += " colspan='2'";
 		}
-		retStr += "><textarea name='name_left_"+this.id+"' id='name_left_"+this.id+"' max_chars='1000' maxlength='1000'></textarea><div  id='name_left_"+this.id+"_div' style=' text-align: right;margin-right: 15px; color: #aaa; font-size: x-small;  height:5px;'></div></td><td class='i_cell_right'";
+		retStr += "><textarea name='name_left_"+this.id+"' id='name_left_"+this.id+"' max_chars='1000' maxlength='1000'></textarea><div  id='name_left_"+this.id+"_div' style=' text-align: right;margin-right: 15px; color: #aaa; font-size: x-small;  height:5px;padding-bottom: 10px;'></div></td><td class='i_cell_right'";
 		if(this.getCellsNumber() == 1){
 			retStr += " style='display:none;'";
 		}
-		retStr += "><textarea  name='name_right_"+this.id+"' id='name_right_"+this.id+"' max_chars='1000' maxlength='1000'></textarea><div  id='name_right_"+this.id+"_div' style=' text-align: right;margin-right: 15px; color: #aaa; font-size: x-small; height:5px;'></div></td><td class='i_options'><a alt='Delete' title='Delete' href='javascript:void(0);' onclick='del(this);' id='"+this.id+"'><i class='fa fa-times-circle' aria-hidden='true'></i></a><br><a alt='Merge cells' title='Merge cells' href='javascript:void(0);' onclick='merge(this);' id='"+this.id+"'><i class='fa fa-arrows-h' aria-hidden='true'></i></a><br><a alt='MoveUp' title='MoveUp' href='javascript:void(0);' onclick='MoveUp(this);' id='"+this.id+"'><i class='fa fa-arrow-up' aria-hidden='true'></i></a><br><a alt='MoveDown' title='MoveDown' href='javascript:void(0);' onclick='MoveDown(this);' id='"+this.id+"'><i class='fa fa-arrow-down' aria-hidden='true'></i></a></td></tr>";
+		retStr += "><textarea  name='name_right_"+this.id+"' id='name_right_"+this.id+"' max_chars='1000' maxlength='1000'></textarea><div  id='name_right_"+this.id+"_div' style=' text-align: right;margin-right: 15px; color: #aaa; font-size: x-small; height:5px;padding-bottom: 10px;'></div></td><td class='i_options'><a alt='Delete' title='Delete' href='javascript:void(0);' onclick='del(this);' id='"+this.id+"'><i class='fa fa-times-circle' aria-hidden='true'></i></a><br><a alt='Merge cells' title='Merge cells' href='javascript:void(0);' onclick='merge(this);' id='"+this.id+"'><i class='fa fa-arrows-h' aria-hidden='true'></i></a><br><a alt='MoveUp' title='MoveUp' href='javascript:void(0);' onclick='MoveUp(this);' id='"+this.id+"'><i class='fa fa-arrow-up' aria-hidden='true'></i></a><br><a alt='MoveDown' title='MoveDown' href='javascript:void(0);' onclick='MoveDown(this);' id='"+this.id+"'><i class='fa fa-arrow-down' aria-hidden='true'></i></a></td></tr>";
 
 		return retStr;
 	}
@@ -361,9 +361,10 @@ jQuery(window).load(function(){
 	# letter count for comment
 	*/
 	jQuery('[id=comment]').each(function(){
-		jQuery('textarea').attr('maxlength','500')
-		jQuery('textarea').after("<div  style='  text-align: right; margin-right: 25px; font-size:x-small; color:#aaa; height:5px;'> </div>");
-		jQuery('textarea').keyup(function () {
+		
+		jQuery(this).attr('maxlength','500')
+		jQuery(this).after("<div  style='  text-align: right; margin-right: 25px; font-size:x-small; color:#aaa; height:5px;'> </div>");
+		jQuery(this).keyup(function () {
 		  var max = 500;
 		  var len = jQuery(this).val().length;
 		  if(len>500)

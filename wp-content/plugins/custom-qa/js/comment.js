@@ -28,7 +28,8 @@ jQuery(window).load(function(){
 	#201703200320
 	# word count oncomment
 	*/
-		jQuery('textarea').attr('maxlength','500')
+	
+		/*jQuery('textarea').attr('maxlength','500')
 		jQuery('textarea').after("<div  style=' text-align: right; margin-right: 25px; font-size:x-small; color:#aaa display:none;'></div>");
 		jQuery('textarea').keyup(function () {
 		  var max = 500;
@@ -46,7 +47,7 @@ jQuery(window).load(function(){
 			else{
 				jQuery(this).next('div').hide();
 			}
-		});
+		});*/
 });
 
 function showError(msg){

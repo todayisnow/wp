@@ -15,7 +15,7 @@
 		<?php 
 		if($latest_activity['title'] !="")
 			$latest_activity['title'] = ", ".$latest_activity['title'];
-		printf( __( '<span><a href="%1$s">%2$s%3$s</a> %4$s </span>', 'dwqa' ), esc_url( $latest_activity['userlink'] ), $latest_activity['useravatar'], $latest_activity['username'],$latest_activity['title']  ) 
+		printf( __( '<span><a href="%1$s">%2$s%3$s</a>%4$s </span>', 'dwqa' ), esc_url( $latest_activity['userlink'] ), $latest_activity['useravatar'], $latest_activity['username'],$latest_activity['title']  ) 
 		?>
 		
 		<?
