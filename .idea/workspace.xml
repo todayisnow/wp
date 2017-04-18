@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dae1b50b-7152-4f84-bccc-a66373115ea4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/User.php" afterPath="$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/userpro/functions/ajax.php" afterPath="$PROJECT_DIR$/wp-content/plugins/userpro/functions/ajax.php" />
-    </list>
+    <list default="true" id="dae1b50b-7152-4f84-bccc-a66373115ea4" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -393,15 +390,15 @@
       <workItem from="1491864765582" duration="15864000" />
       <workItem from="1492189118058" duration="3009000" />
       <workItem from="1492221836349" duration="8548000" />
-      <workItem from="1492359470308" duration="10291000" />
+      <workItem from="1492359470308" duration="10401000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37712000" />
+    <option name="totallyTimeSpent" value="37822000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
+    <frame x="-11" y="-11" width="1942" height="1042" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.175" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
