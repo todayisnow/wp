@@ -51,3 +51,21 @@ function UpdatePostSlug( $data, $postarr ) {
     }
     return $data;
 }
+ /*
+#Dev
+#Todayisnow
+#201704194000
+# search conten only
+*/
+add_filter( 'posts_where', 'SearchPosts', 10, 2 );
+function SearchPosts( $where, $wp_query )
+{
+    global $wpdb;
+    if ( $mySearch = $wp_query->get( 'my_search' ) ) {
+			//if(strpos($mySearch, 'What is the difference between ') === false ){
+        $where .= ' AND (' . $wpdb->posts . '.post_content LIKE \'%"lhsI":"%' . esc_sql( $wpdb->esc_like( $mySearch ) ) . '%",%\'  OR '. $wpdb->posts . '.post_content LIKE \'%"rhsI":"%' . esc_sql( $wpdb->esc_like( $mySearch ) ) . '%"%\' )' ;
+			
+
+    }
+    return $where;
+}

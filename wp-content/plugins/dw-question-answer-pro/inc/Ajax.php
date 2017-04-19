@@ -260,20 +260,33 @@ class DWQA_Ajax {
 			);
 			$search = preg_replace( '/#\S*\w/i', '', $search );
 		}
-
-		$args_query['s'] = $search;
+        /*
+       #Dev
+       #Todayisnow
+       #201704194000
+       # search conten only to use filter
+       */
+       
+            $args_query['my_search'] = $search;
+        
 		
 		$args_query = apply_filters( 'dwqa_prepare_search_query_args', $args_query );
 
 		$query = new WP_Query( $args_query );
-		if ( ! $query->have_posts() ) {
+        /*
+   #Dev
+   #Todayisnow
+   #201704194000
+   # search conten only
+   */
+		/*	if ( ! $query->have_posts() ) {
 			global $current_search;
 			$current_search = $search;
 			add_filter( 'posts_where' , array( $this, 'posts_where_suggest' ) );
-			unset( $args_query['s'] );
+			unset( $args_query['my_search'] );
 			$query = new WP_Query( $args_query );
 			remove_filter( 'posts_where' , array( $this, 'posts_where_suggest') );
-		}
+		}*/
 		$results = array();
 		if ( $query->have_posts() ) {
 			$html = '';

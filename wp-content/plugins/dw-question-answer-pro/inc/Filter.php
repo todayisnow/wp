@@ -25,6 +25,7 @@ class DWQA_Filter {
 			'post_type' => 'dwqa-question',
 			'posts_per_page' => $posts_per_page,
 			'orderby'	=> 'modified'
+
 		);
 		$page_text = dwqa_is_front_page() ? 'page' : 'paged';
 		$paged = get_query_var( $page_text );
@@ -176,7 +177,16 @@ class DWQA_Filter {
 				$search = preg_replace( '/#\S*\w/i', '', $search );
 			}
 
-			$query['s'] = $search;
+			
+			/*
+		   #Dev
+		   #Todayisnow
+		   #201704194000
+		   # search conten only to use filter
+		   */
+			
+				$query['my_search'] = $search;
+			
 		}
 
 		$sticky_questions = get_option( 'dwqa_sticky_questions' );
