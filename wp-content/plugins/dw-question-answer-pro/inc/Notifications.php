@@ -198,56 +198,64 @@ class DWQA_Notifications {
 				$headers[] = "Bcc: " . $f_email;
 			}
 
-			$sitename = strtolower( $_SERVER['SERVER_NAME'] );
-			if ( substr( $sitename, 0, 4 ) === 'www.' ) {
-				$sitename = substr( $sitename, 4 );
-			}
-			$no_reply = 'noreply@' . $sitename;
 
-			$sender = $this->send( $no_reply, $subject, $message, $headers );
+            foreach ($followers_email as $to) {
+                if (is_email($to))
+                    $sended = $this->send(sanitize_email($to), $subject, $message, $headers);
+            }
+
 		}
 
 		// start send to question author
 		$answer_notify_for_question_enabled = get_option( 'dwqa_subscrible_enable_new_answer_notification', 1 );
-		if ( $user_question_email && $answer_notify_for_question_enabled && absint( $user_answer_id ) !== absint( $user_question_id ) ) {
-			$subject = get_option( 'dwqa_subscrible_new_answer_email_subject', __( '[{site_name}] A new answer for "{question_title}" was posted on {site_name}', 'dwqa' ) );
-			$subject = str_replace( '{site_name}', esc_html( $site_name ), $subject );
-			$subject = str_replace( '{question_title}', sanitize_title( $question_title ), $subject );
-			$subject = str_replace( '{question_id}', absint( $question_id ), $subject );
-			$subject = str_replace( '{username}', esc_html( $user_question_display_name ), $subject );
-			$subject = str_replace( '{answer_author}', esc_html( $user_answer_display_name ), $subject );
 
-			$message = dwqa_get_mail_template( 'dwqa_subscrible_new_answer_email', 'new-answer' );
-			$message = apply_filters( 'dwqa_get_new_answer_email_to_author_message', $message, $question_id, $answer_id );
-			if ( !$message ) {
-				return false;
-			}
+		$subject = get_option( 'dwqa_subscrible_new_answer_email_subject', __( '[{site_name}] A new answer for "{question_title}" was posted on {site_name}', 'dwqa' ) );
+		$subject = str_replace( '{site_name}', esc_html( $site_name ), $subject );
+		$subject = str_replace( '{question_title}', sanitize_title( $question_title ), $subject );
+		$subject = str_replace( '{question_id}', absint( $question_id ), $subject );
+		$subject = str_replace( '{username}', esc_html( $user_question_display_name ), $subject );
+		$subject = str_replace( '{answer_author}', esc_html( $user_answer_display_name ), $subject );
 
-			$message = str_replace( '{answer_avatar}', $user_answer_avatar, $message );
-			$message = str_replace( '{answer_author}', esc_html( $user_answer_display_name ), $message );
-			$message = str_replace( '{question_link}', esc_url( $question_link ), $message );
-			$message = str_replace( '{question_author}', esc_html( $user_question_display_name ), $message );
-			$message = str_replace( '{answer_link}', esc_url( $answer_link ), $message );
-			$message = str_replace( '{question_title}', sanitize_title( $question_title ), $message );
-			$message = str_replace( '{answer_content}', wp_kses_post( $answer_content ), $message );
-			$message = str_replace( '{site_logo}', $site_logo, $message );
-			$message = str_replace( '{site_name}', esc_html( $site_name ), $message );
-			$message = str_replace( '{site_description}', esc_html( $site_description ), $message );
-			$message = str_replace( '{site_url}', esc_url( $site_url ), $message );
+		$message = dwqa_get_mail_template( 'dwqa_subscrible_new_answer_email', 'new-answer' );
+		$message = apply_filters( 'dwqa_get_new_answer_email_to_author_message', $message, $question_id, $answer_id );
+		if ( !$message ) {
+			return false;
+		}
 
+		$message = str_replace( '{answer_avatar}', $user_answer_avatar, $message );
+		$message = str_replace( '{answer_author}', esc_html( $user_answer_display_name ), $message );
+		$message = str_replace( '{question_link}', esc_url( $question_link ), $message );
+		$message = str_replace( '{question_author}', esc_html( $user_question_display_name ), $message );
+		$message = str_replace( '{answer_link}', esc_url( $answer_link ), $message );
+		$message = str_replace( '{question_title}',  $question_title , $message );
+		$message = str_replace( '{answer_content}', wp_kses_post( $answer_content ), $message );
+		$message = str_replace( '{site_logo}', $site_logo, $message );
+		$message = str_replace( '{site_name}', esc_html( $site_name ), $message );
+		$message = str_replace( '{site_description}', esc_html( $site_description ), $message );
+		$message = str_replace( '{site_url}', esc_url( $site_url ), $message );
+        if ( $user_question_email && $answer_notify_for_question_enabled && absint( $user_answer_id ) !== absint( $user_question_id ) ) {
 			$headers = array( 
 				"From: {$this->get_from_name()} <{$this->get_from_address()}>",
 				"Content-Type: {$this->get_content_type()}; charset=utf-8"
 			);
 
-			if ( $enable_send_copy ) {
-				foreach( $admin_email as $a_email ) {
-					$headers[] = "Bcc: " . $a_email;
-				}
-			}
+
 
 			$sender = $this->send( $user_question_email, $subject, $message, $headers );
 		}
+
+
+        if ( $enable_send_copy ) {
+            $headers = array(
+                "From: {$this->get_from_name()} <{$this->get_from_address()}>",
+                "Content-Type: {$this->get_content_type()}; charset=utf-8"
+            );
+            foreach ($admin_email as $to) {
+                if (is_email($to))
+                    $sended = $this->send(sanitize_email($to), $subject, $message, $headers);
+            }
+        }
+
 	}
 
 	public function new_comment_notify( $comment_id, $comment ) {

@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dae1b50b-7152-4f84-bccc-a66373115ea4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/Ajax.php" afterPath="$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/Ajax.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/Filter.php" afterPath="$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/Filter.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/templates/assets/js/dwqa-questions-list.js" afterPath="$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/templates/assets/js/dwqa-questions-list.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/superior_child/functions.php" afterPath="$PROJECT_DIR$/wp-content/themes/superior_child/functions.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/Notifications.php" afterPath="$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/Notifications.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,16 +15,12 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="Filter.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/Filter.php">
+      <file leaf-file-name="Notifications.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/Notifications.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-90">
-              <caret line="270" column="0" lean-forward="false" selection-start-line="270" selection-start-column="0" selection-end-line="270" selection-end-column="0" />
-              <folding>
-                <element signature="n#__construct#0;n#DWQA_Filter#0;n#!!top" expanded="false" />
-                <element signature="n#dwqa_theme_fix_category_page#0;n#DWQA_Filter#0;n#!!top" expanded="false" />
-                <element signature="n#replace_content_seach#0;n#DWQA_Filter#0;n#!!top" expanded="false" />
-              </folding>
+            <state relative-caret-position="294">
+              <caret line="406" column="0" lean-forward="false" selection-start-line="406" selection-start-column="0" selection-end-line="406" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -34,18 +28,8 @@
       <file leaf-file-name="class-wp-hook.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-includes/class-wp-hook.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="309" column="0" lean-forward="false" selection-start-line="309" selection-start-column="0" selection-end-line="309" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Ajax.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/Ajax.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="269" column="36" lean-forward="true" selection-start-line="269" selection-start-column="12" selection-end-line="269" selection-end-column="36" />
+            <state relative-caret-position="133">
+              <caret line="313" column="25" lean-forward="false" selection-start-line="313" selection-start-column="24" selection-end-line="313" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -54,33 +38,8 @@
       <file leaf-file-name="plugin.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-includes/plugin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="245" column="0" lean-forward="false" selection-start-line="245" selection-start-column="0" selection-end-line="245" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="class-wp-query.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-includes/class-wp-query.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="2416" column="0" lean-forward="false" selection-start-line="2416" selection-start-column="0" selection-end-line="2416" selection-end-column="0" />
-              <folding>
-                <marker date="1492221611571" expanded="true" signature="77053:77148" ph="SELECT ${$di... " />
-                <marker date="1492221611571" expanded="true" signature="85381:85479" ph="SELECT ${$fo... $" />
-                <marker date="1492221611571" expanded="true" signature="88908:89016" ph="SELECT ${$fo... " />
-                <marker date="1492221611571" expanded="true" signature="91967:92052" ph="SELECT ${{$w... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="functions.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/superior_child/functions.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="64" column="12" lean-forward="true" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="79" />
+            <state relative-caret-position="224">
+              <caret line="190" column="0" lean-forward="false" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -110,6 +69,8 @@
       <find>$query['s']</find>
       <find>$args_query['s</find>
       <find>posts_where_suggest</find>
+      <find>copy</find>
+      <find>function se</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -128,6 +89,7 @@
         <option value="$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/Filter.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/superior_child/functions.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/Ajax.php" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/Notifications.php" />
       </list>
     </option>
   </component>
@@ -413,12 +375,12 @@
       <workItem from="1491864765582" duration="15864000" />
       <workItem from="1492189118058" duration="3009000" />
       <workItem from="1492221836349" duration="8548000" />
-      <workItem from="1492359470308" duration="18610000" />
+      <workItem from="1492359470308" duration="22869000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46031000" />
+    <option name="totallyTimeSpent" value="50290000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
@@ -433,7 +395,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4041096" sideWeight="0.49791667" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40525115" sideWeight="0.49791667" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -483,11 +445,6 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/Notifications.php</url>
-          <line>16</line>
-          <option name="timeStamp" value="63" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/Notifications.php</url>
           <line>77</line>
           <option name="timeStamp" value="64" />
         </line-breakpoint>
@@ -508,22 +465,28 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/Ajax.php</url>
-          <line>312</line>
+          <line>308</line>
           <option name="timeStamp" value="100" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/Ajax.php</url>
-          <line>278</line>
+          <line>274</line>
           <option name="timeStamp" value="101" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/Notifications.php</url>
+          <line>16</line>
+          <option name="timeStamp" value="102" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/Notifications.php</url>
+          <line>261</line>
+          <option name="timeStamp" value="109" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="102" />
+      <option name="time" value="110" />
     </breakpoint-manager>
     <watches-manager>
-      <configuration name="index.php">
-        <watch expression="$wp_query-&gt;dwqa_questions" language="PHP" />
-        <watch expression="$GLOBALS['IDE_EVAL_CACHE']['ef6c62a4-8ac1-4f3d-b318-72a9ceb4f9ff']-&gt;current_post" />
-      </configuration>
       <configuration name="admin-ajax.php">
         <watch expression="$query" language="PHP" />
         <watch expression="$output" language="PHP" />
@@ -632,17 +595,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-includes/pluggable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="82" column="38" lean-forward="false" selection-start-line="82" selection-start-column="30" selection-end-line="82" selection-end-column="38" />
-          <folding>
-            <marker date="1491970143479" expanded="true" signature="3278:3324" ph="SELECT * FRO... ${$wpdb-&gt;users}" />
-            <marker date="1491970143479" expanded="true" signature="51852:51926" ph="SELECT count... ${$wpdb-&gt;comments}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-includes/cache.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
@@ -707,14 +659,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="477" column="0" lean-forward="false" selection-start-line="477" selection-start-column="0" selection-end-line="477" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/Notifications.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="243" column="45" lean-forward="true" selection-start-line="243" selection-start-column="45" selection-end-line="243" selection-end-column="45" />
           <folding />
         </state>
       </provider>
@@ -965,38 +909,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-includes/class-wp-hook.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="309" column="0" lean-forward="false" selection-start-line="309" selection-start-column="0" selection-end-line="309" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-includes/plugin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="245" column="0" lean-forward="false" selection-start-line="245" selection-start-column="0" selection-end-line="245" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/Filter.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-90">
-          <caret line="270" column="0" lean-forward="false" selection-start-line="270" selection-start-column="0" selection-end-line="270" selection-end-column="0" />
+          <caret line="279" column="0" lean-forward="false" selection-start-line="279" selection-start-column="0" selection-end-line="279" selection-end-column="0" />
           <folding>
             <element signature="n#__construct#0;n#DWQA_Filter#0;n#!!top" expanded="false" />
             <element signature="n#dwqa_theme_fix_category_page#0;n#DWQA_Filter#0;n#!!top" expanded="false" />
             <element signature="n#replace_content_seach#0;n#DWQA_Filter#0;n#!!top" expanded="false" />
+            <marker date="1492565124562" expanded="true" signature="561:7488" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="4247:4826" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="4921:4982" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="5338:7485" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="5356:5589" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="5406:5584" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="5530:5578" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="5608:5836" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="5658:5831" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="5777:5825" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="5856:6030" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="5906:6025" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="5971:6019" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="6075:6131" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="6221:7172" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="6292:6755" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="6380:6749" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="6798:7167" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="6826:6982" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="6833:6980" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="7029:7161" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="7182:7394" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="7226:7389" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="7314:7383" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="7531:7576" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="7631:10400" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="7756:7918" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="7818:7914" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="7861:7909" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="7926:8004" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="8080:10380" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="8388:8550" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="8686:8812" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="8721:8806" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="8820:8866" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="9026:9060" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="9068:9119" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="9343:10300" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="9507:9912" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="9575:9906" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="9949:10295" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="9977:10122" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="9984:10120" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="10170:10289" ph="..." />
+            <marker date="1492565124562" expanded="true" signature="10570:10754" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/superior_child/functions.php">
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/Ajax.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="64" column="12" lean-forward="true" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="79" />
+        <state relative-caret-position="149">
+          <caret line="289" column="0" lean-forward="false" selection-start-line="289" selection-start-column="0" selection-end-line="289" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1014,10 +987,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/Ajax.php">
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/superior_child/functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="269" column="36" lean-forward="true" selection-start-line="269" selection-start-column="12" selection-end-line="269" selection-end-column="36" />
+        <state relative-caret-position="164">
+          <caret line="64" column="12" lean-forward="false" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/plugin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="190" column="0" lean-forward="false" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/pluggable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1564">
+          <caret line="172" column="9" lean-forward="false" selection-start-line="172" selection-start-column="9" selection-end-line="172" selection-end-column="9" />
+          <folding>
+            <marker date="1491970143479" expanded="true" signature="3278:3324" ph="SELECT * FRO... ${$wpdb-&gt;users}" />
+            <marker date="1491970143479" expanded="true" signature="51852:51926" ph="SELECT count... ${$wpdb-&gt;comments}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/class-wp-hook.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="313" column="25" lean-forward="false" selection-start-line="313" selection-start-column="24" selection-end-line="313" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/Notifications.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="406" column="0" lean-forward="false" selection-start-line="406" selection-start-column="0" selection-end-line="406" selection-end-column="0" />
           <folding />
         </state>
       </provider>
