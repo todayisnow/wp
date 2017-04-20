@@ -816,7 +816,7 @@ function userpro_process_form(){
         /* registering */
         case 'register':
             $form["up_username"] = $form["user_login"];
-
+            $form["display_name"] = $form["first_name"] . ' '.$form['last_name'];
             if(!empty($form['role']) && $form['role'] != ''){
                 if(!empty($form['form_role']))
                     $form['role'] = $form['form_role'];
