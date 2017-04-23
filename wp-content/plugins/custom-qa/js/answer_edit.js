@@ -266,7 +266,7 @@ function MoveUp(id){
 		var current = jQuery(id).attr('id');
 		if(current>1){
 			
-			var prev = parseInt(current)-1;
+			var prev = parseInt(jQuery("#row_"+current).prev().attr('id').split('_')[1]);
 			
 			var currentLeftInput = tinyMCE.get("name_left_"+current).getContent();
 			var currentRightInput = tinyMCE.get("name_right_"+current).getContent();
@@ -300,8 +300,9 @@ function MoveDown(id){
 	
 	var current = jQuery(id).attr('id');
 	
-		if(current<jQuery("[id^='row_']").length){
-			var next = parseInt(current)+1;
+		if(current<parseInt(jQuery("#tbl_answers tr:nth-last-child(2)").attr('id').split('_')[1])){
+			
+			var next = parseInt(jQuery("#row_"+current).next().attr('id').split('_')[1]);
 			
 			var currentLeftInput = tinyMCE.get("name_left_"+current).getContent();
 			var currentRightInput = tinyMCE.get("name_right_"+current).getContent();
@@ -344,7 +345,7 @@ function makeEditor(selector){
 	tinyMCE.init({
 		selector: '#'+selector,
 		menubar: false,
-		plugins: "wplink wordpress image fullscreen paste",
+		plugins: "wplink wordpress image fullscreen paste lists",
 		toolbar: 'link | image | bullist numlist | bold italic underline | fullscreen',
 		default_link_target: "_blank",
 		forced_root_block : false,

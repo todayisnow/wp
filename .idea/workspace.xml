@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="dae1b50b-7152-4f84-bccc-a66373115ea4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/userpro/functions/ajax.php" afterPath="$PROJECT_DIR$/wp-content/plugins/userpro/functions/ajax.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/custom-qa/custom-qa.php" afterPath="$PROJECT_DIR$/wp-content/plugins/custom-qa/custom-qa.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/custom-qa/js/answer.js" afterPath="$PROJECT_DIR$/wp-content/plugins/custom-qa/js/answer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/custom-qa/js/answer_edit.js" afterPath="$PROJECT_DIR$/wp-content/plugins/custom-qa/js/answer_edit.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/templates/assets/js/dwqa-questions-list.js" afterPath="$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/templates/assets/js/dwqa-questions-list.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/superior_child/functions.php" afterPath="$PROJECT_DIR$/wp-content/themes/superior_child/functions.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,26 +19,46 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="Leaderboard.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/widgets/Leaderboard.php">
+      <file leaf-file-name="functions.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/superior_child/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state relative-caret-position="369">
+              <caret line="72" column="13" lean-forward="true" selection-start-line="72" selection-start-column="13" selection-end-line="72" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="answer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/custom-qa/js/answer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="167">
+              <caret line="204" column="30" lean-forward="false" selection-start-line="204" selection-start-column="30" selection-end-line="204" selection-end-column="30" />
               <folding>
-                <marker date="1492694994542" expanded="true" signature="3859:4062" ph="SELECT post_... ${{$wpdb-&gt;prefix}}posts" />
-                <marker date="1492694994542" expanded="true" signature="5415:5541" ph="SELECT count... $" />
+                <marker date="1492913933718" expanded="true" signature="1772:1786" ph="..." />
+                <marker date="1492913933718" expanded="true" signature="2509:2614" ph="..." />
+                <marker date="1492913933718" expanded="true" signature="2904:3008" ph="..." />
+                <marker date="1492913933718" expanded="true" signature="12829:12912" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ajax.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/wp-content/plugins/userpro/functions/ajax.php">
+      <file leaf-file-name="custom-qa.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/custom-qa/custom-qa.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="818" column="81" lean-forward="false" selection-start-line="818" selection-start-column="81" selection-end-line="818" selection-end-column="81" />
+            <state relative-caret-position="173">
+              <caret line="281" column="0" lean-forward="false" selection-start-line="281" selection-start-column="0" selection-end-line="281" selection-end-column="0" />
               <folding>
-                <marker date="1492697609299" expanded="true" signature="12097:12274" ph="SELECT ID FR... ${$wpdb-&gt;posts}" />
+                <marker date="1492915821287" expanded="true" signature="4394:4526" ph="SELECT `post... ${{$wpdb-&gt;prefix}}posts" />
+                <marker date="1492915821287" expanded="true" signature="4812:4983" ph="SELECT `user... ${{$wpdb-&gt;prefix}}comments" />
+                <marker date="1492915821287" expanded="true" signature="5462:5604" ph="SELECT `ID`,... ${{$wpdb-&gt;prefix}}posts" />
+                <marker date="1492915821287" expanded="true" signature="5895:6074" ph="SELECT `user... ${{$wpdb-&gt;prefix}}comments" />
+                <marker date="1492915821287" expanded="true" signature="6540:6684" ph="SELECT `ID`,... ${{$wpdb-&gt;prefix}}posts" />
+                <marker date="1492915821287" expanded="true" signature="7262:7441" ph="SELECT `user... ${{$wpdb-&gt;prefix}}comments" />
+                <marker date="1492915821287" expanded="true" signature="11847:12075" ph="..." />
+                <marker date="1492915821287" expanded="true" signature="11955:12062" ph="{...}" />
+                <marker date="1492915821287" expanded="true" signature="11981:12057" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -43,8 +67,8 @@
       <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/plugins/userpro/functions/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="2744" column="34" lean-forward="true" selection-start-line="2744" selection-start-column="34" selection-end-line="2744" selection-end-column="63" />
+            <state relative-caret-position="167">
+              <caret line="2288" column="0" lean-forward="false" selection-start-line="2288" selection-start-column="0" selection-end-line="2288" selection-end-column="0" />
               <folding>
                 <marker date="1492697699036" expanded="true" signature="33905:33968" ph="..." />
                 <marker date="1492697699036" expanded="true" signature="34435:34498" ph="..." />
@@ -55,11 +79,41 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="shortcode-main.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/userpro/functions/shortcode-main.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="349">
+              <caret line="608" column="0" lean-forward="false" selection-start-line="608" selection-start-column="0" selection-end-line="608" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/userpro/templates/view.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="user-functions.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/plugins/userpro/functions/user-functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="219" column="25" lean-forward="false" selection-start-line="219" selection-start-column="22" selection-end-line="219" selection-end-column="25" />
+            <state relative-caret-position="164">
+              <caret line="220" column="0" lean-forward="false" selection-start-line="220" selection-start-column="0" selection-end-line="220" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Ajax.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/Ajax.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="167">
+              <caret line="274" column="0" lean-forward="false" selection-start-line="274" selection-start-column="0" selection-end-line="274" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -69,31 +123,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>q</find>
-      <find>post_type</find>
-      <find>essam</find>
-      <find>dwqa-question</find>
-      <find>essa</find>
-      <find>user_lo</find>
-      <find>userpro_profile_update</find>
-      <find>user_login</find>
-      <find>up_user</find>
-      <find>fix</find>
-      <find>fix_</find>
-      <find>die</find>
-      <find>$logi</find>
-      <find>today</find>
-      <find>up_usern</find>
-      <find>$user_id</find>
-      <find>$query</find>
-      <find>$query['s']</find>
-      <find>$args_query['s</find>
-      <find>posts_where_suggest</find>
       <find>copy</find>
       <find>function se</find>
-      <find>regi</find>
       <find>dis</find>
       <find>'display_name' =&gt;</find>
+      <find>regi</find>
+      <find>ve</find>
+      <find>ver</find>
+      <find>veriv</find>
+      <find>verivi</find>
+      <find>verivie</find>
+      <find>verivied</find>
+      <find>verified</find>
+      <find>verifie</find>
+      <find>f</find>
+      <find>fa-</find>
+      <find>fa-ch</find>
+      <find>fa-chec</find>
+      <find>fa-check</find>
+      <find>fa-check-</find>
+      <find>fa-check-c</find>
+      <find>fa-check-ci</find>
+      <find>fa-check-cire</find>
+      <find>fa-check-cir</find>
+      <find>fa-check-circ</find>
+      <find>fa-check-circl</find>
+      <find>fa-check-circle</find>
+      <find>fa-check-circle</find>
+      <find>fa-check-circle v</find>
+      <find>fa-check-circle ve</find>
+      <find>fa-check-circle ver</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -107,14 +166,14 @@
         <option value="$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/User.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/userpro/templates/register.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/userpro/templates/view.php" />
-        <option value="$PROJECT_DIR$/wp-content/plugins/custom-qa/custom-qa.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/Filter.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/superior_child/functions.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/Ajax.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/Notifications.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/widgets/Leaderboard.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/userpro/functions/ajax.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/userpro/functions/api.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/superior_child/functions.php" />
+        <option value="$PROJECT_DIR$/wp-content/plugins/custom-qa/custom-qa.php" />
       </list>
     </option>
   </component>
@@ -255,33 +314,32 @@
       <workItem from="1492189118058" duration="3009000" />
       <workItem from="1492221836349" duration="8548000" />
       <workItem from="1492359470308" duration="22869000" />
-      <workItem from="1492690728931" duration="3554000" />
+      <workItem from="1492690728931" duration="8513000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53846000" />
+    <option name="totallyTimeSpent" value="58805000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1932" height="1038" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.175" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4041096" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4062153" sideWeight="0.49791667" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4062153" sideWeight="0.49791667" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -329,29 +387,9 @@
           <option name="timeStamp" value="64" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/wp-content/plugins/userpro/templates/view.php</url>
-          <line>2</line>
-          <option name="timeStamp" value="73" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/wp-content/plugins/userpro/functions/shortcode-main.php</url>
-          <line>608</line>
-          <option name="timeStamp" value="83" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/wp-content/plugins/userpro/functions/api.php</url>
-          <line>2288</line>
-          <option name="timeStamp" value="84" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/Ajax.php</url>
           <line>308</line>
           <option name="timeStamp" value="100" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/Ajax.php</url>
-          <line>274</line>
-          <option name="timeStamp" value="101" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/Notifications.php</url>
@@ -379,16 +417,22 @@
           <option name="timeStamp" value="119" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/wp-content/plugins/userpro/functions/user-functions.php</url>
-          <line>220</line>
-          <option name="timeStamp" value="120" />
+          <url>file://$PROJECT_DIR$/wp-content/themes/superior_child/functions.php</url>
+          <line>64</line>
+          <option name="timeStamp" value="122" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/wp-content/plugins/custom-qa/custom-qa.php</url>
+          <line>281</line>
+          <option name="timeStamp" value="124" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="122" />
+      <option name="time" value="125" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="admin-ajax.php">
         <watch expression="$query" language="PHP" />
+        <watch expression="sizeof($myKeys)" language="PHP" />
         <watch expression="sanitize_title( $form['first_name']).' ' .sanitize_title($form['last_name'] )" language="PHP" />
         <watch expression="$output" language="PHP" />
         <watch expression="$userData-&gt;user_login!= $form[&quot;user_login&quot;]" language="PHP" />
@@ -399,13 +443,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../phpMyAdmin/tbl_sql.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/Shortcode.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="251">
@@ -454,38 +491,8 @@
         <state relative-caret-position="111">
           <caret line="186" column="36" lean-forward="false" selection-start-line="186" selection-start-column="36" selection-end-line="186" selection-end-column="36" />
           <folding>
-            <marker date="1492546219981" expanded="true" signature="1362:1782" ph="SELECT `${{$... ${{$wpdb-&gt;prefix}}comments" />
-            <marker date="1492546219981" expanded="true" signature="2374:2552" ph="SELECT post_... ${{$wpdb-&gt;prefix}}posts" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-includes/cache.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="754" column="0" lean-forward="false" selection-start-line="754" selection-start-column="0" selection-end-line="754" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-includes/load.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="679" column="0" lean-forward="false" selection-start-line="679" selection-start-column="0" selection-end-line="679" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-includes/wp-db.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="668" column="0" lean-forward="false" selection-start-line="668" selection-start-column="0" selection-end-line="668" selection-end-column="0" />
-          <folding>
-            <marker date="1491970143525" expanded="true" signature="24951:24958" ph="..." />
-            <marker date="1491970143525" expanded="true" signature="40070:40077" ph="..." />
-            <marker date="1491970143525" expanded="true" signature="43206:43213" ph="..." />
-            <marker date="1491970143525" expanded="true" signature="56414:56448" ph="UPDATE `${$t... " />
-            <marker date="1491970143525" expanded="true" signature="58403:58430" ph="DELETE FROM " />
+            <marker date="1492914908678" expanded="true" signature="1362:1782" ph="SELECT `${{$... ${{$wpdb-&gt;prefix}}comments" />
+            <marker date="1492914908678" expanded="true" signature="2374:2552" ph="SELECT post_... ${{$wpdb-&gt;prefix}}posts" />
           </folding>
         </state>
       </provider>
@@ -623,26 +630,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/userpro/templates/view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/custom-qa/js/search.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/userpro/functions/shortcode-main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="608" column="0" lean-forward="false" selection-start-line="608" selection-start-column="0" selection-end-line="608" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -657,13 +648,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
           <caret line="25" column="26" lean-forward="false" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/custom-qa/custom-qa.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -738,14 +722,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/Ajax.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="289" column="0" lean-forward="false" selection-start-line="289" selection-start-column="0" selection-end-line="289" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-includes/class-wp-query.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
@@ -756,13 +732,6 @@
             <marker date="1492221611571" expanded="true" signature="88908:89016" ph="SELECT ${$fo... " />
             <marker date="1492221611571" expanded="true" signature="91967:92052" ph="SELECT ${{$w... " />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/superior_child/functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="64" column="12" lean-forward="false" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -852,29 +821,90 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/userpro/functions/ajax.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="818" column="81" lean-forward="true" selection-start-line="818" selection-start-column="81" selection-end-line="818" selection-end-column="81" />
+          <folding>
+            <marker date="1492697609299" expanded="true" signature="12097:12274" ph="SELECT ID FR... ${$wpdb-&gt;posts}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/widgets/Leaderboard.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
           <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
-            <marker date="1492694994542" expanded="true" signature="3859:4062" ph="SELECT post_... ${{$wpdb-&gt;prefix}}posts" />
-            <marker date="1492694994542" expanded="true" signature="5415:5541" ph="SELECT count... $" />
+            <marker date="1492915111020" expanded="true" signature="3859:4062" ph="SELECT post_... ${{$wpdb-&gt;prefix}}posts" />
+            <marker date="1492915111020" expanded="true" signature="5415:5541" ph="SELECT count... $" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/userpro/functions/user-functions.php">
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/dw-question-answer-pro/inc/Ajax.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="219" column="25" lean-forward="false" selection-start-line="219" selection-start-column="22" selection-end-line="219" selection-end-column="25" />
+        <state relative-caret-position="167">
+          <caret line="274" column="0" lean-forward="false" selection-start-line="274" selection-start-column="0" selection-end-line="274" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/load.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="678" column="0" lean-forward="false" selection-start-line="678" selection-start-column="0" selection-end-line="678" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/cache.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="754" column="0" lean-forward="false" selection-start-line="754" selection-start-column="0" selection-end-line="754" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-includes/wp-db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="668" column="0" lean-forward="false" selection-start-line="668" selection-start-column="0" selection-end-line="668" selection-end-column="0" />
+          <folding>
+            <marker date="1491970143525" expanded="true" signature="24951:24958" ph="..." />
+            <marker date="1491970143525" expanded="true" signature="40070:40077" ph="..." />
+            <marker date="1491970143525" expanded="true" signature="43206:43213" ph="..." />
+            <marker date="1491970143525" expanded="true" signature="56414:56448" ph="UPDATE `${$t... " />
+            <marker date="1491970143525" expanded="true" signature="58403:58430" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/superior_child/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="72" column="13" lean-forward="true" selection-start-line="72" selection-start-column="13" selection-end-line="72" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/custom-qa/js/answer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="204" column="30" lean-forward="false" selection-start-line="204" selection-start-column="30" selection-end-line="204" selection-end-column="30" />
+          <folding>
+            <marker date="1492913933718" expanded="true" signature="1772:1786" ph="..." />
+            <marker date="1492913933718" expanded="true" signature="2509:2614" ph="..." />
+            <marker date="1492913933718" expanded="true" signature="2904:3008" ph="..." />
+            <marker date="1492913933718" expanded="true" signature="12829:12912" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/userpro/functions/api.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="2744" column="34" lean-forward="true" selection-start-line="2744" selection-start-column="34" selection-end-line="2744" selection-end-column="63" />
+        <state relative-caret-position="167">
+          <caret line="2288" column="0" lean-forward="false" selection-start-line="2288" selection-start-column="0" selection-end-line="2288" selection-end-column="0" />
           <folding>
             <marker date="1492697699036" expanded="true" signature="33905:33968" ph="..." />
             <marker date="1492697699036" expanded="true" signature="34435:34498" ph="..." />
@@ -884,12 +914,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/plugins/userpro/functions/ajax.php">
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/userpro/functions/shortcode-main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="818" column="81" lean-forward="false" selection-start-line="818" selection-start-column="81" selection-end-line="818" selection-end-column="81" />
+        <state relative-caret-position="349">
+          <caret line="608" column="0" lean-forward="false" selection-start-line="608" selection-start-column="0" selection-end-line="608" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/userpro/templates/view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/userpro/functions/user-functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="220" column="0" lean-forward="false" selection-start-line="220" selection-start-column="0" selection-end-line="220" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/plugins/custom-qa/custom-qa.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="281" column="0" lean-forward="false" selection-start-line="281" selection-start-column="0" selection-end-line="281" selection-end-column="0" />
           <folding>
-            <marker date="1492697609299" expanded="true" signature="12097:12274" ph="SELECT ID FR... ${$wpdb-&gt;posts}" />
+            <marker date="1492915821287" expanded="true" signature="4394:4526" ph="SELECT `post... ${{$wpdb-&gt;prefix}}posts" />
+            <marker date="1492915821287" expanded="true" signature="4812:4983" ph="SELECT `user... ${{$wpdb-&gt;prefix}}comments" />
+            <marker date="1492915821287" expanded="true" signature="5462:5604" ph="SELECT `ID`,... ${{$wpdb-&gt;prefix}}posts" />
+            <marker date="1492915821287" expanded="true" signature="5895:6074" ph="SELECT `user... ${{$wpdb-&gt;prefix}}comments" />
+            <marker date="1492915821287" expanded="true" signature="6540:6684" ph="SELECT `ID`,... ${{$wpdb-&gt;prefix}}posts" />
+            <marker date="1492915821287" expanded="true" signature="7262:7441" ph="SELECT `user... ${{$wpdb-&gt;prefix}}comments" />
+            <marker date="1492915821287" expanded="true" signature="11847:12075" ph="..." />
+            <marker date="1492915821287" expanded="true" signature="11955:12062" ph="{...}" />
+            <marker date="1492915821287" expanded="true" signature="11981:12057" ph="{...}" />
           </folding>
         </state>
       </provider>

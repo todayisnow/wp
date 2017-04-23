@@ -62,9 +62,18 @@ function SearchPosts( $where, $wp_query )
 {
     global $wpdb;
     if ( $mySearch = $wp_query->get( 'my_search' ) ) {
-			//if(strpos($mySearch, 'What is the difference between ') === false ){
-        $where .= ' AND (' . $wpdb->posts . '.post_content LIKE \'%"lhsI":"%' . esc_sql( $wpdb->esc_like( $mySearch ) ) . '%",%\'  OR '. $wpdb->posts . '.post_content LIKE \'%"rhsI":"%' . esc_sql( $wpdb->esc_like( $mySearch ) ) . '%"%\' )' ;
-			
+			$myKeys = explode(" ", strtolower($mySearch));
+			if(sizeof($myKeys) == 1) {
+                $where .= ' AND (' . $wpdb->posts . '.post_content LIKE \'%"lhsI":"%' . esc_sql($wpdb->esc_like($mySearch)) . '%",%\'  OR ' . $wpdb->posts . '.post_content LIKE \'%"rhsI":"%' . esc_sql($wpdb->esc_like($mySearch)) . '%"%\' )';
+            }
+            else if(sizeof($myKeys) == 3) {
+                $where .= ' AND (' . $wpdb->posts . '.post_content LIKE \'%"lhsI":"%' . esc_sql($wpdb->esc_like($myKeys[0])) . '%",%\'  OR ' . $wpdb->posts . '.post_content LIKE \'%"rhsI":"%' . esc_sql($wpdb->esc_like($myKeys[2])) . '%"%\' OR ' . $wpdb->posts . '.post_content LIKE \'%"lhsI":"%' . esc_sql($wpdb->esc_like($myKeys[2])) . '%",%\'  OR ' . $wpdb->posts . '.post_content LIKE \'%"rhsI":"%' . esc_sql($wpdb->esc_like($myKeys[0])) . '%"%\' )';
+            }
+            else
+            {
+                $where .=' AND 1=0';
+            }
+
 
     }
     return $where;

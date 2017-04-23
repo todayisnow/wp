@@ -49,10 +49,13 @@ jQuery(function($){
 			
 			acData.menu.element.addClass('dwqa-autocomplete').find('li').each(function(){
 				var $self = $(this),
-					keyword = $.trim( acData.term ).split(' ').join('|');
+				
+					keyword = $.trim( acData.term ).toLowerCase().replace(' and ' ,' ').split(' ').join('|');
+					
 					//highlight content only toadyisnow
 					if($self.text().indexOf('What is the difference between')>-1){
 						var text = $self.text().replace('What is the difference between','')
+						
 						$self.html( 'What is the difference between' + text.replace( new RegExp( "(" + keyword + ")", "gi" ), '<span class="dwqa-text-highlight">$1</span>' ) );
 					}
 					else{

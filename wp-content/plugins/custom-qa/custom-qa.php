@@ -279,7 +279,7 @@ function my_widget_output_filter( $widget_output, $widget_id_base, $widget_id ) 
 	if(strpos($widget_id, 'leaderboard') !== false){
 		$matches = array();
 		$usersList = array();
-		preg_match_all('#\/([A-Za-z\d\.\-\_\%\+]+)[\'"]#i', $widget_output, $matches, PREG_SET_ORDER);
+		preg_match_all('#\/profile\/([A-Za-z\d\.\-\_\%\+]+)[\'"]#i', $widget_output, $matches, PREG_SET_ORDER);
 		foreach($matches as $user){
 			$userInfo = get_user_by('login', urldecode($user[1]));
 			$usersList[] = (get_user_meta($userInfo->ID, "userpro_verified", true) == "1") ? true : false;
